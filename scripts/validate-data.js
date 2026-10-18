@@ -21,7 +21,7 @@ const path = require('path');
 
 const ALLOWED_TYPES = new Set(['scholarship', 'course', 'internship']);
 const ALLOWED_DELIVERY_MODES = new Set(['online', 'onsite', 'hybrid']);
-const ALLOWED_DEADLINE_TYPES = new Set(['fixed', 'ongoing', 'periodic', 'unknown']);
+const ALLOWED_DEADLINE_TYPES = new Set(['fixed', 'ongoing', 'periodic', 'unknown', 'course-dependent']);
 const ALLOWED_LEVELS = new Set([
   'high-school',
   'undergraduate',
@@ -260,11 +260,24 @@ function validateOpportunitiesData(data, options = {}) {
         errors.push(`${location} -> Field "deadline": Ongoing opportunities must have deadline set to null. Received: "${item.deadline}".`);
       } else if (item.deadlineType === 'unknown') {
         errors.push(`${location} -> Field "deadline": Opportunities with unknown deadline must have deadline set to null. Received: "${item.deadline}".`);
+      } else if (item.deadlineType === 'course-dependent') {
+        errors.push(`${location} -> Field "deadline": Course-dependent opportunities must have deadline set to null because deadlines vary by course. Received: "${item.deadline}".`);
       }
     } else {
       // deadline is null
       if (item.deadlineType === 'fixed') {
         errors.push(`${location} -> Field "deadline": Fixed deadline opportunities must specify a valid date string. Null is not allowed when deadlineType is "fixed".`);
+      }
+    }
+
+    // 10b. Optional admissionDeadline validation and relation to deadline
+    if (item.admissionDeadline !== undefined && item.admissionDeadline !== null) {
+      if (!isValidCalendarDate(item.admissionDeadline)) {
+        errors.push(`${location} -> Field "admissionDeadline": "${item.admissionDeadline}" is not a valid Gregorian calendar date (YYYY-MM-DD).`);
+      } else if (item.deadline !== null && typeof item.deadline === 'string' && isValidCalendarDate(item.deadline)) {
+        if (item.admissionDeadline > item.deadline) {
+          errors.push(`${location} -> Field "admissionDeadline": Admission deadline ("${item.admissionDeadline}") cannot be later than scholarship application deadline ("${item.deadline}").`);
+        }
       }
     }
 
@@ -495,6 +508,154 @@ function runSelfTests() {
     testFailures++;
   } else {
     console.log('✔ Test 9 Passed: Release mode enforced minimum 20 records requirement.');
+  }
+
+  // Test 10: Valid admissionDeadline before deadline
+  const validAdmissionData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-valid-admission',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان', en: 'Title' },
+        provider: { ar: 'جهة', en: 'Provider' },
+        country: { ar: 'هولندا', en: 'Netherlands', code: 'NL' },
+        fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+        levels: ['postgraduate'],
+        deadline: '2027-02-01',
+        deadlineType: 'fixed',
+        admissionDeadline: '2026-12-10',
+        officialSourceUrl: 'https://example.org/valid',
+        verificationDate: '2026-10-14'
+      }
+    ]
+  };
+  const validAdmResult = validateOpportunitiesData(validAdmissionData, { referenceDate: fixedRefDate });
+  if (!validAdmResult.isValid) {
+    console.error('❌ Test 10 Failed: Valid admissionDeadline was rejected.', validAdmResult.errors);
+    testFailures++;
+  } else {
+    console.log('✔ Test 10 Passed: Accepted valid admissionDeadline prior to deadline.');
+  }
+
+  // Test 11: Invalid calendar date in admissionDeadline (e.g. 2026-02-30)
+  const invalidCalendarAdmissionData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-invalid-cal-admission',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان', en: 'Title' },
+        provider: { ar: 'جهة', en: 'Provider' },
+        country: { ar: 'هولندا', en: 'Netherlands', code: 'NL' },
+        fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+        levels: ['postgraduate'],
+        deadline: '2027-02-01',
+        deadlineType: 'fixed',
+        admissionDeadline: '2026-02-30', // invalid calendar date
+        officialSourceUrl: 'https://example.org/test',
+        verificationDate: '2026-10-14'
+      }
+    ]
+  };
+  const invalidCalAdmResult = validateOpportunitiesData(invalidCalendarAdmissionData, { referenceDate: fixedRefDate });
+  if (invalidCalAdmResult.isValid || !invalidCalAdmResult.errors.some(e => e.includes('is not a valid Gregorian calendar date'))) {
+    console.error('❌ Test 11 Failed: Non-existent calendar date in admissionDeadline was not rejected.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 11 Passed: Rejected non-existent calendar date in admissionDeadline.');
+  }
+
+  // Test 12: admissionDeadline later than deadline (e.g. admission in March, scholarship in Feb)
+  const admissionAfterDeadlineData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-admission-after-deadline',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان', en: 'Title' },
+        provider: { ar: 'جهة', en: 'Provider' },
+        country: { ar: 'هولندا', en: 'Netherlands', code: 'NL' },
+        fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+        levels: ['postgraduate'],
+        deadline: '2027-02-01',
+        deadlineType: 'fixed',
+        admissionDeadline: '2027-03-01', // later than deadline
+        officialSourceUrl: 'https://example.org/test',
+        verificationDate: '2026-10-14'
+      }
+    ]
+  };
+  const admAfterDeadlineResult = validateOpportunitiesData(admissionAfterDeadlineData, { referenceDate: fixedRefDate });
+  if (admAfterDeadlineResult.isValid || !admAfterDeadlineResult.errors.some(e => e.includes('cannot be later than scholarship application deadline'))) {
+    console.error('❌ Test 12 Failed: admissionDeadline later than deadline was not caught.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 12 Passed: Caught admissionDeadline occurring later than scholarship deadline.');
+  }
+
+  // Test 13: Valid course-dependent deadlineType with deadline: null
+  const validCourseDependentData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-valid-course-dependent',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان', en: 'Title' },
+        provider: { ar: 'جهة', en: 'Provider' },
+        country: { ar: 'المملكة المتحدة', en: 'United Kingdom', code: 'GB' },
+        fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+        levels: ['postgraduate'],
+        deadline: null,
+        deadlineType: 'course-dependent',
+        officialSourceUrl: 'https://example.org/valid-cd',
+        verificationDate: '2026-10-14'
+      }
+    ]
+  };
+  const validCdResult = validateOpportunitiesData(validCourseDependentData, { referenceDate: fixedRefDate });
+  if (!validCdResult.isValid) {
+    console.error('❌ Test 13 Failed: Valid course-dependent opportunity was rejected.', validCdResult.errors);
+    testFailures++;
+  } else {
+    console.log('✔ Test 13 Passed: Accepted valid course-dependent opportunity with deadline: null.');
+  }
+
+  // Test 14: Invalid course-dependent deadlineType with non-null deadline
+  const invalidCourseDependentData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-invalid-course-dependent',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان', en: 'Title' },
+        provider: { ar: 'جهة', en: 'Provider' },
+        country: { ar: 'المملكة المتحدة', en: 'United Kingdom', code: 'GB' },
+        fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+        levels: ['postgraduate'],
+        deadline: '2027-01-06', // invalid: must be null for course-dependent
+        deadlineType: 'course-dependent',
+        officialSourceUrl: 'https://example.org/invalid-cd',
+        verificationDate: '2026-10-14'
+      }
+    ]
+  };
+  const invalidCdResult = validateOpportunitiesData(invalidCourseDependentData, { referenceDate: fixedRefDate });
+  if (invalidCdResult.isValid || !invalidCdResult.errors.some(e => e.includes('Course-dependent opportunities must have deadline set to null'))) {
+    console.error('❌ Test 14 Failed: Inconsistent course-dependent opportunity with non-null deadline was not caught.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 14 Passed: Caught course-dependent opportunity with non-null deadline.');
   }
 
   console.log(`\nSelf-test summary: ${testFailures === 0 ? 'ALL TESTS PASSED ✔' : `${testFailures} TEST(S) FAILED ❌`}\n`);

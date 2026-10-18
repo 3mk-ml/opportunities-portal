@@ -1,5 +1,79 @@
 {
   "version": "1.0.0",
   "lastUpdated": "2026-10-14",
-  "opportunities": []
+  "opportunities": [
+    {
+      "id": "um-nl-high-potential-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "title": {
+        "ar": "منحة جامعة ماستريخت NL-High Potential للماجستير 2027–2028",
+        "en": "Maastricht University NL-High Potential Scholarship 2027-2028"
+      },
+      "provider": {
+        "ar": "جامعة ماستريخت",
+        "en": "Maastricht University"
+      },
+      "country": {
+        "ar": "هولندا",
+        "en": "Netherlands",
+        "code": "NL"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "برامج الماجستير المشاركة في تخصصات متعددة",
+            "en": "Participating master's programmes in multiple disciplines"
+          }
+        }
+      ],
+      "levels": ["postgraduate"],
+      "deadline": "2027-02-01",
+      "deadlineType": "fixed",
+      "admissionDeadline": "2026-12-10",
+      "officialSourceUrl": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/maastricht-university-nl-high",
+      "verificationDate": "2026-10-14",
+      "description": {
+        "ar": "منحة ممولة لدراسة الماجستير في البرامج المشاركة بجامعة ماستريخت في هولندا. تشمل الرسوم الدراسية ومخصصات المعيشة وتغطيات إضافية وفق شروط الجامعة. يجب استكمال طلب القبول في برنامج ماجستير مشارك قبل 10 ديسمبر 2026، وتقديم طلب المنحة قبل 1 فبراير 2027. يخضع القبول لشروط الأهلية الأكاديمية والجنسية والإقامة المنشورة رسميًا.",
+        "en": "A funded master's scholarship for participating programmes at Maastricht University in the Netherlands. Benefits include tuition coverage, living expenses and additional support subject to official conditions. Applicants must complete their admission application for an eligible master's programme before 10 December 2026 and submit the scholarship application before 1 February 2027. All published academic, nationality and residence requirements apply."
+      }
+    },
+    {
+      "id": "oxford-weidenfeld-hoffmann-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "title": {
+        "ar": "منحة وايدنفيلد-هوفمان للقيادة والدراسات العليا بجامعة أكسفورد 2027–2028",
+        "en": "Oxford Weidenfeld-Hoffmann Scholarships and Leadership Programme 2027-2028"
+      },
+      "provider": {
+        "ar": "جامعة أكسفورد",
+        "en": "University of Oxford"
+      },
+      "country": {
+        "ar": "المملكة المتحدة",
+        "en": "United Kingdom",
+        "code": "GB"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "برامج الدراسات العليا المؤهلة في تخصصات متعددة",
+            "en": "Eligible graduate programmes across multiple disciplines"
+          }
+        }
+      ],
+      "levels": ["postgraduate"],
+      "deadline": null,
+      "deadlineType": "course-dependent",
+      "officialSourceUrl": "https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search/weidenfeld-hoffmann-scholarships-and-leadership-programme",
+      "verificationDate": "2026-10-14",
+      "description": {
+        "ar": "منحة ممولة بالكامل لدراسة أحد برامج الدراسات العليا المؤهلة في جامعة أكسفورد، وتشمل الرسوم الدراسية ومخصص المعيشة وبرنامجاً لتطوير القيادة. اليمن مدرجة ضمن الدول المؤهلة، مع تطبيق شروط الإقامة الاعتيادية والقبول الأكاديمي. يجب اختيار المنحة في طلب الدراسات العليا وإرفاق نموذج Weidenfeld-Hoffmann Scholarships Statement. يختلف الموعد النهائي بحسب البرنامج الدراسي، ويقع الموعد المعتمد عادةً في ديسمبر أو يناير. يجب مراجعة صفحة البرنامج المختار قبل التقديم.",
+        "en": "A fully funded scholarship for eligible graduate programmes at the University of Oxford, covering course fees, a living-cost grant, and leadership development. Yemen is an eligible country, subject to ordinary residence and academic admission requirements. Applicants must select the scholarship in their graduate application and upload the Weidenfeld-Hoffmann Scholarships Statement. Application deadlines depend on the selected course, generally falling in December or January. Applicants must check the deadline for their chosen eligible course."
+      }
+    }
+  ]
 }
