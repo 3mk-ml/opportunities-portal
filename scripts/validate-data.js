@@ -19,7 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const ALLOWED_TYPES = new Set(['scholarship', 'course', 'internship']);
+const ALLOWED_TYPES = new Set(['scholarship', 'course', 'internship', 'fellowship', 'leadership-program']);
 const ALLOWED_DELIVERY_MODES = new Set(['online', 'onsite', 'hybrid']);
 const ALLOWED_DEADLINE_TYPES = new Set(['fixed', 'ongoing', 'periodic', 'unknown', 'course-dependent']);
 const ALLOWED_LEVELS = new Set([
@@ -27,6 +27,7 @@ const ALLOWED_LEVELS = new Set([
   'undergraduate',
   'postgraduate',
   'doctorate',
+  'postdoctoral',
   'all-levels'
 ]);
 const ALLOWED_CATEGORIES = new Set([
@@ -39,6 +40,46 @@ const ALLOWED_CATEGORIES = new Set([
   'social-sciences',
   'arts-design',
   'general'
+]);
+const ALLOWED_APPLICATION_STATUS = new Set([
+  'open',
+  'closed',
+  'upcoming',
+  'course-dependent',
+  'unconfirmed',
+  'admissions-route'
+]);
+const ALLOWED_YEMEN_ELIGIBILITY = new Set([
+  'eligible',
+  'conditional',
+  'restricted',
+  'not-eligible',
+  'unconfirmed'
+]);
+const ALLOWED_APPLICATION_ROUTES = new Set([
+  'direct',
+  'direct-after-admission',
+  'automatic-through-admission',
+  'external-nomination',
+  'institution-submits',
+  'direct-with-host-support',
+  'admission-then-invitation'
+]);
+const ALLOWED_VERIFICATION_STATUS = new Set([
+  'verified',
+  'pending-human-review'
+]);
+const ALLOWED_LOCATION_SCOPES = new Set([
+  'national',
+  'multi-country',
+  'global'
+]);
+const ALLOWED_FUNDING_COVERAGE = new Set([
+  'full-funding',
+  'tuition-waiver',
+  'partial',
+  'research-grant',
+  'leadership-support'
 ]);
 
 const ID_REGEX = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -159,9 +200,15 @@ function validateOpportunitiesData(data, options = {}) {
     return { isValid: errors.length === 0, errors };
   }
 
-  // Release mode check: requires at least 20 records
-  if (isReleaseMode && data.opportunities.length < 20) {
-    errors.push(`Release Mode: Dataset must contain at least 20 verified opportunity records. Currently found: ${data.opportunities.length}. (Note: Passing this count check does not establish official authenticity).`);
+  // Release mode check: requires at least 20 records and all must be verified
+  if (isReleaseMode) {
+    if (data.opportunities.length < 20) {
+      errors.push(`Release Mode: Dataset must contain at least 20 verified opportunity records. Currently found: ${data.opportunities.length}. (Note: Passing this count check does not establish official authenticity).`);
+    }
+    const pendingReviewCount = data.opportunities.filter(o => o && o.verificationStatus === 'pending-human-review').length;
+    if (pendingReviewCount > 0) {
+      errors.push(`Release Mode: Dataset cannot be released with opportunities pending human verification. Currently found ${pendingReviewCount} record(s) with verificationStatus "pending-human-review".`);
+    }
   }
 
   const seenIds = new Set();
@@ -201,9 +248,15 @@ function validateOpportunitiesData(data, options = {}) {
     // 5. Bilingual Provider
     validateBilingualText(item.provider, 'provider', errors, location);
 
-    // 6. Country validation (geographic only, or null if entirely virtual)
+    // 6. Country validation (geographic only, or null if multi-country/global/virtual)
+    if (item.locationScope !== undefined) {
+      if (!ALLOWED_LOCATION_SCOPES.has(item.locationScope)) {
+        errors.push(`${location} -> Field "locationScope": Invalid value "${item.locationScope}". Allowed: [${Array.from(ALLOWED_LOCATION_SCOPES).join(', ')}].`);
+      }
+    }
+
     if (item.country === undefined) {
-      errors.push(`${location} -> Field "country": Field is required. Must be a valid country object or explicit null for virtual opportunities.`);
+      errors.push(`${location} -> Field "country": Field is required. Must be a valid country object or explicit null for multi-country/global/virtual opportunities.`);
     } else if (item.country !== null) {
       if (typeof item.country !== 'object' || Array.isArray(item.country)) {
         errors.push(`${location} -> Field "country": Must be an object or null.`);
@@ -212,6 +265,11 @@ function validateOpportunitiesData(data, options = {}) {
         if (typeof item.country.code !== 'string' || !COUNTRY_CODE_REGEX.test(item.country.code)) {
           errors.push(`${location} -> Field "country.code": Must be a 2-letter uppercase ISO 3166-1 alpha-2 code (e.g. "TR", "YE"). "ONLINE" is prohibited. Received: "${item.country.code}".`);
         }
+      }
+    } else {
+      // country is null: allowed if virtual, or if locationScope is multi-country or global
+      if (item.deliveryMode === 'onsite' && item.locationScope !== 'multi-country' && item.locationScope !== 'global') {
+        errors.push(`${location} -> Field "country": Onsite opportunities with country set to null must explicitly declare locationScope as "multi-country" or "global".`);
       }
     }
 
@@ -281,19 +339,173 @@ function validateOpportunitiesData(data, options = {}) {
       }
     }
 
+    // 10c. Optional additional date fields
+    if (item.applicationOpens !== undefined && item.applicationOpens !== null) {
+      if (!isValidCalendarDate(item.applicationOpens)) {
+        errors.push(`${location} -> Field "applicationOpens": Must be a valid Gregorian ISO calendar date (YYYY-MM-DD). Received: "${item.applicationOpens}".`);
+      }
+    }
+    if (item.admissionRecommendedBy !== undefined && item.admissionRecommendedBy !== null) {
+      if (!isValidCalendarDate(item.admissionRecommendedBy)) {
+        errors.push(`${location} -> Field "admissionRecommendedBy": Must be a valid Gregorian ISO calendar date (YYYY-MM-DD). Received: "${item.admissionRecommendedBy}".`);
+      }
+    }
+    if (item.nextCycleOpens !== undefined && item.nextCycleOpens !== null) {
+      if (!isValidCalendarDate(item.nextCycleOpens)) {
+        errors.push(`${location} -> Field "nextCycleOpens": Must be a valid Gregorian ISO calendar date (YYYY-MM-DD). Received: "${item.nextCycleOpens}".`);
+      }
+    }
+
+    // 10d. Optional applicationWindows validation (e.g. for multi-track opportunities like SDU)
+    if (item.applicationWindows !== undefined && item.applicationWindows !== null) {
+      if (!Array.isArray(item.applicationWindows) || item.applicationWindows.length === 0) {
+        errors.push(`${location} -> Field "applicationWindows": Must be a non-empty array of window objects.`);
+      } else {
+        item.applicationWindows.forEach((win, wIdx) => {
+          const wLoc = `${location} -> Field "applicationWindows[${wIdx}]"`;
+          if (!win || typeof win !== 'object' || Array.isArray(win)) {
+            errors.push(`${wLoc}: Must be a window object.`);
+            return;
+          }
+          if (win.label && typeof win.label === 'object') {
+            validateBilingualText(win.label, `applicationWindows[${wIdx}].label`, errors, location);
+          }
+          if (!Array.isArray(win.levels) || win.levels.length === 0) {
+            errors.push(`${wLoc}.levels: Must be a non-empty array of levels.`);
+          } else {
+            win.levels.forEach(lvl => {
+              if (!ALLOWED_LEVELS.has(lvl)) {
+                errors.push(`${wLoc}.levels: Invalid level "${lvl}".`);
+              }
+            });
+          }
+          if (!win.deadline || !isValidCalendarDate(win.deadline)) {
+            errors.push(`${wLoc}.deadline: Must be a valid Gregorian calendar date (YYYY-MM-DD). Received: "${win.deadline}".`);
+          }
+          if (win.opensAt && !isValidCalendarDate(win.opensAt)) {
+            errors.push(`${wLoc}.opensAt: Must be a valid Gregorian calendar date (YYYY-MM-DD). Received: "${win.opensAt}".`);
+          }
+        });
+      }
+    }
+
+    // 10e. Optional secondaryDeadlines validation (e.g. reference letters)
+    if (item.secondaryDeadlines !== undefined && item.secondaryDeadlines !== null) {
+      if (!Array.isArray(item.secondaryDeadlines) || item.secondaryDeadlines.length === 0) {
+        errors.push(`${location} -> Field "secondaryDeadlines": Must be a non-empty array.`);
+      } else {
+        item.secondaryDeadlines.forEach((sd, sdIdx) => {
+          const sdLoc = `${location} -> Field "secondaryDeadlines[${sdIdx}]"`;
+          if (!sd || typeof sd !== 'object' || Array.isArray(sd)) {
+            errors.push(`${sdLoc}: Must be an object.`);
+            return;
+          }
+          if (sd.label && typeof sd.label === 'object') {
+            validateBilingualText(sd.label, `secondaryDeadlines[${sdIdx}].label`, errors, location);
+          }
+          if (!sd.date || !isValidCalendarDate(sd.date)) {
+            errors.push(`${sdLoc}.date: Must be a valid Gregorian calendar date. Received: "${sd.date}".`);
+          }
+        });
+      }
+    }
+
+    // 10f. Optional recurringDeadlines validation (e.g. SRH)
+    if (item.recurringDeadlines !== undefined && item.recurringDeadlines !== null) {
+      if (!Array.isArray(item.recurringDeadlines) || item.recurringDeadlines.length === 0) {
+        errors.push(`${location} -> Field "recurringDeadlines": Must be a non-empty array.`);
+      } else {
+        const MONTH_DAY_REGEX = /^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+        item.recurringDeadlines.forEach((rd, rdIdx) => {
+          const rdLoc = `${location} -> Field "recurringDeadlines[${rdIdx}]"`;
+          if (!rd || typeof rd !== 'object' || Array.isArray(rd)) {
+            errors.push(`${rdLoc}: Must be an object.`);
+            return;
+          }
+          if (!rd.monthDay || !MONTH_DAY_REGEX.test(rd.monthDay)) {
+            errors.push(`${rdLoc}.monthDay: Must be MM-DD format. Received: "${rd.monthDay}".`);
+          }
+          if (rd.intake && typeof rd.intake === 'object') {
+            validateBilingualText(rd.intake, `recurringDeadlines[${rdIdx}].intake`, errors, location);
+          }
+        });
+      }
+    }
+
     // 11. Official Source URL (Syntactic HTTPS check)
     if (!isValidHttpsUrl(item.officialSourceUrl)) {
       errors.push(`${location} -> Field "officialSourceUrl": Must be a valid syntactic HTTPS URL starting with "https://". Received: "${item.officialSourceUrl}".`);
     }
 
-    // 12. Verification Date (strictly non-future valid ISO date)
-    if (!item.verificationDate || !isValidCalendarDate(item.verificationDate)) {
-      errors.push(`${location} -> Field "verificationDate": Must be a valid Gregorian ISO calendar date (YYYY-MM-DD). Received: "${item.verificationDate}".`);
-    } else if (isDateInFuture(item.verificationDate, referenceDate)) {
-      errors.push(`${location} -> Field "verificationDate": Verification date cannot be in the future. Received: "${item.verificationDate}".`);
+    // 11b. Optional additionalOfficialSources validation
+    if (item.additionalOfficialSources !== undefined && item.additionalOfficialSources !== null) {
+      if (!Array.isArray(item.additionalOfficialSources)) {
+        errors.push(`${location} -> Field "additionalOfficialSources": Must be an array of HTTPS URLs.`);
+      } else {
+        item.additionalOfficialSources.forEach((url, uIdx) => {
+          if (!isValidHttpsUrl(url)) {
+            errors.push(`${location} -> Field "additionalOfficialSources[${uIdx}]": Must be a valid HTTPS URL. Received: "${url}".`);
+          }
+        });
+      }
     }
 
-    // 13. Optional description validation
+    // 12. Verification Status & Date
+    if (item.verificationStatus !== undefined) {
+      if (!ALLOWED_VERIFICATION_STATUS.has(item.verificationStatus)) {
+        errors.push(`${location} -> Field "verificationStatus": Invalid value "${item.verificationStatus}". Allowed: [${Array.from(ALLOWED_VERIFICATION_STATUS).join(', ')}].`);
+      }
+    }
+
+    if (item.verificationStatus === 'pending-human-review') {
+      if (item.verificationDate !== null && item.verificationDate !== undefined) {
+        if (!isValidCalendarDate(item.verificationDate)) {
+          errors.push(`${location} -> Field "verificationDate": When verificationStatus is "pending-human-review", verificationDate must be null or a valid ISO calendar date.`);
+        } else if (isDateInFuture(item.verificationDate, referenceDate)) {
+          errors.push(`${location} -> Field "verificationDate": Verification date cannot be in the future.`);
+        }
+      }
+    } else {
+      // verified or legacy record
+      if (!item.verificationDate || !isValidCalendarDate(item.verificationDate)) {
+        errors.push(`${location} -> Field "verificationDate": Must be a valid Gregorian ISO calendar date (YYYY-MM-DD). Received: "${item.verificationDate}".`);
+      } else if (isDateInFuture(item.verificationDate, referenceDate)) {
+        errors.push(`${location} -> Field "verificationDate": Verification date cannot be in the future. Received: "${item.verificationDate}".`);
+      }
+    }
+
+    // 13. Application Status Enum
+    if (item.applicationStatus !== undefined && item.applicationStatus !== null) {
+      if (!ALLOWED_APPLICATION_STATUS.has(item.applicationStatus)) {
+        errors.push(`${location} -> Field "applicationStatus": Invalid value "${item.applicationStatus}". Allowed: [${Array.from(ALLOWED_APPLICATION_STATUS).join(', ')}].`);
+      }
+    }
+
+    // 14. Yemen Eligibility Enum
+    if (item.yemenEligibility !== undefined && item.yemenEligibility !== null) {
+      if (!ALLOWED_YEMEN_ELIGIBILITY.has(item.yemenEligibility)) {
+        errors.push(`${location} -> Field "yemenEligibility": Invalid value "${item.yemenEligibility}". Allowed: [${Array.from(ALLOWED_YEMEN_ELIGIBILITY).join(', ')}].`);
+      }
+    }
+
+    // 15. Application Route Enum
+    if (item.applicationRoute !== undefined && item.applicationRoute !== null) {
+      if (!ALLOWED_APPLICATION_ROUTES.has(item.applicationRoute)) {
+        errors.push(`${location} -> Field "applicationRoute": Invalid value "${item.applicationRoute}". Allowed: [${Array.from(ALLOWED_APPLICATION_ROUTES).join(', ')}].`);
+      }
+    }
+
+    // 16. Funding Coverage Enum & Summary
+    if (item.fundingCoverage !== undefined && item.fundingCoverage !== null) {
+      if (!ALLOWED_FUNDING_COVERAGE.has(item.fundingCoverage)) {
+        errors.push(`${location} -> Field "fundingCoverage": Invalid value "${item.fundingCoverage}". Allowed: [${Array.from(ALLOWED_FUNDING_COVERAGE).join(', ')}].`);
+      }
+    }
+    if (item.fundingSummary !== undefined && item.fundingSummary !== null) {
+      validateBilingualText(item.fundingSummary, 'fundingSummary', errors, location);
+    }
+
+    // 17. Optional description validation
     if (item.description !== undefined && item.description !== null) {
       validateBilingualText(item.description, 'description', errors, location);
     }
@@ -658,6 +870,202 @@ function runSelfTests() {
     console.log('✔ Test 14 Passed: Caught course-dependent opportunity with non-null deadline.');
   }
 
+  // Test 15: Valid fellowship and leadership-program types with postdoctoral level
+  const validNewTypesData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-valid-fellowship',
+        type: 'fellowship',
+        deliveryMode: 'onsite',
+        locationScope: 'national',
+        title: { ar: 'عنوان زمالة', en: 'Fellowship Title' },
+        provider: { ar: 'جهة مانحة', en: 'Funder' },
+        country: { ar: 'الولايات المتحدة', en: 'United States', code: 'US' },
+        fields: [{ category: 'natural-sciences', name: { ar: 'علوم', en: 'Science' } }],
+        levels: ['postdoctoral'],
+        deadline: '2026-12-01',
+        deadlineType: 'fixed',
+        officialSourceUrl: 'https://example.org/fellowship',
+        verificationStatus: 'verified',
+        verificationDate: '2026-10-14'
+      },
+      {
+        id: 'opp-valid-leadership',
+        type: 'leadership-program',
+        deliveryMode: 'hybrid',
+        locationScope: 'global',
+        title: { ar: 'برنامج قيادي', en: 'Leadership Program' },
+        provider: { ar: 'منظمة دولية', en: 'Organization' },
+        country: null,
+        fields: [{ category: 'social-sciences', name: { ar: 'قيادة', en: 'Leadership' } }],
+        levels: ['all-levels'],
+        deadline: '2026-11-15',
+        deadlineType: 'fixed',
+        officialSourceUrl: 'https://example.org/leadership',
+        verificationStatus: 'verified',
+        verificationDate: '2026-10-14'
+      }
+    ]
+  };
+  const newTypesResult = validateOpportunitiesData(validNewTypesData, { referenceDate: fixedRefDate });
+  if (!newTypesResult.isValid) {
+    console.error('❌ Test 15 Failed: Valid fellowship/leadership-program or postdoctoral was rejected.', newTypesResult.errors);
+    testFailures++;
+  } else {
+    console.log('✔ Test 15 Passed: Accepted fellowship, leadership-program, and postdoctoral level.');
+  }
+
+  // Test 16: Valid staging record with verificationStatus 'pending-human-review' and verificationDate: null
+  const validStagingData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-staging-record',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان قيد المراجعة', en: 'Pending Review Title' },
+        provider: { ar: 'جامعة', en: 'University' },
+        country: { ar: 'الدنمارك', en: 'Denmark', code: 'DK' },
+        fields: [{ category: 'engineering', name: { ar: 'هندسة', en: 'Engineering' } }],
+        levels: ['undergraduate'],
+        deadline: '2027-03-15',
+        deadlineType: 'fixed',
+        officialSourceUrl: 'https://example.org/sdu',
+        verificationStatus: 'pending-human-review',
+        verificationDate: null
+      }
+    ]
+  };
+  const stagingResult = validateOpportunitiesData(validStagingData, { referenceDate: fixedRefDate });
+  if (!stagingResult.isValid) {
+    console.error('❌ Test 16 Failed: Staging record with pending-human-review was rejected.', stagingResult.errors);
+    testFailures++;
+  } else {
+    console.log('✔ Test 16 Passed: Accepted staging record with pending-human-review and null verificationDate.');
+  }
+
+  // Test 17: Valid multi-country with locationScope 'multi-country' and country: null
+  const validMultiCountryData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-valid-multi-country',
+        type: 'fellowship',
+        deliveryMode: 'onsite',
+        locationScope: 'multi-country',
+        title: { ar: 'برنامج دكتوراه أوروبي', en: 'European PhD Program' },
+        provider: { ar: 'شبكة بحثية', en: 'Research Network' },
+        country: null,
+        fields: [{ category: 'computer-science', name: { ar: 'حاسوب', en: 'CS' } }],
+        levels: ['doctorate'],
+        deadline: '2026-10-31',
+        deadlineType: 'fixed',
+        officialSourceUrl: 'https://example.org/ellis',
+        verificationStatus: 'verified',
+        verificationDate: '2026-10-14'
+      }
+    ]
+  };
+  const mcResult = validateOpportunitiesData(validMultiCountryData, { referenceDate: fixedRefDate });
+  if (!mcResult.isValid) {
+    console.error('❌ Test 17 Failed: Valid multi-country opportunity was rejected.', mcResult.errors);
+    testFailures++;
+  } else {
+    console.log('✔ Test 17 Passed: Accepted onsite multi-country opportunity with null country and locationScope="multi-country".');
+  }
+
+  // Test 18: Invalid applicationStatus value rejected
+  const invalidStatusData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-invalid-status',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان', en: 'Title' },
+        provider: { ar: 'جهة', en: 'Provider' },
+        country: { ar: 'ألمانيا', en: 'Germany', code: 'DE' },
+        fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+        levels: ['postgraduate'],
+        deadline: '2026-12-01',
+        deadlineType: 'fixed',
+        officialSourceUrl: 'https://example.org/opp',
+        verificationDate: '2026-10-14',
+        applicationStatus: 'completely-fake-status' // invalid enum
+      }
+    ]
+  };
+  const badStatusResult = validateOpportunitiesData(invalidStatusData, { referenceDate: fixedRefDate });
+  if (badStatusResult.isValid || !badStatusResult.errors.some(e => e.includes('Invalid value "completely-fake-status"'))) {
+    console.error('❌ Test 18 Failed: Invalid applicationStatus was not rejected.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 18 Passed: Rejected invalid applicationStatus enum value.');
+  }
+
+  // Test 19: Invalid yemenEligibility value rejected
+  const invalidYemenData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-invalid-yemen',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان', en: 'Title' },
+        provider: { ar: 'جهة', en: 'Provider' },
+        country: { ar: 'ألمانيا', en: 'Germany', code: 'DE' },
+        fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+        levels: ['postgraduate'],
+        deadline: '2026-12-01',
+        deadlineType: 'fixed',
+        officialSourceUrl: 'https://example.org/opp',
+        verificationDate: '2026-10-14',
+        yemenEligibility: 'totally-invalid-eligibility' // invalid enum
+      }
+    ]
+  };
+  const badYemenResult = validateOpportunitiesData(invalidYemenData, { referenceDate: fixedRefDate });
+  if (badYemenResult.isValid || !badYemenResult.errors.some(e => e.includes('Invalid value "totally-invalid-eligibility"'))) {
+    console.error('❌ Test 19 Failed: Invalid yemenEligibility was not rejected.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 19 Passed: Rejected invalid yemenEligibility enum value.');
+  }
+
+  // Test 20: Release mode rejects pending-human-review records even if count >= 20
+  const twentyRecordsWithPending = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: Array.from({ length: 20 }, (_, i) => ({
+      id: `opp-release-test-${i}`,
+      type: 'scholarship',
+      deliveryMode: 'onsite',
+      title: { ar: `عنوان ${i}`, en: `Title ${i}` },
+      provider: { ar: `جهة ${i}`, en: `Provider ${i}` },
+      country: { ar: 'ألمانيا', en: 'Germany', code: 'DE' },
+      fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+      levels: ['postgraduate'],
+      deadline: '2027-01-01',
+      deadlineType: 'fixed',
+      officialSourceUrl: 'https://example.org/test',
+      verificationStatus: i === 0 ? 'pending-human-review' : 'verified',
+      verificationDate: i === 0 ? null : '2026-10-14'
+    }))
+  };
+  const releasePendingResult = validateOpportunitiesData(twentyRecordsWithPending, { isReleaseMode: true, referenceDate: fixedRefDate });
+  if (releasePendingResult.isValid || !releasePendingResult.errors.some(e => e.includes('Dataset cannot be released with opportunities pending human verification'))) {
+    console.error('❌ Test 20 Failed: Release mode allowed unverified pending records.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 20 Passed: Release mode enforced zero pending-human-review records.');
+  }
+
   console.log(`\nSelf-test summary: ${testFailures === 0 ? 'ALL TESTS PASSED ✔' : `${testFailures} TEST(S) FAILED ❌`}\n`);
   return testFailures === 0;
 }
@@ -669,13 +1077,24 @@ function main() {
   const args = process.argv.slice(2);
   const isTestMode = args.includes('--test');
   const isReleaseMode = args.includes('--release');
+  const isStagingMode = args.includes('--staging');
 
   if (isTestMode) {
     const success = runSelfTests();
     process.exit(success ? 0 : 1);
   }
 
-  const dataFilePath = path.resolve(__dirname, '../data/opportunities.json');
+  let targetFileName = 'opportunities.json';
+  const customFileArg = args.find(a => !a.startsWith('--'));
+  if (customFileArg) {
+    targetFileName = customFileArg;
+  } else if (isStagingMode) {
+    targetFileName = 'opportunities-staging.json';
+  }
+
+  const dataFilePath = path.isAbsolute(targetFileName)
+    ? targetFileName
+    : path.resolve(__dirname, '../data', targetFileName.startsWith('data/') || targetFileName.startsWith('data\\') ? path.basename(targetFileName) : targetFileName);
 
   if (!fs.existsSync(dataFilePath)) {
     console.error(`[ERROR] File not found: ${dataFilePath}`);
@@ -698,7 +1117,8 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`Validating data/opportunities.json (${isReleaseMode ? 'RELEASE MODE' : 'DEVELOPMENT MODE'})...`);
+  const displayName = path.relative(path.resolve(__dirname, '..'), dataFilePath);
+  console.log(`Validating ${displayName} (${isReleaseMode ? 'RELEASE MODE' : 'DEVELOPMENT MODE'})...`);
 
   const validation = validateOpportunitiesData(parsedData, { isReleaseMode });
 
@@ -711,7 +1131,7 @@ function main() {
     process.exit(1);
   }
 
-  console.log('\n✔ VALIDATION SUCCESSFUL: data/opportunities.json conforms to all schema rules.');
+  console.log(`\n✔ VALIDATION SUCCESSFUL: ${displayName} conforms to all schema rules.`);
   console.log(`  - Version: ${parsedData.version}`);
   console.log(`  - Last Updated: ${parsedData.lastUpdated}`);
   console.log(`  - Opportunity Records Count: ${parsedData.opportunities.length}`);
