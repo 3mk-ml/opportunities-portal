@@ -1,0 +1,1066 @@
+{
+  "version": "1.2.0-staging",
+  "lastUpdated": "2026-10-21",
+  "opportunities": [
+    {
+      "id": "um-nl-high-potential-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة جامعة ماستريخت NL-High Potential للماجستير 2027–2028",
+        "en": "Maastricht University NL-High Potential Scholarship 2027-2028"
+      },
+      "provider": {
+        "ar": "جامعة ماستريخت",
+        "en": "Maastricht University"
+      },
+      "country": {
+        "ar": "هولندا",
+        "en": "Netherlands",
+        "code": "NL"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "برامج الماجستير المشاركة في تخصصات متعددة",
+            "en": "Participating master's programmes in multiple disciplines"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate"
+      ],
+      "deadline": "2027-02-01",
+      "deadlineType": "fixed",
+      "admissionDeadline": "2026-12-10",
+      "applicationStatus": "open",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct-after-admission",
+      "fundingCoverage": "full-funding",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-14",
+      "officialSourceUrl": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/maastricht-university-nl-high",
+      "description": {
+        "ar": "منحة ممولة لدراسة الماجستير في البرامج المشاركة بجامعة ماستريخت في هولندا. تشمل الرسوم الدراسية ومخصصات المعيشة وتغطيات إضافية وفق شروط الجامعة. يجب استكمال طلب القبول في برنامج ماجستير مشارك قبل 10 ديسمبر 2026، وتقديم طلب المنحة قبل 1 فبراير 2027. يخضع القبول لشروط الأهلية الأكاديمية والجنسية والإقامة المنشورة رسميًا.",
+        "en": "A funded master's scholarship for participating programmes at Maastricht University in the Netherlands. Benefits include tuition coverage, living expenses and additional support subject to official conditions. Applicants must complete their admission application for an eligible master's programme before 10 December 2026 and submit the scholarship application before 1 February 2027. All published academic, nationality and residence requirements apply."
+      }
+    },
+    {
+      "id": "oxford-weidenfeld-hoffmann-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة وايدنفيلد-هوفمان للقيادة والدراسات العليا بجامعة أكسفورد 2027–2028",
+        "en": "Oxford Weidenfeld-Hoffmann Scholarships and Leadership Programme 2027-2028"
+      },
+      "provider": {
+        "ar": "جامعة أكسفورد",
+        "en": "University of Oxford"
+      },
+      "country": {
+        "ar": "المملكة المتحدة",
+        "en": "United Kingdom",
+        "code": "GB"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "برامج الدراسات العليا المؤهلة في تخصصات متعددة",
+            "en": "Eligible graduate programmes across multiple disciplines"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "course-dependent",
+      "applicationStatus": "course-dependent",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct-after-admission",
+      "fundingCoverage": "full-funding",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-14",
+      "officialSourceUrl": "https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search/weidenfeld-hoffmann-scholarships-and-leadership-programme",
+      "description": {
+        "ar": "منحة ممولة بالكامل لدراسة أحد برامج الدراسات العليا المؤهلة في جامعة أكسفورد، وتشمل الرسوم الدراسية ومخصص المعيشة وبرنامجاً لتطوير القيادة. اليمن مدرجة ضمن الدول المؤهلة، مع تطبيق شروط الإقامة الاعتيادية والقبول الأكاديمي. يجب اختيار المنحة في طلب الدراسات العليا وإرفاق نموذج Weidenfeld-Hoffmann Scholarships Statement. يختلف الموعد النهائي بحسب البرنامج الدراسي، ويقع الموعد المعتمد عادةً في ديسمبر أو يناير. يجب مراجعة صفحة البرنامج المختار قبل التقديم.",
+        "en": "A fully funded scholarship for eligible graduate programmes at the University of Oxford, covering course fees, a living-cost grant, and leadership development. Yemen is an eligible country, subject to ordinary residence and academic admission requirements. Applicants must select the scholarship in their graduate application and upload the Weidenfeld-Hoffmann Scholarships Statement. Application deadlines depend on the selected course, generally falling in December or January. Applicants must check the deadline for their chosen eligible course."
+      }
+    },
+    {
+      "id": "tu-delft-van-effen-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة جوستوس ولويز فان إيفين للتميز للماجستير 2027–2028 (جامعة دلفت للتكنولوجيا)",
+        "en": "Justus and Louise van Effen Excellence Scholarship 2027-2028"
+      },
+      "provider": {
+        "ar": "جامعة دلفت للتكنولوجيا",
+        "en": "Delft University of Technology"
+      },
+      "country": {
+        "ar": "هولندا",
+        "en": "Netherlands",
+        "code": "NL"
+      },
+      "fields": [
+        {
+          "category": "engineering",
+          "name": {
+            "ar": "الهندسة وتكنولوجيا المعلومات",
+            "en": "Engineering & Technology"
+          }
+        },
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "علوم الحاسوب",
+            "en": "Computer Science"
+          }
+        },
+        {
+          "category": "natural-sciences",
+          "name": {
+            "ar": "العلوم الطبيعية والتطبيقية",
+            "en": "Natural & Applied Sciences"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate"
+      ],
+      "deadline": "2026-12-01",
+      "deadlineType": "fixed",
+      "applicationStatus": "open",
+      "yemenEligibility": "conditional",
+      "applicationRoute": "direct-after-admission",
+      "fundingCoverage": "full-funding",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.tudelft.nl/en/education/study-programme-orientation/practical-matters/scholarships",
+      "description": {
+        "ar": "منحة ماجستير تنافسية للغاية في جامعة دلفت بهولندا تغطي الرسوم الدراسية الكاملة ومساهمة في نفقات المعيشة. يجب استكمال طلب القبول في برنامج الماجستير وطلب المنحة ورفع الوثائق قبل 1 ديسمبر 2026. يخضع قبول الطلاب اليمنيين لشروط معادلة الشهادة الأكاديمية الصادرة من اليمن وتفوق دراسي مثبت، وتعتمد منحة السنة الثانية على إحراز تقدم دراسي مُرضٍ.",
+        "en": "A highly competitive MSc scholarship at TU Delft in the Netherlands covering full MSc tuition fees and a contribution to living expenses. MSc programme application and scholarship application with all required documents must be complete before 1 December 2026. Eligibility for applicants with Yemeni credentials is subject to institutional degree equivalency and proven academic excellence; second-year funding depends on satisfactory study progress."
+      }
+    },
+    {
+      "id": "mepi-tomorrows-leaders-undergraduate-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "multi-country",
+      "title": {
+        "ar": "منحة رواد الغد لطلاب البكالوريوس 2027–2028 (مبادرة الشراكة الأمريكية الشرق أوسطية MEPI)",
+        "en": "MEPI Tomorrow's Leaders Undergraduate Scholarship 2027-2028"
+      },
+      "provider": {
+        "ar": "برنامج رواد الغد / مبادرة الشراكة الأمريكية الشرق أوسطية (MEPI)",
+        "en": "Tomorrow's Leaders Program (MEPI)"
+      },
+      "country": {
+        "ar": "لبنان",
+        "en": "Lebanon",
+        "code": "LB"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "تخصصات البكالوريوس المشاركة",
+            "en": "Participating undergraduate disciplines"
+          }
+        }
+      ],
+      "levels": [
+        "undergraduate"
+      ],
+      "deadline": "2026-11-18",
+      "deadlineType": "fixed",
+      "applicationOpens": "2026-10-01",
+      "applicationStatus": "open",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct",
+      "fundingCoverage": "full-funding",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.tomorrowsleadersprogram.org/blog/2026/10/16/the-application-is-now-open-for-the-2027-2028-tomorrows-leaders-program/",
+      "description": {
+        "ar": "منحة قيادية جامعية شاملة وممولة للدراسة الجامعية في الجامعة الأمريكية في بيروت (AUB) أو الجامعة اللبنانية الأمريكية (LAU). تشمل الرسوم الدراسية، والسكن، والتأمين الصحي، وتذاكر السفر، ومخصصات شهرية، وتدريباً قيادياً. اليمن دولة مؤهلة صراحة؛ البرنامج متاح لطلاب السنة الأخيرة من الثانوية وخريجي 2026، ويُستثنى خريجو الثانوية اليمنيون لعام 2025 بشكل استثنائي وفق الشروط الرسمية. التقديم مباشر ويتطلب خطابات توصية دون اشتراط ترشيح مؤسسي.",
+        "en": "A comprehensive funded leadership undergraduate scholarship to study at the American University of Beirut (AUB) or Lebanese American University (LAU). Benefits include tuition, housing, health insurance, travel, living stipend, and leadership development. Yemen is explicitly eligible; open to final-year high school students and 2026 graduates, with 2025 Yemeni high school graduates exceptionally eligible per published criteria. Direct application with recommendations; no institutional nomination required."
+      }
+    },
+    {
+      "id": "st-andrews-world-leading-doctoral-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منح كلية سانت ليوناردز الرائدة عالمياً لأبحاث الدكتوراه (المسار البحثي للطالب) 2027–2028",
+        "en": "St Leonard's College World-Leading Doctoral Scholarships (student-led) 2027-2028"
+      },
+      "provider": {
+        "ar": "جامعة سانت أندروز",
+        "en": "University of St Andrews"
+      },
+      "country": {
+        "ar": "المملكة المتحدة",
+        "en": "United Kingdom",
+        "code": "GB"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "أبحاث الدكتوراه في مختلف التخصصات",
+            "en": "Doctoral research across academic disciplines"
+          }
+        }
+      ],
+      "levels": [
+        "doctorate"
+      ],
+      "deadline": "2027-01-20",
+      "deadlineType": "fixed",
+      "applicationOpens": "2026-08-19",
+      "applicationStatus": "open",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct",
+      "fundingCoverage": "full-funding",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.st-andrews.ac.uk/study/scholarships/scholarships-catalogue/postgraduate-scholarships/world-leading-scholarships-student-led/",
+      "description": {
+        "ar": "منحة دكتوراه ممولة بالكامل في جامعة سانت أندروز بالمملكة المتحدة تشمل الرسوم الدراسية للطلاب الدوليين وراتباً سنوياً للمعيشة. هذا المسار يقوده الطالب بناءً على مقترح بحثي مبتكر، ويشترط التواصل المسبق والاتفاق مع مشرف أكاديمي ملائم في الجامعة واستيفاء شروط القبول للدكتوراه قبل الموعد النهائي في 20 يناير 2027. المنحة مفتوحة للطلاب الدوليين واليمنيين حتى 6 مقاعد في هذا المسار.",
+        "en": "A fully funded doctoral scholarship at the University of St Andrews in the UK covering international tuition fees and an annual living stipend. This is a student-led research track requiring an original project proposal, prior agreement with an eligible supervisor, and meeting PhD admission criteria before the 20 January 2027 deadline. Open to international candidates including Yemenis, offering up to six awards."
+      }
+    },
+    {
+      "id": "the-do-incuversity-2027",
+      "type": "scholarship",
+      "deliveryMode": "hybrid",
+      "locationScope": "global",
+      "title": {
+        "ar": "منح برنامج إنكوفيرسيتي لريادة الأعمال وبناء المشاريع 2027 (THE DO)",
+        "en": "THE DO IncuVersity 2027 Cohort Scholarships"
+      },
+      "provider": {
+        "ar": "مؤسسة إنكوفيرسيتي (THE DO IncuVersity)",
+        "en": "THE DO IncuVersity"
+      },
+      "country": null,
+      "fields": [
+        {
+          "category": "business",
+          "name": {
+            "ar": "ريادة الأعمال والابتكار",
+            "en": "Entrepreneurship & Innovation"
+          }
+        },
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "الذكاء الاصطناعي وبناء المشاريع",
+            "en": "Artificial Intelligence & Venture Building"
+          }
+        }
+      ],
+      "levels": [
+        "all-levels"
+      ],
+      "deadline": "2026-10-31",
+      "deadlineType": "fixed",
+      "applicationOpens": "2026-09-15",
+      "applicationStatus": "open",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct",
+      "fundingCoverage": "tuition-waiver",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://doincuversity.ai/admissions.html",
+      "description": {
+        "ar": "منح تنافسية لتغطية رسوم برنامج تدريبي وريادي لمدة عامين في بناء المشاريع وتمكين الذكاء الاصطناعي (برنامج غير أكاديمي ولا يمنح درجة جامعية). تبلغ الرسوم الأساسية للبرنامج 10,000 يورو مضافاً إليها الضريبة، وتوفر المنحة إعفاءً كلياً أو جزئياً من الرسوم الدراسية فقط، ولا تشمل تكاليف السفر أو الإقامة. موعد 31 أكتوبر 2026 هو موعد إغلاق الجولة الأولى وليس بالضرورة نهاية التقديم لكافة الجولات. المشاركة عن بعد متاحة دائماً.",
+        "en": "Competitive full or partial program tuition scholarships for a 2-year entrepreneurship and AI-enabled venture building program (non-degree program). Standard fee is EUR 10,000 plus VAT; scholarships cover tuition fee waivers only and do not cover travel or lodging. 31 October 2026 is the first-round application cutoff, not necessarily the final date for future rounds. Remote participation is available."
+      }
+    },
+    {
+      "id": "sdu-danish-government-scholarship-2027",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة الحكومة الدنماركية بجامعة جنوب الدنمارك 2027 (SDU)",
+        "en": "University of Southern Denmark Danish Government Scholarship 2027"
+      },
+      "provider": {
+        "ar": "جامعة جنوب الدنمارك (SDU)",
+        "en": "University of Southern Denmark"
+      },
+      "country": {
+        "ar": "الدنمارك",
+        "en": "Denmark",
+        "code": "DK"
+      },
+      "fields": [
+        {
+          "category": "engineering",
+          "name": {
+            "ar": "الهندسة والتقنية",
+            "en": "Engineering & Technology"
+          }
+        },
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "علوم الحاسوب وتطوير النظم",
+            "en": "Computer Science & Systems"
+          }
+        }
+      ],
+      "levels": [
+        "undergraduate",
+        "postgraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "course-dependent",
+      "applicationStatus": "upcoming",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "automatic-through-admission",
+      "fundingCoverage": "tuition-waiver",
+      "applicationWindows": [
+        {
+          "label": {
+            "ar": "ماجستير سوندربرغ (MSc Sønderborg)",
+            "en": "MSc Sønderborg"
+          },
+          "levels": [
+            "postgraduate"
+          ],
+          "opensAt": "2027-01-01",
+          "deadline": "2027-02-01"
+        },
+        {
+          "label": {
+            "ar": "بكالوريوس فايله (BSc Vejle)",
+            "en": "BSc Vejle"
+          },
+          "levels": [
+            "undergraduate"
+          ],
+          "opensAt": "2027-02-01",
+          "deadline": "2027-03-15"
+        }
+      ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.sdu.dk/en/uddannelse/kandidat/~/~/link.aspx?_id=2F0D1437CF774F3EB24FBD43AF50144F&_z=z",
+      "description": {
+        "ar": "منحة حكومية دنماركية لبرامج محددة في جامعة جنوب الدنمارك تقدم إعفاءً كاملاً من الرسوم الدراسية فقط، ولا تشمل تكاليف المعيشة. تمثل هذه الفرصة سجلاً موحداً بمسارين دراسيين مستقلين: مسار الماجستير في سوندربرغ (ينتهي في 1 فبراير 2027) ومسار البكالوريوس في فايله (ينتهي في 15 مارس 2027). لا توجد استمارة منحة منفصلة، حيث يُنظر تلقائياً في طلبات المتقدمين المقبولين من خارج الاتحاد الأوروبي. تواريخ فتح التقديم المقدرة تحتاج إعادة تأكيد قبل النشر.",
+        "en": "Danish Government Scholarship for eligible SDU programmes offering full tuition fee waiver only; living expenses are not covered. This single catalog record comprises two distinct level tracks: MSc Sønderborg (deadline 1 February 2027) and BSc Vejle (deadline 15 March 2027). No separate scholarship application is required; admitted non-EU/EEA candidates are automatically considered. Application opening dates are estimated and require reconfirmation prior to publication."
+      }
+    },
+    {
+      "id": "ellis-phd-program-2026-2027",
+      "type": "fellowship",
+      "deliveryMode": "onsite",
+      "locationScope": "multi-country",
+      "title": {
+        "ar": "برنامج زمالة أبحاث الدكتوراه لشبكة إيليس الأوروبية للذكاء الاصطناعي 2026/2027",
+        "en": "ELLIS PhD Program Call for Applications 2026 (2027 entry)"
+      },
+      "provider": {
+        "ar": "المختبر الأوروبي للتعلم والأنظمة الذكية (ELLIS)",
+        "en": "European Laboratory for Learning and Intelligent Systems"
+      },
+      "country": null,
+      "fields": [
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "الذكاء الاصطناعي وتعلم الآلة",
+            "en": "Artificial Intelligence & Machine Learning"
+          }
+        },
+        {
+          "category": "natural-sciences",
+          "name": {
+            "ar": "العلوم الحاسوبية المتقدمة",
+            "en": "Advanced Computational Sciences"
+          }
+        }
+      ],
+      "levels": [
+        "doctorate"
+      ],
+      "deadline": "2026-10-31",
+      "deadlineType": "fixed",
+      "applicationOpens": "2026-10-01",
+      "applicationStatus": "open",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct",
+      "fundingCoverage": "research-grant",
+      "secondaryDeadlines": [
+        {
+          "label": {
+            "ar": "الموعد النهائي لوصول خطابات التوصية",
+            "en": "Recommendation letters due"
+          },
+          "date": "2026-11-25"
+        }
+      ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://ellis.eu/news/ellis-phd-program-call-for-applications-2026",
+      "description": {
+        "ar": "دعوة لتقديم طلبات برنامج الدكتوراه عبر شبكة إيليس الأوروبية الرائدة في أبحاث الذكاء الاصطناعي وتعلم الآلة في مؤسسات بحثية أوروبية متعددة. تمويل وظائف الدكتوراه مؤمن من قِبل المؤسسات والمشرفين الأكاديميين المستضيفين، ولا تقدم إيليس منحة تمويل موحدة مضمونة لكافة المتقدمين. الموعد النهائي للبوابة المركزية هو 31 أكتوبر 2026 (مع وجوب طلب المعرفين قبل هذا الموعد)، وموعد استلام خطابات التوصية هو 25 نوفمبر 2026. قد تتطلب بعض المؤسسات المستضيفة تقديماً متزامناً للقبول الجامعي.",
+        "en": "Call for applications for the European ELLIS PhD program across leading European institutions in machine learning and intelligent systems. Funding for doctoral positions is provided by the respective host institutions and advisors; ELLIS does not provide a single uniform grant to all applicants. Central application portal deadline is 31 October 2026 (referees must be requested beforehand), and reference letters are due by 25 November 2026. Some institutions require parallel university doctoral applications."
+      }
+    },
+    {
+      "id": "gates-cambridge-scholarship-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة غيتس كامبريدج للدراسات العليا 2027–2028",
+        "en": "Gates Cambridge Scholarship 2027-2028"
+      },
+      "provider": {
+        "ar": "جامعة كامبريدج / مؤسسة غيتس كامبريدج",
+        "en": "University of Cambridge / Gates Cambridge Trust"
+      },
+      "country": {
+        "ar": "المملكة المتحدة",
+        "en": "United Kingdom",
+        "code": "GB"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "برامج الدراسات العليا المؤهلة في مختلف التخصصات",
+            "en": "Eligible postgraduate programmes across multiple disciplines"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate",
+        "doctorate"
+      ],
+      "deadline": null,
+      "deadlineType": "course-dependent",
+      "applicationStatus": "course-dependent",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct-after-admission",
+      "fundingCoverage": "full-funding",
+      "secondaryDeadlines": [
+        {
+          "label": {
+            "ar": "الموعد النهائي للتقديم للدورات ذات الموعد المبكر (ديسمبر)",
+            "en": "Course funding deadline round 1 (December courses)"
+          },
+          "date": "2026-12-08"
+        },
+        {
+          "label": {
+            "ar": "الموعد النهائي للتقديم للدورات ذات الموعد المعتاد (يناير)",
+            "en": "Course funding deadline round 2 (January courses)"
+          },
+          "date": "2027-01-06"
+        }
+      ],
+      "officialSourceUrl": "https://www.gatescambridge.org/",
+      "additionalOfficialSources": [
+        "https://www.postgraduate.study.cam.ac.uk/funding"
+      ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-21",
+      "description": {
+        "ar": "منحة دراسية مرموقة وممولة بالكامل للدراسات العليا (الماجستير والدكتوراه) في جامعة كامبريدج للطلاب المتميزين من خارج المملكة المتحدة، بما في ذلك المتقدمين من اليمن. تغطي المنحة التكاليف الدراسية الكاملة ومخصصات معيشية وتذاكر سفر وتأشيرة. يتم التقديم عبر بوابة القبول للدراسات العليا بجامعة كامبريدج مع استكمال قسم منحة غيتس. تختلف المواعيد النهائية بحسب البرنامج الدراسي المختار، وتنتهي إما في 8 ديسمبر 2026 أو 6 يناير 2027 حسب دليل الدورات بالجامعة.",
+        "en": "A prestigious, full-cost postgraduate scholarship for eligible citizens outside the United Kingdom, including Yemen, pursuing a full-time postgraduate degree (Master's or PhD) at the University of Cambridge. Covers University Composition Fee, maintenance allowance, return airfare, and visa costs. Applications are submitted via the University of Cambridge postgraduate application portal with the Gates Cambridge section. Deadlines depend on the chosen course: either 8 December 2026 or 6 January 2027 according to the university course directory."
+      }
+    },
+    {
+      "id": "kaust-visiting-student-research-program",
+      "type": "internship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "برنامج تدريب وبحث الطلاب الزائرين (VSRP) بجامعة الملك عبد الله للعلوم والتقنية",
+        "en": "KAUST Visiting Student Research Program (VSRP)"
+      },
+      "provider": {
+        "ar": "جامعة الملك عبد الله للعلوم والتقنية (كاوست)",
+        "en": "King Abdullah University of Science and Technology (KAUST)"
+      },
+      "country": {
+        "ar": "المملكة العربية السعودية",
+        "en": "Saudi Arabia",
+        "code": "SA"
+      },
+      "fields": [
+        {
+          "category": "engineering",
+          "name": {
+            "ar": "الهندسة والعلوم التطبيقية",
+            "en": "Engineering & Applied Sciences"
+          }
+        },
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "علوم الحاسوب والذكاء الاصطناعي",
+            "en": "Computer Science & Artificial Intelligence"
+          }
+        },
+        {
+          "category": "natural-sciences",
+          "name": {
+            "ar": "العلوم الطبيعية والبيولوجية والبيئية",
+            "en": "Natural, Biological & Environmental Sciences"
+          }
+        }
+      ],
+      "levels": [
+        "undergraduate",
+        "postgraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "ongoing",
+      "applicationStatus": "open",
+      "yemenEligibility": "conditional",
+      "applicationRoute": "direct",
+      "fundingCoverage": "full-funding",
+      "officialSourceUrl": "https://admissions.kaust.edu.sa/study/internships",
+      "additionalOfficialSources": [
+        "https://admissions.kaust.edu.sa/internship/search"
+      ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-21",
+      "description": {
+        "ar": "برنامج تدريب بحثي عملي مدفوع بالكامل لطلاب البكالوريوس (السنة الثالثة فما فوق) وطلاب الماجستير في تخصصات العلوم والتقنية والهندسة والرياضيات (STEM). تتراوح مدة البرنامج بين 2 إلى 6 أشهر داخل مختبرات كاوست، ويشمل مكافأة شهرية وسكناً خاصاً وتذاكر طيران وتأمين صحي. التقديم مفتوح على مدار العام لمشاريع بحثية محددة. يشترط معدل تراكمي لا يقل عن 3.5 من 4.0 وإجادة الإنجليزية وخطاب توصية. الأهلية للطلاب اليمنيين مشروطة بالقبول الأكاديمي في مشروع بحثي والحصول على الموافقات والإجراءات النظامية المعمول بها.",
+        "en": "A fully funded, hands-on research internship for 3rd/4th-year undergraduate and master's students in STEM fields, lasting 2 to 6 months at KAUST research laboratories. Includes a monthly stipend, private accommodation, return flights, and health insurance. Applications are accepted year-round directly to available faculty-led research projects. Requires a minimum GPA of 3.5/4.0, English proficiency, and an academic recommendation. Eligibility for Yemeni applicants is conditional upon faculty selection for a research project and administrative/visa clearances."
+      }
+    },
+    {
+      "id": "harvard-kennedy-equity-fellowship-2027-2028",
+      "type": "fellowship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "زمالة العدالة بمركز القيادة العامة بكلية هارفارد كينيدي 2027–2028 (استمرار الدورة غير مؤكد)",
+        "en": "Harvard Kennedy School Center for Public Leadership Equity Fellowship 2027-2028 (Cohort Unconfirmed)"
+      },
+      "provider": {
+        "ar": "كلية هارفارد كينيدي (Harvard Kennedy School)",
+        "en": "Harvard Kennedy School"
+      },
+      "country": {
+        "ar": "الولايات المتحدة",
+        "en": "United States",
+        "code": "US"
+      },
+      "fields": [
+        {
+          "category": "social-sciences",
+          "name": {
+            "ar": "السياسات العامة والقيادة المجتمعية",
+            "en": "Public Policy & Community Leadership"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate"
+      ],
+      "deadline": "2027-01-15",
+      "deadlineType": "fixed",
+      "admissionDeadline": "2026-12-01",
+      "applicationStatus": "unconfirmed",
+      "yemenEligibility": "conditional",
+      "applicationRoute": "direct-after-admission",
+      "fundingCoverage": "partial",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.hks.harvard.edu/centers/cpl/fellowships/equity-fellowship",
+      "additionalOfficialSources": [
+        "https://www.hks.harvard.edu/admissions-aid/funding-your-education/funding-your-masters-education/applying-financial-aid",
+        "https://travel.state.gov/content/travel/en/News/visas-news/suspension-of-visa-issuance-to-foreign-nationals-to-protect-the-security-of-the-united-states.html"
+      ],
+      "description": {
+        "ar": "زمالة دراسات عليا في كلية كينيدي بجامعة هارفارد. تنبيه هام: صُنفت هذه الفرصة كغير مؤكدة رسمياً نظراً لوجود تعارض بين صفحات هارفارد المؤرشفة والتعليمات الحالية حول استمرارية الدورة القادمة حتى يرد حسم موثق. شرط أساسي: إتمام طلب القبول في ماجستير هارفارد كينيدي بحلول 1 ديسمبر 2026، بينما ينتهي طلب المساعدة المالية والزمالة في 15 يناير 2027. تغطية التكاليف الكاملة غير مضمونة وتعتمد على القرار المالي. كما تنطبق قيود إصدار التأشيرات الأمريكية للمواطنين اليمنيين في الخارج مع وجود استثناءات قانونية محددة.",
+        "en": "Graduate fellowship at Harvard Kennedy School. Critical status notice: Classified as unconfirmed due to conflicting information between institutional web sources regarding cohort continuation until documented confirmation is available. Mandatory prerequisite: HKS master's admission application must be submitted by 1 December 2026; financial aid and fellowship application deadline is 15 January 2027. Full cost coverage is not guaranteed. U.S. visa issuance restrictions apply to Yemeni nationals abroad subject to specific legal exceptions."
+      }
+    },
+    {
+      "id": "harvard-environmental-fellows-2027",
+      "type": "fellowship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "برنامج هارفارد لزملاء أبحاث البيئة لما بعد الدكتوراه 2027",
+        "en": "Harvard Environmental Fellows Program 2027 (Postdoctoral)"
+      },
+      "provider": {
+        "ar": "مركز جامعة هارفارد للبيئة (HUCE)",
+        "en": "Harvard University Center for the Environment"
+      },
+      "country": {
+        "ar": "الولايات المتحدة",
+        "en": "United States",
+        "code": "US"
+      },
+      "fields": [
+        {
+          "category": "natural-sciences",
+          "name": {
+            "ar": "العلوم البيئية والطبيعية",
+            "en": "Environmental & Natural Sciences"
+          }
+        },
+        {
+          "category": "social-sciences",
+          "name": {
+            "ar": "السياسات والعلوم البيئية متعددة التخصصات",
+            "en": "Environmental Policy & Interdisciplinary Sciences"
+          }
+        }
+      ],
+      "levels": [
+        "postdoctoral"
+      ],
+      "deadline": "2026-12-01",
+      "deadlineType": "fixed",
+      "applicationStatus": "open",
+      "yemenEligibility": "conditional",
+      "applicationRoute": "direct-with-host-support",
+      "fundingCoverage": "research-grant",
+      "secondaryDeadlines": [
+        {
+          "label": {
+            "ar": "وصول خطابات المشرف المستضيف والتوصيات",
+            "en": "Host faculty and recommendation letters due"
+          },
+          "date": "2026-12-11"
+        }
+      ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.environment.harvard.edu/program-requirements-environmental-fellows-programs",
+      "additionalOfficialSources": [
+        "https://www.environment.harvard.edu/environmental-fellows-program"
+      ],
+      "description": {
+        "ar": "زمالة بحثية مرموقة لمرحلة ما بعد الدكتوراه لمدة عامين تشمل راتباً سنوياً قدره 92,000 دولار، وتأميناً صحياً، ومخصصات بحثية وتعويضات انتقال. تشترط الزمالة حيازة درجة الدكتوراه أو ما يعادلها، والحصول على التزام خطي بالاستضافة من عضو هيئة تدريس في هارفارد قبل التقديم. موعد تقديم الباحث هو 1 ديسمبر 2026، بينما ينتهي موعد خطابات المشرف والتوصية في 11 ديسمبر 2026. تنطبق متطلبات الإقامة في كامبريدج وقيود التأشيرة الأمريكية مع وجود استثناءات قانونية.",
+        "en": "A prestigious 2-year postdoctoral research fellowship offering USD 92,000 annual salary, health insurance, research allowance, and relocation reimbursement. Requires a doctorate/terminal degree and formal host commitment from a Harvard faculty member. Candidate application is due 1 December 2026; host and recommendation letters are due 11 December 2026. Residential presence in Cambridge required; U.S. visa restrictions apply subject to statutory exceptions."
+      }
+    },
+    {
+      "id": "groningen-eric-bleumink-2027",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة صندوق إريك بليومينك للماجستير بجامعة خرونينغن 2027",
+        "en": "Eric Bleumink Fellowship (Groningen MSc) 2027"
+      },
+      "provider": {
+        "ar": "جامعة خرونينغن (University of Groningen)",
+        "en": "University of Groningen"
+      },
+      "country": {
+        "ar": "هولندا",
+        "en": "Netherlands",
+        "code": "NL"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "برامج الماجستير المشاركة",
+            "en": "Participating master's degree programmes"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "unknown",
+      "admissionRecommendedBy": "2026-12-01",
+      "applicationStatus": "admissions-route",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "automatic-through-admission",
+      "fundingCoverage": "full-funding",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.rug.nl/education/scholarships/eric-bleumink-fellowship?lang=en",
+      "description": {
+        "ar": "منحة ممولة بالكامل لبرامج الماجستير بجامعة خرونينغن في هولندا تغطي الرسوم الدراسية وتكاليف المعيشة وتذاكر الطيران والتأمين الصحي. اليمن مدرجة صراحة ضمن الدول المؤهلة. تنبيه هام: لا توجد استمارة تقديم مستقلة للمنحة، بل يتم ترشيح الطلاب المؤهلين الحاصلين على قبول أكاديمي تلقائياً من قِبل كليات الجامعة. موعد 1 ديسمبر هو موعد موصى به لاستكمال طلب القبول الجامعي لضمان دراسة الترشيح وليس موعداً نهائياً لمنحة منفصلة.",
+        "en": "Fully funded master's fellowship at the University of Groningen in the Netherlands covering tuition, living subsistence, flights, books, and health insurance. Yemen is explicitly on the eligible country list. Important note: There is NO separate individual scholarship application; eligible admitted students are nominated internally by university faculties. 1 December is the recommended target date to complete the master's admission application, not a standalone scholarship deadline."
+      }
+    },
+    {
+      "id": "ubc-four-year-doctoral-fellowship-2026",
+      "type": "fellowship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "زمالة الدكتوراه لأربع سنوات بجامعة كولومبيا البريطانية (UBC 4YF)",
+        "en": "UBC Four Year Doctoral Fellowship (4YF)"
+      },
+      "provider": {
+        "ar": "جامعة كولومبيا البريطانية (UBC)",
+        "en": "University of British Columbia"
+      },
+      "country": {
+        "ar": "كندا",
+        "en": "Canada",
+        "code": "CA"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "برامج الدكتوراه في مختلف التخصصات",
+            "en": "Doctoral degree programmes across disciplines"
+          }
+        }
+      ],
+      "levels": [
+        "doctorate"
+      ],
+      "deadline": null,
+      "deadlineType": "course-dependent",
+      "applicationStatus": "course-dependent",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "automatic-through-admission",
+      "fundingCoverage": "full-funding",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.grad.ubc.ca/awards/four-year-doctoral-fellowship-4yf",
+      "description": {
+        "ar": "زمالة دكتوراه توفر راتباً سنوياً لا يقل عن 24,000 دولار كندي بالإضافة إلى تغطية كاملة للرسوم الدراسية لمدة تصل إلى 4 سنوات لطلاب الدكتوراه المتميزين في جامعة كولومبيا البريطانية بكندا. الطلاب الدوليون واليمنيون مؤهلون عموماً عند قبولهم في الدكتوراه. لا توجد استمارة مستقلة للزمالة ولا موعد مركزي موحد، بل يتم ترشيح واختيار الفائزين داخلياً بواسطة الأقسام الأكاديمية للدكتوراه وفق مواعيد القبول الخاصة بكل تخصص.",
+        "en": "Doctoral fellowship providing at least CAD 24,000 stipend per year plus full tuition coverage for up to four years at UBC in Canada. International students including Yemenis are generally eligible upon admission. There is no standalone scholarship application and no central deadline; recipients are nominated and selected internally by graduate departments based on program-specific schedules."
+      }
+    },
+    {
+      "id": "pedro-zamora-scholarship-2026",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة بيدرو زامورا للقيادات الشبابية (دورة 2026 مغلقة — يعاد الفتح في مارس 2027)",
+        "en": "Pedro Zamora Young Leaders Scholarship (2026 Closed - Reopens March 2027)"
+      },
+      "provider": {
+        "ar": "النصب التذكاري الوطني للإيدز (National AIDS Memorial)",
+        "en": "National AIDS Memorial"
+      },
+      "country": {
+        "ar": "الولايات المتحدة",
+        "en": "United States",
+        "code": "US"
+      },
+      "fields": [
+        {
+          "category": "social-sciences",
+          "name": {
+            "ar": "القيادة المجتمعية والخدمة العامة",
+            "en": "Community Leadership & Public Service"
+          }
+        },
+        {
+          "category": "general",
+          "name": {
+            "ar": "دراسات البكالوريوس المتنوعة",
+            "en": "Undergraduate fields of study"
+          }
+        }
+      ],
+      "levels": [
+        "undergraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "unknown",
+      "nextCycleOpens": "2027-03-01",
+      "applicationStatus": "closed",
+      "yemenEligibility": "conditional",
+      "applicationRoute": "direct",
+      "fundingCoverage": "partial",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.aidsmemorial.org/pedro-zamora-scholarship",
+      "description": {
+        "ar": "منحة بقيمة 5,000 دولار للناشطين والقيادات الشبابية في مجالات الخدمة المجتمعية. تنبيه هام: دورة 2026 مغلقة حالياً وتاريخ إغلاقها السابق غير معروض بصفحة المصدر الرئيسية الحالية، ويعاد فتح باب التقديم في 1 مارس 2027 دون نشر موعد إغلاق 2027 بعد. تشترط المنحة ألا يتجاوز العمر 27 عاماً والقيد الفعلي في كلية مجتمع أو جامعة داخل الولايات المتحدة؛ المنحة لا تمثل مسار قبول أو تأشيرة للولايات المتحدة.",
+        "en": "A USD 5,000 scholarship for emerging young leaders and activists in community health and public service. Important status notice: The 2026 application cycle is closed (exact historical closing day unconfirmed on live primary site); the next cycle opens 1 March 2027 with closing date not yet announced. Requires age 27 or under and active enrollment in an accredited U.S. community college or university. Does not provide admission or visa sponsorship."
+      }
+    },
+    {
+      "id": "daad-master-studies-2027-2028",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منح الهيئة الألمانية للتبادل الثقافي (DAAD) للماجستير لكافة التخصصات 2027–2028 (مغلقة)",
+        "en": "DAAD Study Scholarships - Master Studies for All Academic Disciplines 2027-2028 (Closed)"
+      },
+      "provider": {
+        "ar": "الهيئة الألمانية للتبادل الثقافي (DAAD)",
+        "en": "German Academic Exchange Service (DAAD)"
+      },
+      "country": {
+        "ar": "ألمانيا",
+        "en": "Germany",
+        "code": "DE"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "كافة التخصصات الأكاديمية للدراسات العليا",
+            "en": "All graduate academic disciplines"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate"
+      ],
+      "deadline": "2026-08-31",
+      "deadlineType": "fixed",
+      "applicationStatus": "closed",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct",
+      "fundingCoverage": "full-funding",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?status=&origin=96&subjectGrps=&daad=&intention=&q=&page=1&lang=en&sd=1&detail=50026200&page=1",
+      "additionalOfficialSources": [
+        "https://www.daad.de/go/en/stipa50026200"
+      ],
+      "description": {
+        "ar": "منحة دراسية ممولة لدراسة الماجستير في الجامعات الألمانية الحكومية، توفر راتباً شهرياً قدره 992 يورو بالإضافة إلى مخصصات السفر والتأمين الصحي وبدل الدراسة (ولا تدفع DAAD عادةً أي رسوم جامعية إضافية تفرضها بعض الجامعات). تنبيه: دورة التقديم لعام 2027/2028 أغلقت في 31 أغسطس 2026. التقديم يتم مباشرة عبر بوابة DAAD، مع اشتراط التقدم المستقل للقبول بالجامعة الألمانية المختارة.",
+        "en": "Scholarship funding master's studies at German public universities, providing EUR 992 monthly stipend, travel allowance, health insurance, and study allowance (DAAD generally does not pay university tuition fees). Notice: The application round for 2027/2028 entry closed on 31 August 2026. Applied directly via DAAD portal; separate admission application to eligible German university required."
+      }
+    },
+    {
+      "id": "itu-gender-champions-2027",
+      "type": "leadership-program",
+      "deliveryMode": "hybrid",
+      "locationScope": "global",
+      "title": {
+        "ar": "برنامج رواد العدالة الرقمية للاتحاد الدولي للاتصالات 2027 (ITU)",
+        "en": "ITU Gender Champions Programme 2027"
+      },
+      "provider": {
+        "ar": "الاتحاد الدولي للاتصالات (ITU)",
+        "en": "International Telecommunication Union"
+      },
+      "country": {
+        "ar": "سويسرا",
+        "en": "Switzerland",
+        "code": "CH"
+      },
+      "fields": [
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "التكنولوجيا والشمول الرقمي",
+            "en": "Technology & Digital Inclusion"
+          }
+        },
+        {
+          "category": "social-sciences",
+          "name": {
+            "ar": "التمكين القيادي والتنمية المستدامة",
+            "en": "Leadership & Sustainable Development"
+          }
+        }
+      ],
+      "levels": [
+        "all-levels"
+      ],
+      "deadline": "2026-11-15",
+      "deadlineType": "fixed",
+      "applicationOpens": "2026-09-21",
+      "applicationStatus": "open",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct",
+      "fundingCoverage": "leadership-support",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.itu.int/initiatives/gender-equality/gender-champions/",
+      "description": {
+        "ar": "برنامج قيادة وتقدير للشابات (18–25 سنة) الرائدات في مجال الشمول الرقمي والتكنولوجيا، وليس منحة جامعية أو دورة تدريبية مجانية. يتيح البرنامج للمشاركات المختارات فرصة تمثيل ودعم للمشاركة في قمة الذكاء الاصطناعي من أجل الصالح العام بجنيف مع إمكانية دعم مشاريع مجتمعية وفق توفر التمويل. تقع اليمن ضمن إقليم الدول العربية للاتحاد الدولي للاتصالات؛ تأشيرة وتكاليف السفر إلى سويسرا تخضع للإجراءات التنظيمية ولا تُعد مضمونة تلقائياً.",
+        "en": "A leadership and recognition program for young women aged 18-25 leading digital inclusion and technology initiatives (not a university degree scholarship or free course). Selected participants may receive support to attend the AI for Good Global Summit in Geneva, with optional project funding contingent on available resources. Yemen falls within the ITU Arab States region; travel and Swiss visas are subject to official conditions."
+      }
+    },
+    {
+      "id": "srh-international-incentive-programme",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "برنامج الحافز الدولي بجامعة SRH الألمانية (منحة جزئية دورية)",
+        "en": "SRH International Incentive Programme (Periodic Partial Scholarship)"
+      },
+      "provider": {
+        "ar": "جامعة إس آر إتش (SRH University)",
+        "en": "SRH University"
+      },
+      "country": {
+        "ar": "ألمانيا",
+        "en": "Germany",
+        "code": "DE"
+      },
+      "fields": [
+        {
+          "category": "general",
+          "name": {
+            "ar": "برامج البكالوريوس والماجستير المؤهلة",
+            "en": "Eligible bachelor and master programmes"
+          }
+        }
+      ],
+      "levels": [
+        "undergraduate",
+        "postgraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "periodic",
+      "recurringDeadlines": [
+        {
+          "monthDay": "01-15",
+          "intake": {
+            "ar": "فصل أبريل",
+            "en": "April Intake"
+          }
+        },
+        {
+          "monthDay": "07-15",
+          "intake": {
+            "ar": "فصل أكتوبر",
+            "en": "October Intake"
+          }
+        }
+      ],
+      "applicationStatus": "open",
+      "yemenEligibility": "conditional",
+      "applicationRoute": "admission-then-invitation",
+      "fundingCoverage": "partial",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://www.srh-university.de/en/you-want-to-study/financing/",
+      "description": {
+        "ar": "منحة دراسية جزئية وتنافسية تقدم تخفيضاً يصل إلى 50% من الرسوم الدراسية للسنة الأولى فقط في جامعة SRH الخاصة بألمانيا (وليست منحة كاملة ولا تغطي المعيشة). مواعيد التقديم دورية متكررة: 15 يناير للالتحاق بفصل أبريل، و15 يوليو للالتحاق بفصل أكتوبر. يشترط التقديم أولاً والحصول على عقد دراسة رسمي، وتلقي دعوة مخصصة للتقديم على المنحة مع وجوب تقديم الطلب خلال أسبوعين من تلقي الدعوة.",
+        "en": "A competitive partial scholarship offering up to 50% tuition reduction for the first year only at private SRH University in Germany (not a full scholarship; does not cover living expenses). Recurring regular deadlines are 15 January for April intake and 15 July for October intake. Requires prior admission and a signed study contract, followed by an invitation to apply for funding which typically must be submitted within two weeks."
+      }
+    },
+    {
+      "id": "ibm-skillsbuild-ai-fundamentals",
+      "type": "course",
+      "deliveryMode": "online",
+      "country": null,
+      "fields": [
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "علوم الحاسوب والذكاء الاصطناعي",
+            "en": "Computer Science & Artificial Intelligence"
+          }
+        }
+      ],
+      "levels": [
+        "all-levels"
+      ],
+      "deadline": null,
+      "deadlineType": "ongoing",
+      "applicationStatus": "open",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct",
+      "fundingCoverage": "full-funding",
+      "officialSourceUrl": "https://skillsbuild.org/learning-catalog/university-catalog?topic=ai",
+      "additionalOfficialSources": [
+        "https://www.credly.com/org/ibm/badge/artificial-intelligence-fundamentals"
+      ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-21",
+      "title": {
+        "ar": "أساسيات الذكاء الاصطناعي: الركائز الأساسية لفهم الذكاء الاصطناعي",
+        "en": "AI Fundamentals: Foundations for Understanding AI"
+      },
+      "provider": {
+        "ar": "منصة IBM SkillsBuild",
+        "en": "IBM SkillsBuild"
+      },
+      "description": {
+        "ar": "مسار تدريبي رقمي مجاني بالكامل ومتاح باللغتين العربية والإنجليزية عبر منصة IBM SkillsBuild، يركز على أساسيات الذكاء الاصطناعي، وتعلم الآلة، والشبكات العصبية، والذكاء الاصطناعي التوليدي، وأخلاقيات الذكاء الاصطناعي والمسؤولية التقنية. التقديم والتسجيل متاحان ذاتياً ومجاناً على مدار العام لكافة المستويات الدراسية. يحصل المتعلم بعد إكمال الأنشطة والتقييمات المطلوبة على شارة رقمية معتمدة من شركة IBM عبر منصة Credly.",
+        "en": "A free, self-paced digital course available in Arabic and English on the IBM SkillsBuild platform, covering artificial intelligence fundamentals, machine learning, neural networks, deep learning, generative AI, and AI ethics and responsible design. Enrollment is free and available year-round for all educational levels. Learners who successfully complete the required activities and assessments earn an official IBM digital credential badge via Credly."
+      }
+    },
+    {
+      "id": "relai-master-scholarship-2026",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة مدرسة كونراد زوزه للذكاء الاصطناعي الموثوق (relAI) للماجستير 2026 (مغلقة — الموعد الدقيق غير مؤكد)",
+        "en": "Konrad Zuse School relAI MSc Scholarship - 2026 Call (Closed - Exact Cutoff Unconfirmed)"
+      },
+      "provider": {
+        "ar": "مدرسة كونراد زوزه للذكاء الاصطناعي الموثوق (TUM / LMU)",
+        "en": "Konrad Zuse School of Excellence in Reliable AI (TUM / LMU)"
+      },
+      "country": {
+        "ar": "ألمانيا",
+        "en": "Germany",
+        "code": "DE"
+      },
+      "fields": [
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "الذكاء الاصطناعي الموثوق",
+            "en": "Reliable Artificial Intelligence"
+          }
+        },
+        {
+          "category": "engineering",
+          "name": {
+            "ar": "هندسة البيانات والحوسبة",
+            "en": "Data & Systems Engineering"
+          }
+        },
+        {
+          "category": "natural-sciences",
+          "name": {
+            "ar": "الرياضيات التطبيقية",
+            "en": "Applied Mathematics"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "unknown",
+      "applicationStatus": "closed",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct-after-admission",
+      "fundingCoverage": "research-grant",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://zuseschoolrelai.de/application/",
+      "additionalOfficialSources": [
+        "https://www.daad.de/de/der-daad/zuse-schools/zuse-school-relai/"
+      ],
+      "description": {
+        "ar": "منحة دراسية مقدمة من مدرسة relAI بالتعاون مع DAAD لدعم طلاب الماجستير في برامج الذكاء الاصطناعي المؤهلة بجامعتي ميونيخ التقنية (TUM) أو لودفيغ ماكسيميليان (LMU) براتب شهري يصل إلى 992 يورو. تنبيهات هامة: دورة 2026 مغلقة رسمياً. لم يتم إثبات تاريخ 15 يونيو 2026 المنقول من مراجعات غير رسمية من خلال إعلان رسمي مؤرخ في الصفحة الحالية؛ لذا سُجل الموعد كمجهول ودورة التقديم كمغلقة. لا تشمل المنحة إعفاءً تلقائياً من الرسوم الدراسية الدولية في TUM، ولا توجد مؤشرات على فتح دورة 2027 بعد.",
+        "en": "Scholarship by relAI school in partnership with DAAD supporting master's students in eligible AI programs at TUM or LMU Munich with up to EUR 992 monthly stipend. Critical notices: The 2026 call is officially closed. The reported 15 June 2026 date is not corroborated on the current live official site; hence deadline is recorded as unknown and status as closed. Tuition fee waivers at TUM are not automatic, and the 2027 MSc call has not opened."
+      }
+    }
+  ]
+}

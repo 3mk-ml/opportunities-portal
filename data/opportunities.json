@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "lastUpdated": "2026-10-19",
+  "version": "1.2.0",
+  "lastUpdated": "2026-10-21",
   "opportunities": [
     {
       "id": "um-nl-high-potential-2027-2028",
@@ -421,76 +421,29 @@
       }
     },
     {
-      "id": "grips-ylp-mext-2027-2028",
+      "id": "gates-cambridge-scholarship-2027-2028",
       "type": "scholarship",
       "deliveryMode": "onsite",
       "locationScope": "national",
       "title": {
-        "ar": "برنامج القادة الشباب MEXT بمعهد غريبس للدراسات العليا 2027–2028 (سجل مقيد / أرشيفي)",
-        "en": "GRIPS MEXT Young Leaders Program 2027-2028 (Restricted / Archive)"
+        "ar": "منحة غيتس كامبريدج للدراسات العليا 2027–2028",
+        "en": "Gates Cambridge Scholarship 2027-2028"
       },
       "provider": {
-        "ar": "المعهد الوطني للدراسات العليا للسياسات (GRIPS)",
-        "en": "National Graduate Institute for Policy Studies"
+        "ar": "جامعة كامبريدج / مؤسسة غيتس كامبريدج",
+        "en": "University of Cambridge / Gates Cambridge Trust"
       },
       "country": {
-        "ar": "اليابان",
-        "en": "Japan",
-        "code": "JP"
+        "ar": "المملكة المتحدة",
+        "en": "United Kingdom",
+        "code": "GB"
       },
       "fields": [
         {
-          "category": "social-sciences",
+          "category": "general",
           "name": {
-            "ar": "السياسات العامة والإدارة الحكومية",
-            "en": "Public Policy & Administration"
-          }
-        }
-      ],
-      "levels": [
-        "postgraduate"
-      ],
-      "deadline": null,
-      "deadlineType": "unknown",
-      "applicationStatus": "closed",
-      "yemenEligibility": "restricted",
-      "applicationRoute": "external-nomination",
-      "fundingCoverage": "full-funding",
-      "verificationStatus": "verified",
-      "verificationDate": "2026-10-19",
-      "officialSourceUrl": "https://www.grips.ac.jp/jp/education/inter_programs/leader/",
-      "additionalOfficialSources": [
-        "https://www.grips.ac.jp/en/admissions/apply/"
-      ],
-      "description": {
-        "ar": "سجل أرشيفي وتوثيقي: برنامج الماجستير للقادة الشباب (YLP) الممول من وزارة التعليم اليابانية (MEXT) بمعهد غريبس في طوكيو. تنبيه هام: اليمن ليست مدرجة ضمن قوائم الدول المستهدفة المعتمدة في مساري الإدارة العامة والحوكمة المحلية. يشترط البرنامج ترشيحاً رسمياً حصرياً من جهة حكومية راعية معتمدة في الدول المحددة، ولا يتيح تقديماً فردياً مفتوحاً. يُعرض هذا السجل لغرض الشفافية والتوضيح لمنع التضليل الناتج عن مواقع تجميع المنح التجارية.",
-        "en": "Archival and informational listing: Young Leaders Program (YLP) MEXT scholarship at GRIPS in Tokyo. Important notice: Yemen is NOT included on the published target-country eligibility lists for either the School of Government or Local Governance tracks. Application strictly requires official nomination by designated sponsoring authorities in target nations, with no direct open individual application. Displayed for transparency and caution against unverified aggregator claims."
-      }
-    },
-    {
-      "id": "noaa-margaret-a-davidson-2027-2029",
-      "type": "fellowship",
-      "deliveryMode": "onsite",
-      "locationScope": "national",
-      "title": {
-        "ar": "زمالة مارغريت ديفيدسون لأبحاث المحميات الساحلية 2027–2029 (سجل مقيد للمقيمين بالولايات المتحدة)",
-        "en": "NOAA Margaret A. Davidson Graduate Fellowship 2027-2029 (Restricted / US Status Required)"
-      },
-      "provider": {
-        "ar": "الإدارة الوطنية للمحيطات والغلاف الجوي (NOAA) / مركز المياه بجامعة ميشيغان",
-        "en": "NOAA / University of Michigan Water Center"
-      },
-      "country": {
-        "ar": "الولايات المتحدة",
-        "en": "United States",
-        "code": "US"
-      },
-      "fields": [
-        {
-          "category": "natural-sciences",
-          "name": {
-            "ar": "العلوم البيئية والساحلية والمائية",
-            "en": "Environmental, Coastal & Water Sciences"
+            "ar": "برامج الدراسات العليا المؤهلة في مختلف التخصصات",
+            "en": "Eligible postgraduate programmes across multiple disciplines"
           }
         }
       ],
@@ -498,21 +451,99 @@
         "postgraduate",
         "doctorate"
       ],
-      "deadline": "2026-12-07",
-      "deadlineType": "fixed",
-      "applicationStatus": "open",
-      "yemenEligibility": "not-eligible",
-      "applicationRoute": "institution-submits",
-      "fundingCoverage": "research-grant",
-      "verificationStatus": "verified",
-      "verificationDate": "2026-10-19",
-      "officialSourceUrl": "https://coast.noaa.gov/nerrs/research/davidson-fellowship.html",
-      "additionalOfficialSources": [
-        "https://graham.umich.edu/application-request/33730"
+      "deadline": null,
+      "deadlineType": "course-dependent",
+      "applicationStatus": "course-dependent",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct-after-admission",
+      "fundingCoverage": "full-funding",
+      "secondaryDeadlines": [
+        {
+          "label": {
+            "ar": "الموعد النهائي للتقديم للدورات ذات الموعد المبكر (ديسمبر)",
+            "en": "Course funding deadline round 1 (December courses)"
+          },
+          "date": "2026-12-08"
+        },
+        {
+          "label": {
+            "ar": "الموعد النهائي للتقديم للدورات ذات الموعد المعتاد (يناير)",
+            "en": "Course funding deadline round 2 (January courses)"
+          },
+          "date": "2027-01-06"
+        }
       ],
+      "officialSourceUrl": "https://www.gatescambridge.org/",
+      "additionalOfficialSources": [
+        "https://www.postgraduate.study.cam.ac.uk/funding"
+      ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-21",
       "description": {
-        "ar": "زمالة بحثية لطلاب الدراسات العليا تقدم تمويلاً مباشراً لأبحاث المحميات الساحلية بقيمة تصل إلى 45,000 دولار سنوياً لتغطية تكاليف البحث المباشرة (ولا تمثل راتباً شخصياً مضموناً). تنبيه هام بشأن الأهلية: يشترط البرنامج حيازة الجنسية الأمريكية أو الإقامة الدائمة في الولايات المتحدة، والقيد كطالب منتظم في برنامج ماجستير أو دكتوراه بجامعة أمريكية معتمدة. الجهة المتقدمة رسمياً هي الجامعة الأمريكية وليس الطالب بمفرده؛ الجنسية اليمنية وحدها لا تمنح الأهلية، والفرصة غير متاحة للتقديم العام من اليمن.",
-        "en": "A graduate research fellowship offering up to USD 45,000 annual direct project costs for estuarine reserve research (not a guaranteed personal stipend). Critical eligibility restriction: requires U.S. citizenship or lawful permanent residency, full-time enrollment in an accredited U.S. master's or doctoral program, and formal submission by the U.S. academic institution. Yemeni nationality alone does not confer eligibility; not open for general application from Yemen."
+        "ar": "منحة دراسية مرموقة وممولة بالكامل للدراسات العليا (الماجستير والدكتوراه) في جامعة كامبريدج للطلاب المتميزين من خارج المملكة المتحدة، بما في ذلك المتقدمين من اليمن. تغطي المنحة التكاليف الدراسية الكاملة ومخصصات معيشية وتذاكر سفر وتأشيرة. يتم التقديم عبر بوابة القبول للدراسات العليا بجامعة كامبريدج مع استكمال قسم منحة غيتس. تختلف المواعيد النهائية بحسب البرنامج الدراسي المختار، وتنتهي إما في 8 ديسمبر 2026 أو 6 يناير 2027 حسب دليل الدورات بالجامعة.",
+        "en": "A prestigious, full-cost postgraduate scholarship for eligible citizens outside the United Kingdom, including Yemen, pursuing a full-time postgraduate degree (Master's or PhD) at the University of Cambridge. Covers University Composition Fee, maintenance allowance, return airfare, and visa costs. Applications are submitted via the University of Cambridge postgraduate application portal with the Gates Cambridge section. Deadlines depend on the chosen course: either 8 December 2026 or 6 January 2027 according to the university course directory."
+      }
+    },
+    {
+      "id": "kaust-visiting-student-research-program",
+      "type": "internship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "برنامج تدريب وبحث الطلاب الزائرين (VSRP) بجامعة الملك عبد الله للعلوم والتقنية",
+        "en": "KAUST Visiting Student Research Program (VSRP)"
+      },
+      "provider": {
+        "ar": "جامعة الملك عبد الله للعلوم والتقنية (كاوست)",
+        "en": "King Abdullah University of Science and Technology (KAUST)"
+      },
+      "country": {
+        "ar": "المملكة العربية السعودية",
+        "en": "Saudi Arabia",
+        "code": "SA"
+      },
+      "fields": [
+        {
+          "category": "engineering",
+          "name": {
+            "ar": "الهندسة والعلوم التطبيقية",
+            "en": "Engineering & Applied Sciences"
+          }
+        },
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "علوم الحاسوب والذكاء الاصطناعي",
+            "en": "Computer Science & Artificial Intelligence"
+          }
+        },
+        {
+          "category": "natural-sciences",
+          "name": {
+            "ar": "العلوم الطبيعية والبيولوجية والبيئية",
+            "en": "Natural, Biological & Environmental Sciences"
+          }
+        }
+      ],
+      "levels": [
+        "undergraduate",
+        "postgraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "ongoing",
+      "applicationStatus": "open",
+      "yemenEligibility": "conditional",
+      "applicationRoute": "direct",
+      "fundingCoverage": "full-funding",
+      "officialSourceUrl": "https://admissions.kaust.edu.sa/study/internships",
+      "additionalOfficialSources": [
+        "https://admissions.kaust.edu.sa/internship/search"
+      ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-21",
+      "description": {
+        "ar": "برنامج تدريب بحثي عملي مدفوع بالكامل لطلاب البكالوريوس (السنة الثالثة فما فوق) وطلاب الماجستير في تخصصات العلوم والتقنية والهندسة والرياضيات (STEM). تتراوح مدة البرنامج بين 2 إلى 6 أشهر داخل مختبرات كاوست، ويشمل مكافأة شهرية وسكناً خاصاً وتذاكر طيران وتأمين صحي. التقديم مفتوح على مدار العام لمشاريع بحثية محددة. يشترط معدل تراكمي لا يقل عن 3.5 من 4.0 وإجادة الإنجليزية وخطاب توصية. الأهلية للطلاب اليمنيين مشروطة بالقبول الأكاديمي في مشروع بحثي والحصول على الموافقات والإجراءات النظامية المعمول بها.",
+        "en": "A fully funded, hands-on research internship for 3rd/4th-year undergraduate and master's students in STEM fields, lasting 2 to 6 months at KAUST research laboratories. Includes a monthly stipend, private accommodation, return flights, and health insurance. Applications are accepted year-round directly to available faculty-led research projects. Requires a minimum GPA of 3.5/4.0, English proficiency, and an academic recommendation. Eligibility for Yemeni applicants is conditional upon faculty selection for a research project and administrative/visa clearances."
       }
     },
     {
@@ -929,57 +960,45 @@
       }
     },
     {
-      "id": "daad-architecture-2027-2028",
-      "type": "scholarship",
-      "deliveryMode": "onsite",
-      "locationScope": "national",
-      "title": {
-        "ar": "منح DAAD للدراسات العليا في مجال العمارة 2027–2028 (مغلقة — أهلية اليمن قيد التأكيد)",
-        "en": "DAAD Study Scholarships - Postgraduate Studies in the Field of Architecture 2027-2028 (Closed - Eligibility Unconfirmed)"
-      },
-      "provider": {
-        "ar": "الهيئة الألمانية للتبادل الثقافي (DAAD)",
-        "en": "German Academic Exchange Service (DAAD)"
-      },
-      "country": {
-        "ar": "ألمانيا",
-        "en": "Germany",
-        "code": "DE"
-      },
+      "id": "ibm-skillsbuild-ai-fundamentals",
+      "type": "course",
+      "deliveryMode": "online",
+      "country": null,
       "fields": [
         {
-          "category": "arts-design",
+          "category": "computer-science",
           "name": {
-            "ar": "العمارة والتصميم المعماري",
-            "en": "Architecture & Design"
-          }
-        },
-        {
-          "category": "engineering",
-          "name": {
-            "ar": "هندسة العمارة والتخطيط العمراني",
-            "en": "Architectural Engineering & Urban Planning"
+            "ar": "علوم الحاسوب والذكاء الاصطناعي",
+            "en": "Computer Science & Artificial Intelligence"
           }
         }
       ],
       "levels": [
-        "postgraduate"
+        "all-levels"
       ],
-      "deadline": "2026-09-23",
-      "deadlineType": "fixed",
-      "applicationStatus": "closed",
-      "yemenEligibility": "unconfirmed",
+      "deadline": null,
+      "deadlineType": "ongoing",
+      "applicationStatus": "open",
+      "yemenEligibility": "eligible",
       "applicationRoute": "direct",
       "fundingCoverage": "full-funding",
-      "verificationStatus": "verified",
-      "verificationDate": "2026-10-19",
-      "officialSourceUrl": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?status=&origin=96&subjectGrps=F&daad=&intention=1&q=&page=1&lang=en&sd=1&detail=57135744&page=1",
+      "officialSourceUrl": "https://skillsbuild.org/learning-catalog/university-catalog?topic=ai",
       "additionalOfficialSources": [
-        "https://www.daad.org.uk/en/find-funding/scholarship-database/?detail_to_show=57135744"
+        "https://www.credly.com/org/ibm/badge/artificial-intelligence-fundamentals"
       ],
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-21",
+      "title": {
+        "ar": "أساسيات الذكاء الاصطناعي: الركائز الأساسية لفهم الذكاء الاصطناعي",
+        "en": "AI Fundamentals: Foundations for Understanding AI"
+      },
+      "provider": {
+        "ar": "منصة IBM SkillsBuild",
+        "en": "IBM SkillsBuild"
+      },
       "description": {
-        "ar": "منحة تخصصية ممولة لدراسة الماجستير في العمارة والتصميم بالجامعات الألمانية براتب شهري قدره 992 يورو وبدلات سفر وتأمين. تنبيهات هامة: التقديم لدورة 2027/2028 أُغلق رسمياً في 23 سبتمبر 2026. تشترط المنحة تقديم نماذج وملف أعمال معماري (Portfolio). بالإضافة إلى ذلك، فإن أهلية المتقدمين من اليمن في هذه الدورة التخصصية غير مؤكدة قطعياً في الصفحة الرسمية وتتطلب التحقق المباشر من قاعدة بيانات DAAD المحدثة.",
-        "en": "Specialised scholarship funding master's degrees in architecture and design in Germany, offering EUR 992 monthly stipend, travel and health allowances. Critical notices: The 2027/2028 application cycle closed on 23 September 2026. Submission of architecture work samples/portfolio is required. Furthermore, country-specific eligibility for Yemeni applicants in this specific call is unconfirmed on primary pages and requires direct verification from the updated DAAD database."
+        "ar": "مسار تدريبي رقمي مجاني بالكامل ومتاح باللغتين العربية والإنجليزية عبر منصة IBM SkillsBuild، يركز على أساسيات الذكاء الاصطناعي، وتعلم الآلة، والشبكات العصبية، والذكاء الاصطناعي التوليدي، وأخلاقيات الذكاء الاصطناعي والمسؤولية التقنية. التقديم والتسجيل متاحان ذاتياً ومجاناً على مدار العام لكافة المستويات الدراسية. يحصل المتعلم بعد إكمال الأنشطة والتقييمات المطلوبة على شارة رقمية معتمدة من شركة IBM عبر منصة Credly.",
+        "en": "A free, self-paced digital course available in Arabic and English on the IBM SkillsBuild platform, covering artificial intelligence fundamentals, machine learning, neural networks, deep learning, generative AI, and AI ethics and responsible design. Enrollment is free and available year-round for all educational levels. Learners who successfully complete the required activities and assessments earn an official IBM digital credential badge via Credly."
       }
     },
     {
