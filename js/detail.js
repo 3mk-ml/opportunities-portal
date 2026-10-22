@@ -998,3 +998,509 @@
 
     shareBtn.addEventListener('click', async () => {
       try {
+        const url = window.location.href;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const input = document.createElement('input');
+          input.value = url;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+        }
+        shareText.textContent = t('detail.copied', lang);
+        shareBtn.classList.add('is-copied');
+        setTimeout(() => {
+          shareText.textContent = t('detail.copyLink', lang);
+          shareBtn.classList.remove('is-copied');
+        }, 2500);
+      } catch (err) {
+        console.warn('Share copy failed', err);
+      }
+    });
+
+    actionsGroup.appendChild(favBtn);
+    actionsGroup.appendChild(shareBtn);
+
+    bar.appendChild(backBtn);
+    bar.appendChild(actionsGroup);
+    return bar;
+  }
+
+  /**
+   * Build the Main Hero Section: Titles, Provider, Location.
+   * @param {Object} opp
+   * @param {string} lang
+   * @returns {HTMLElement}
+   */
+  function buildHeroHeader(opp, lang) {
+    const header = document.createElement('header');
+    header.className = 'detail-header-card';
+
+    // Badges Row
+    const badgesRow = buildBadgesRow(opp, lang);
+    header.appendChild(badgesRow);
+
+    // Primary Title
+    const primaryTitle = (lang === 'ar' ? (opp.title?.ar || opp.title?.en) : (opp.title?.en || opp.title?.ar)) || opp.id;
+    const secondaryTitle = (lang === 'ar' ? opp.title?.en : opp.title?.ar);
+
+    const h1 = document.createElement('h1');
+    h1.className = 'detail-main-title';
+    h1.textContent = primaryTitle;
+    header.appendChild(h1);
+
+    // Secondary Title (bilingual subtitle)
+    if (secondaryTitle && secondaryTitle !== primaryTitle) {
+      const sub = document.createElement('p');
+      sub.className = 'detail-secondary-title';
+      sub.setAttribute('dir', lang === 'ar' ? 'ltr' : 'rtl');
+      sub.setAttribute('lang', lang === 'ar' ? 'en' : 'ar');
+      sub.textContent = secondaryTitle;
+      header.appendChild(sub);
+    }
+
+    // Meta bar: Provider & Country
+    const metaBar = document.createElement('div');
+    metaBar.className = 'detail-meta-bar';
+
+    // Provider
+    const provName = (lang === 'ar' ? (opp.provider?.ar || opp.provider?.en) : (opp.provider?.en || opp.provider?.ar)) || '';
+    if (provName) {
+      const provEl = document.createElement('div');
+      provEl.className = 'detail-meta-item';
+      const provLbl = document.createElement('span');
+      provLbl.className = 'detail-meta-label';
+      provLbl.textContent = t('detail.providerTitle', lang);
+      const provVal = document.createElement('span');
+      provVal.className = 'detail-meta-value detail-meta-provider';
+      provVal.textContent = provName;
+      provEl.appendChild(provLbl);
+      provEl.appendChild(provVal);
+      metaBar.appendChild(provEl);
+    }
+
+    // Country
+    const countryEl = document.createElement('div');
+    countryEl.className = 'detail-meta-item';
+    const countryLbl = document.createElement('span');
+    countryLbl.className = 'detail-meta-label';
+    countryLbl.textContent = t('detail.countryTitle', lang);
+    const countryVal = document.createElement('span');
+    countryVal.className = 'detail-meta-value';
+
+    if (opp.country) {
+      const cName = lang === 'ar' ? (opp.country.ar || opp.country.en) : (opp.country.en || opp.country.ar);
+      countryVal.textContent = cName + (opp.country.code ? ` (${opp.country.code})` : '');
+    } else if (opp.locationScope === 'global') {
+      countryVal.textContent = t('detail.global', lang);
+    } else if (opp.locationScope === 'multi-country') {
+      countryVal.textContent = t('detail.multiCountry', lang);
+    } else {
+      countryVal.textContent = t('detail.global', lang);
+    }
+
+    countryEl.appendChild(countryLbl);
+    countryEl.appendChild(countryVal);
+    metaBar.appendChild(countryEl);
+
+    header.appendChild(metaBar);
+    return header;
+  }
+
+  /**
+   * Build the specifications detail grid (Route, Levels, Fields, Coverage, Mode).
+   * @param {Object} opp
+   * @param {string} lang
+   * @returns {HTMLElement}
+   */
+  function buildSpecsGrid(opp, lang) {
+    const section = document.createElement('section');
+    section.className = 'detail-specs-section';
+    section.setAttribute('aria-labelledby', 'specs-heading');
+
+    const h2 = document.createElement('h2');
+    h2.id = 'specs-heading';
+    h2.className = 'detail-section-heading';
+    h2.textContent = t('detail.overviewTitle', lang);
+    section.appendChild(h2);
+
+    const grid = document.createElement('div');
+    grid.className = 'detail-specs-grid';
+
+    // Helper for grid cell
+    function addCell(titleKey, contentNode) {
+      const cell = document.createElement('div');
+      cell.className = 'detail-spec-cell';
+
+      const label = document.createElement('h3');
+      label.className = 'detail-spec-label';
+      label.textContent = t(titleKey, lang);
+
+      const val = document.createElement('div');
+      val.className = 'detail-spec-content';
+      if (typeof contentNode === 'string') {
+        val.textContent = contentNode;
+      } else if (contentNode) {
+        val.appendChild(contentNode);
+      }
+
+      cell.appendChild(label);
+      cell.appendChild(val);
+      grid.appendChild(cell);
+    }
+
+    // 1. Application Route
+    if (opp.applicationRoute) {
+      const routeText = t(`route.${opp.applicationRoute}`, lang);
+      addCell('detail.routeTitle', routeText);
+    }
+
+    // 2. Educational Levels
+    if (Array.isArray(opp.levels) && opp.levels.length > 0) {
+      const pillsContainer = document.createElement('div');
+      pillsContainer.className = 'detail-pills-wrap';
+      opp.levels.forEach(lvl => {
+        const pill = document.createElement('span');
+        pill.className = 'detail-pill';
+        pill.textContent = t(`level.${lvl}`, lang);
+        pillsContainer.appendChild(pill);
+      });
+      addCell('detail.levelsTitle', pillsContainer);
+    }
+
+    // 3. Academic Fields
+    if (Array.isArray(opp.fields) && opp.fields.length > 0) {
+      const fieldsContainer = document.createElement('div');
+      fieldsContainer.className = 'detail-fields-list';
+      opp.fields.forEach(f => {
+        const fieldItem = document.createElement('div');
+        fieldItem.className = 'detail-field-item';
+
+        const fieldName = (lang === 'ar' ? (f.name?.ar || f.name?.en) : (f.name?.en || f.name?.ar)) || f.category;
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'detail-field-name';
+        nameSpan.textContent = fieldName;
+
+        fieldItem.appendChild(nameSpan);
+        fieldsContainer.appendChild(fieldItem);
+      });
+      addCell('detail.fieldsTitle', fieldsContainer);
+    }
+
+    // 4. Funding Coverage
+    if (opp.fundingCoverage) {
+      const fundText = t(`funding.${opp.fundingCoverage}`, lang);
+      addCell('detail.fundingTitle', fundText);
+    }
+
+    // 5. Yemen Eligibility
+    if (opp.yemenEligibility) {
+      const eligText = t(`eligibility.${opp.yemenEligibility}`, lang);
+      addCell('detail.eligibilityTitle', eligText);
+    }
+
+    // 6. Delivery Mode
+    if (opp.deliveryMode) {
+      const delivText = t(`delivery.${opp.deliveryMode}`, lang);
+      addCell('detail.deliveryModeTitle', delivText);
+    }
+
+    section.appendChild(grid);
+    return section;
+  }
+
+  /**
+   * Build the bilingual descriptions section.
+   * @param {Object} opp
+   * @param {string} lang
+   * @returns {HTMLElement}
+   */
+  function buildDescriptionsSection(opp, lang) {
+    const section = document.createElement('section');
+    section.className = 'detail-descriptions-section';
+
+    // Primary language description
+    if (opp.description?.ar) {
+      const arCard = document.createElement('div');
+      arCard.className = 'detail-desc-card';
+      arCard.setAttribute('dir', 'rtl');
+      arCard.setAttribute('lang', 'ar');
+
+      const arHeading = document.createElement('h3');
+      arHeading.className = 'detail-desc-heading';
+      arHeading.textContent = t('detail.descriptionAr', lang);
+
+      const arText = document.createElement('p');
+      arText.className = 'detail-desc-paragraph';
+      arText.textContent = opp.description.ar;
+
+      arCard.appendChild(arHeading);
+      arCard.appendChild(arText);
+      section.appendChild(arCard);
+    }
+
+    // Secondary language description
+    if (opp.description?.en) {
+      const enCard = document.createElement('div');
+      enCard.className = 'detail-desc-card';
+      enCard.setAttribute('dir', 'ltr');
+      enCard.setAttribute('lang', 'en');
+
+      const enHeading = document.createElement('h3');
+      enHeading.className = 'detail-desc-heading';
+      enHeading.textContent = t('detail.descriptionEn', lang);
+
+      const enText = document.createElement('p');
+      enText.className = 'detail-desc-paragraph';
+      enText.textContent = opp.description.en;
+
+      enCard.appendChild(enHeading);
+      enCard.appendChild(enText);
+      section.appendChild(enCard);
+    }
+
+    return section;
+  }
+
+  /**
+   * Build Official Links, Verification Box, and Security Disclaimers.
+   * @param {Object} opp
+   * @param {string} lang
+   * @returns {HTMLElement}
+   */
+  function buildActionsAndTrustSection(opp, lang) {
+    const section = document.createElement('section');
+    section.className = 'detail-action-trust-section';
+
+    // Main CTA Box
+    const ctaBox = document.createElement('div');
+    ctaBox.className = 'detail-cta-box';
+
+    if (isValidHttpsUrl(opp.officialSourceUrl)) {
+      const mainLink = document.createElement('a');
+      mainLink.href = opp.officialSourceUrl;
+      mainLink.target = '_blank';
+      mainLink.rel = 'noopener noreferrer';
+      mainLink.className = 'btn btn-primary btn-large detail-official-btn';
+
+      const btnText = document.createElement('span');
+      btnText.textContent = t('detail.applyNow', lang);
+
+      const extIcon = createSvg('external', 20);
+      extIcon.classList.add('detail-btn-icon');
+
+      mainLink.appendChild(btnText);
+      mainLink.appendChild(extIcon);
+      ctaBox.appendChild(mainLink);
+    }
+
+    // Additional Official Sources
+    if (Array.isArray(opp.additionalOfficialSources) && opp.additionalOfficialSources.length > 0) {
+      const addWrap = document.createElement('div');
+      addWrap.className = 'detail-additional-sources';
+
+      const addHeading = document.createElement('h4');
+      addHeading.className = 'detail-add-sources-heading';
+      addHeading.textContent = t('detail.additionalSources', lang);
+      addWrap.appendChild(addHeading);
+
+      const linksList = document.createElement('ul');
+      linksList.className = 'detail-add-sources-list';
+
+      opp.additionalOfficialSources.forEach((url, idx) => {
+        if (!isValidHttpsUrl(url)) return;
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.className = 'detail-add-source-link';
+
+        let domain = url;
+        try { domain = new URL(url).hostname; } catch(e) {}
+        link.textContent = `${domain} ↗`;
+
+        li.appendChild(link);
+        linksList.appendChild(li);
+      });
+
+      if (linksList.children.length > 0) {
+        addWrap.appendChild(linksList);
+        ctaBox.appendChild(addWrap);
+      }
+    }
+
+    section.appendChild(ctaBox);
+
+    // Verification Metadata & Trust Seal Card
+    const trustCard = document.createElement('div');
+    trustCard.className = 'detail-trust-card';
+
+    const sealHeader = document.createElement('div');
+    sealHeader.className = 'detail-seal-header';
+
+    const checkIcon = createSvg('check-circle', 22);
+    checkIcon.classList.add('detail-seal-icon');
+
+    const badgeText = document.createElement('strong');
+    badgeText.className = 'detail-seal-title';
+    badgeText.textContent = t('detail.verifiedBadge', lang);
+
+    sealHeader.appendChild(checkIcon);
+    sealHeader.appendChild(badgeText);
+
+    // Verification Date
+    if (opp.verificationDate) {
+      const dateNotice = document.createElement('span');
+      dateNotice.className = 'detail-seal-date';
+      dateNotice.textContent = `${t('detail.verifiedOn', lang)} ${formatGregorianDate(opp.verificationDate, lang)}`;
+      sealHeader.appendChild(dateNotice);
+    }
+
+    trustCard.appendChild(sealHeader);
+
+    // Trust & Security Notice
+    const trustNotice = document.createElement('p');
+    trustNotice.className = 'detail-trust-notice';
+    trustNotice.textContent = t('detail.trustNoticeText', lang);
+    trustCard.appendChild(trustNotice);
+
+    section.appendChild(trustCard);
+    return section;
+  }
+
+  /**
+   * Render complete Opportunity Detail view.
+   * @param {Object} opp
+   */
+  function renderDetail(opp) {
+    stopCountdown();
+    const lang = getLang();
+
+    // Update document title
+    const primaryTitle = (lang === 'ar' ? (opp.title?.ar || opp.title?.en) : (opp.title?.en || opp.title?.ar)) || opp.id;
+    document.title = `${primaryTitle} | ${lang === 'ar' ? 'بوابة الفرص' : 'Opportunities Portal'}`;
+
+    // Hide loading
+    const loading = document.getElementById('detail-loading');
+    if (loading) loading.style.display = 'none';
+
+    const container = document.getElementById('detail-container');
+    if (!container) return;
+    while (container.firstChild) container.removeChild(container.firstChild);
+
+    // Breadcrumbs
+    const breadcrumbs = buildBreadcrumbs(opp, lang);
+    container.appendChild(breadcrumbs);
+
+    // Top actions bar
+    const topBar = buildTopActionsBar(opp, lang);
+    container.appendChild(topBar);
+
+    // Hero Header Card
+    const heroCard = buildHeroHeader(opp, lang);
+    container.appendChild(heroCard);
+
+    // Admission Warning Alert (if present)
+    const admissionAlert = buildAdmissionAlert(opp, lang);
+    if (admissionAlert) {
+      container.appendChild(admissionAlert);
+    }
+
+    // Deadline & Countdown Card
+    const deadlineCard = buildDeadlineCard(opp, lang);
+    container.appendChild(deadlineCard);
+
+    // Specifications Grid
+    const specsGrid = buildSpecsGrid(opp, lang);
+    container.appendChild(specsGrid);
+
+    // Bilingual Descriptions
+    const descriptionsSection = buildDescriptionsSection(opp, lang);
+    container.appendChild(descriptionsSection);
+
+    // Action CTA, Additional Links & Trust Seal
+    const actionAndTrustSection = buildActionsAndTrustSection(opp, lang);
+    container.appendChild(actionAndTrustSection);
+  }
+
+  /**
+   * Fetch opportunities and initialize view.
+   */
+  async function initDetail() {
+    const lang = getLang();
+
+    // Parse 'id' from URLSearchParams
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    if (!id || !id.trim()) {
+      renderNoIdError(lang);
+      return;
+    }
+
+    const cleanId = id.trim();
+
+    try {
+      const response = await fetch('data/opportunities.json');
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+
+      if (!data || !Array.isArray(data.opportunities)) {
+        throw new Error('Invalid opportunities.json structure');
+      }
+
+      const found = data.opportunities.find(o => o && o.id === cleanId);
+      if (!found) {
+        renderNotFound(cleanId, lang);
+        return;
+      }
+
+      currentOpportunity = found;
+      renderDetail(found);
+    } catch (err) {
+      console.error('[Detail] Error loading opportunity:', err);
+      renderLoadError(lang);
+    }
+  }
+
+  // Setup event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    initDetail();
+
+    // Listen to language changes from i18n module
+    document.addEventListener('langchange', () => {
+      if (currentOpportunity) {
+        renderDetail(currentOpportunity);
+      } else {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        if (!id) renderNoIdError(getLang());
+      }
+    });
+
+    // Listen to cross-window or local favorites updates
+    document.addEventListener('favorites:changed', (e) => {
+      if (!currentOpportunity) return;
+      const favBtn = document.getElementById('detail-fav-btn');
+      if (!favBtn) return;
+      const isFav = typeof window.Favorites !== 'undefined' && window.Favorites.isFavorite(currentOpportunity.id);
+      const lang = getLang();
+      favBtn.classList.toggle('is-faved', !!isFav);
+      favBtn.setAttribute('aria-pressed', isFav ? 'true' : 'false');
+      favBtn.setAttribute('aria-label', isFav ? t('fav.ariaRemove', lang) : t('fav.ariaAdd', lang));
+      const lbl = favBtn.querySelector('.detail-fav-label');
+      if (lbl) lbl.textContent = isFav ? t('fav.inFavorites', lang) : t('fav.addToFavorites', lang);
+    });
+  });
+
+  // Expose API for testing
+  window.DetailController = {
+    init: initDetail,
+    getCurrentOpportunity: () => currentOpportunity,
+    t: t
+  };
+
+})();

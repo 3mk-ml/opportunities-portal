@@ -998,3 +998,510 @@
           if (select) select.value = 'all';
         }
       });
+    }
+
+    if (state.filterEligibility !== 'all') {
+      chips.push({
+        label: t('elig.' + state.filterEligibility) || state.filterEligibility,
+        clear: () => {
+          state.filterEligibility = 'all';
+          const select = document.getElementById('filter-eligibility');
+          if (select) select.value = 'all';
+        }
+      });
+    }
+
+    if (chips.length === 0) {
+      container.style.display = 'none';
+      return;
+    }
+
+    container.style.display = 'flex';
+
+    chips.forEach(item => {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'filter-chip';
+      chip.setAttribute('aria-label', `${state.lang === 'ar' ? 'إزالة الفلتر' : 'Remove filter'}: ${item.label}`);
+
+      const labelSpan = document.createElement('span');
+      labelSpan.textContent = item.label;
+      chip.appendChild(labelSpan);
+
+      const closeSpan = document.createElement('span');
+      closeSpan.className = 'filter-chip-remove';
+      closeSpan.textContent = '×';
+      chip.appendChild(closeSpan);
+
+      chip.addEventListener('click', () => {
+        item.clear();
+        applyFilters();
+        render();
+      });
+
+      container.appendChild(chip);
+    });
+
+    // "Clear all" chip if more than 1 filter
+    if (chips.length > 1) {
+      const clearAllBtn = document.createElement('button');
+      clearAllBtn.type = 'button';
+      clearAllBtn.className = 'filter-chip filter-chip--clear-all';
+      clearAllBtn.textContent = t('activeFilters.clearAll');
+      clearAllBtn.addEventListener('click', () => resetAllFilters());
+      container.appendChild(clearAllBtn);
+    }
+  }
+
+  function updatePillsActive(selector, activeValue) {
+    document.querySelectorAll(selector).forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.value === activeValue);
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     11. COUNTRY DROPDOWN POPULATION
+     ═══════════════════════════════════════════════════════════════ */
+  function populateCountryDropdown() {
+    const select = document.getElementById('filter-country');
+    if (!select) return;
+
+    const currentVal = select.value || state.filterCountry || 'all';
+    select.innerHTML = '';
+
+    // "All Countries" option
+    const allOpt = document.createElement('option');
+    allOpt.value = 'all';
+    allOpt.textContent = t('filter.allCountries');
+    select.appendChild(allOpt);
+
+    // "Global" option
+    const globalOpt = document.createElement('option');
+    globalOpt.value = 'global';
+    globalOpt.textContent = state.lang === 'ar' ? 'عالمي (Global)' : 'Global (Multi-country)';
+    select.appendChild(globalOpt);
+
+    // Sorted list of distinct countries
+    const sortedCountries = [...state.distinctCountries].sort((a, b) => {
+      const nameA = a[state.lang] || a.en;
+      const nameB = b[state.lang] || b.en;
+      return nameA.localeCompare(nameB, state.lang);
+    });
+
+    sortedCountries.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.code || c.en;
+      opt.textContent = c[state.lang] || c.en;
+      select.appendChild(opt);
+    });
+
+    select.value = currentVal;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     12. EVENT WIRING & INTERACTION
+     ═══════════════════════════════════════════════════════════════ */
+  function debounce(fn, wait) {
+    let timeoutId;
+    return function (...args) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => fn.apply(this, args), wait);
+    };
+  }
+
+  function wireSearchInputs() {
+    const heroInput = document.getElementById('hero-search-input');
+    const heroBtn = document.getElementById('hero-search-btn');
+    const catInput = document.getElementById('cat-search');
+
+    const debouncedSearch = debounce(val => {
+      state.query = val;
+      applyFilters();
+      render();
+    }, SEARCH_DEBOUNCE_MS);
+
+    // Hero search
+    if (heroInput) {
+      heroInput.addEventListener('input', () => {
+        const val = heroInput.value;
+        if (catInput && catInput.value !== val) catInput.value = val;
+        debouncedSearch(val);
+      });
+
+      heroInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          state.query = heroInput.value;
+          applyFilters();
+          render();
+          const catEl = document.getElementById('catalogue');
+          if (catEl) catEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+
+    if (heroBtn) {
+      heroBtn.addEventListener('click', () => {
+        if (heroInput) state.query = heroInput.value;
+        applyFilters();
+        render();
+        const catEl = document.getElementById('catalogue');
+        if (catEl) catEl.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    // Catalogue search
+    if (catInput) {
+      catInput.addEventListener('input', () => {
+        const val = catInput.value;
+        if (heroInput && heroInput.value !== val) heroInput.value = val;
+        debouncedSearch(val);
+      });
+
+      catInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          state.query = catInput.value;
+          applyFilters();
+          render();
+        }
+      });
+    }
+  }
+
+  function wireFilterControls() {
+    // Type pills
+    document.querySelectorAll('[data-filter="type"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.value || 'all';
+        state.filterType = val;
+        updatePillsActive('[data-filter="type"]', val);
+        applyFilters();
+        render();
+      });
+    });
+
+    // Status pills
+    document.querySelectorAll('[data-filter="status"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.value || 'all';
+        state.filterStatus = val;
+        updatePillsActive('[data-filter="status"]', val);
+        applyFilters();
+        render();
+      });
+    });
+
+    // Field Category dropdown
+    const catSelect = document.getElementById('filter-category');
+    if (catSelect) {
+      catSelect.addEventListener('change', () => {
+        state.filterCategory = catSelect.value;
+        applyFilters();
+        render();
+      });
+    }
+
+    // Country dropdown
+    const countrySelect = document.getElementById('filter-country');
+    if (countrySelect) {
+      countrySelect.addEventListener('change', () => {
+        state.filterCountry = countrySelect.value;
+        applyFilters();
+        render();
+      });
+    }
+
+    // Educational Level dropdown
+    const levelSelect = document.getElementById('filter-level');
+    if (levelSelect) {
+      levelSelect.addEventListener('change', () => {
+        state.filterLevel = levelSelect.value;
+        applyFilters();
+        render();
+      });
+    }
+
+    // Yemen Eligibility dropdown
+    const eligSelect = document.getElementById('filter-eligibility');
+    if (eligSelect) {
+      eligSelect.addEventListener('change', () => {
+        state.filterEligibility = eligSelect.value;
+        applyFilters();
+        render();
+      });
+    }
+
+    // Sort dropdown
+    const sortSelect = document.getElementById('filter-sort');
+    if (sortSelect) {
+      sortSelect.addEventListener('change', () => {
+        state.sortBy = sortSelect.value;
+        sortFiltered();
+        render();
+      });
+    }
+
+    // Urgent Deadlines quick-filter toggle
+    const urgentBtn = document.getElementById('urgent-toggle');
+    if (urgentBtn) {
+      urgentBtn.addEventListener('click', () => {
+        state.filterUrgent = !state.filterUrgent;
+        urgentBtn.setAttribute('aria-pressed', state.filterUrgent ? 'true' : 'false');
+        urgentBtn.classList.toggle('is-active', state.filterUrgent);
+        applyFilters();
+        render();
+      });
+    }
+
+    // Favorites quick-filter toggle
+    const favBtn = document.getElementById('fav-toggle');
+    if (favBtn) {
+      favBtn.addEventListener('click', () => {
+        state.filterFavs = !state.filterFavs;
+        favBtn.setAttribute('aria-pressed', state.filterFavs ? 'true' : 'false');
+        favBtn.classList.toggle('is-active', state.filterFavs);
+        applyFilters();
+        render();
+      });
+    }
+
+    // Reset filters buttons (bar reset + empty state reset)
+    const resetBarBtn = document.getElementById('reset-filters-btn');
+    if (resetBarBtn) {
+      resetBarBtn.addEventListener('click', resetAllFilters);
+    }
+
+    const emptyResetBtn = document.getElementById('clear-filters');
+    if (emptyResetBtn) {
+      emptyResetBtn.addEventListener('click', resetAllFilters);
+    }
+  }
+
+  function resetAllFilters() {
+    state.query = '';
+    state.filterType = 'all';
+    state.filterStatus = 'all';
+    state.filterCategory = 'all';
+    state.filterCountry = 'all';
+    state.filterLevel = 'all';
+    state.filterEligibility = 'all';
+    state.filterUrgent = false;
+    state.filterFavs = false;
+    state.sortBy = 'default';
+
+    // Clear inputs
+    const heroInput = document.getElementById('hero-search-input');
+    const catInput = document.getElementById('cat-search');
+    if (heroInput) heroInput.value = '';
+    if (catInput) catInput.value = '';
+
+    // Reset pills
+    updatePillsActive('[data-filter="type"]', 'all');
+    updatePillsActive('[data-filter="status"]', 'all');
+
+    // Reset selects
+    const selects = ['filter-category', 'filter-country', 'filter-level', 'filter-eligibility'];
+    selects.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = 'all';
+    });
+
+    const sortEl = document.getElementById('filter-sort');
+    if (sortEl) sortEl.value = 'default';
+
+    // Reset toggles
+    const urgentBtn = document.getElementById('urgent-toggle');
+    if (urgentBtn) {
+      urgentBtn.setAttribute('aria-pressed', 'false');
+      urgentBtn.classList.remove('is-active');
+    }
+
+    const favBtn = document.getElementById('fav-toggle');
+    if (favBtn) {
+      favBtn.setAttribute('aria-pressed', 'false');
+      favBtn.classList.remove('is-active');
+    }
+
+    applyFilters();
+    render();
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     13. BILINGUAL LANGUAGE SWITCH REACTIVITY
+     ═══════════════════════════════════════════════════════════════ */
+  function onLangChange(newLang) {
+    state.lang = newLang || 'ar';
+
+    // Re-populate and translate dropdowns
+    populateCountryDropdown();
+    translateStaticFilterLabels();
+
+    // Re-apply filters and re-render
+    applyFilters();
+    render();
+  }
+
+  function translateStaticFilterLabels() {
+    // Update category options
+    const catSelect = document.getElementById('filter-category');
+    if (catSelect) {
+      Array.from(catSelect.options).forEach(opt => {
+        opt.textContent = t('cat.' + opt.value) || opt.textContent;
+      });
+    }
+
+    // Update level options
+    const lvlSelect = document.getElementById('filter-level');
+    if (lvlSelect) {
+      Array.from(lvlSelect.options).forEach(opt => {
+        opt.textContent = t('lvl.' + opt.value) || opt.textContent;
+      });
+    }
+
+    // Update eligibility options
+    const eligSelect = document.getElementById('filter-eligibility');
+    if (eligSelect) {
+      Array.from(eligSelect.options).forEach(opt => {
+        opt.textContent = t('elig.' + opt.value) || opt.textContent;
+      });
+    }
+
+    // Update sort options
+    const sortSelect = document.getElementById('filter-sort');
+    if (sortSelect) {
+      const sortMap = {
+        'default': 'filter.sortDefault',
+        'deadline-asc': 'filter.sortDeadlineAsc',
+        'deadline-desc': 'filter.sortDeadlineDesc',
+        'title-asc': 'filter.sortTitleAsc'
+      };
+      Array.from(sortSelect.options).forEach(opt => {
+        if (sortMap[opt.value]) opt.textContent = t(sortMap[opt.value]);
+      });
+    }
+
+    // Update urgent toggle button text
+    const urgentText = document.querySelector('#urgent-toggle .urgent-btn-text');
+    if (urgentText) {
+      urgentText.textContent = t('filter.urgent');
+    }
+
+    // Update reset button text
+    const resetText = document.querySelector('#reset-filters-btn .reset-btn-text');
+    if (resetText) {
+      resetText.textContent = t('filter.reset');
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     14. INITIALISATION & DATA LOADING
+     ═══════════════════════════════════════════════════════════════ */
+  async function init() {
+    // Detect active language
+    if (window.I18N_MODULE && typeof window.I18N_MODULE.getCurrentLang === 'function') {
+      state.lang = window.I18N_MODULE.getCurrentLang() || 'ar';
+    } else {
+      state.lang = document.documentElement.getAttribute('lang') || 'ar';
+    }
+
+    // Load favorites from localStorage
+    loadFavorites();
+
+    // Wire up events
+    wireSearchInputs();
+    wireFilterControls();
+
+    // Listen to language switch event
+    document.addEventListener('langchange', e => {
+      onLangChange(e.detail?.lang);
+    });
+
+    // Listen to storage events for cross-tab favorites synchronization
+    window.addEventListener('storage', e => {
+      if (e.key === FAV_STORAGE_KEY) {
+        loadFavorites();
+        render();
+      }
+    });
+
+    // Listen to favorites:changed event from js/favorites.js
+    document.addEventListener('favorites:changed', e => {
+      loadFavorites();
+      if (state.filterFavs) {
+        applyFilters();
+      }
+      render();
+    });
+
+    // Fetch opportunity data
+    await loadData();
+  }
+
+  async function loadData() {
+    try {
+      const res = await fetch(DATA_URL, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      state.opportunities = json.opportunities || [];
+
+      // Pre-compute search index & collect distinct countries
+      const countryMap = new Map();
+      state.opportunities.forEach(opp => {
+        opp._searchIndex = buildSearchIndex(opp);
+        if (opp.country && opp.country.en) {
+          const key = (opp.country.code || opp.country.en).toUpperCase();
+          if (!countryMap.has(key)) {
+            countryMap.set(key, {
+              code: opp.country.code || opp.country.en,
+              en: opp.country.en,
+              ar: opp.country.ar || opp.country.en
+            });
+          }
+        }
+      });
+      state.distinctCountries = Array.from(countryMap.values());
+
+      // Populate country dropdown
+      populateCountryDropdown();
+      translateStaticFilterLabels();
+
+      state.isLoaded = true;
+
+      // Apply initial filters & render
+      applyFilters();
+      render();
+    } catch (err) {
+      console.error('OpportunityList: Failed to load opportunities:', err);
+    }
+  }
+
+  // Auto-init on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     15. PUBLIC API EXPOSURE
+     ═══════════════════════════════════════════════════════════════ */
+  window.OpportunityList = {
+    init,
+    loadData,
+    applyFilters,
+    render,
+    resetAllFilters,
+    toggleFavorite,
+    getState: () => ({ ...state }),
+    getOpportunities: () => [...state.opportunities],
+    getFiltered: () => [...state.filtered],
+    setFilter: (name, value) => {
+      if (name in state) {
+        state[name] = value;
+        applyFilters();
+        render();
+      }
+    }
+  };
+})();

@@ -998,3 +998,183 @@ function wireNavOverlay() {
    ═══════════════════════════════════════════════════════════════ */
 function wireLangSwitch() {
   const btn = document.getElementById('lang-switch');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const newLang = state.lang === 'ar' ? 'en' : 'ar';
+    state.lang = newLang;
+    I18N_MODULE.switchLang(newLang);
+
+    // Re-render data-dependent content
+    if (state.opportunities.length) {
+      renderFeatured();
+      renderCatalogue();
+    }
+  });
+
+  // Listen for external lang changes
+  document.addEventListener('langchange', e => {
+    state.lang = e.detail.lang;
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SMOOTH SCROLL + NAV LINKS
+   ═══════════════════════════════════════════════════════════════ */
+function wireNavLinks() {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL ANIMATIONS (IntersectionObserver)
+   ═══════════════════════════════════════════════════════════════ */
+let scrollObserver = null;
+
+function initScrollObserver() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    // Reveal everything immediately
+    document.querySelectorAll('.reveal-item, .reveal-line-inner').forEach(el => {
+      el.classList.add('is-revealed');
+    });
+    return;
+  }
+
+  scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        if (el.classList.contains('reveal-line-inner')) {
+          el.classList.add('is-revealed');
+        } else if (el.classList.contains('reveal-item')) {
+          el.classList.add('is-revealed');
+        }
+        scrollObserver.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  // Observe existing static elements
+  document.querySelectorAll('.reveal-item, .reveal-line-inner').forEach(el => {
+    scrollObserver.observe(el);
+  });
+}
+
+function observeCards(cards) {
+  if (!scrollObserver) return;
+  cards.forEach(card => scrollObserver.observe(card));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO ENTRANCE
+   ═══════════════════════════════════════════════════════════════ */
+function triggerHeroEntrance() {
+  // Reveal hero lines with stagger
+  const lines = document.querySelectorAll('.hero .reveal-line-inner');
+  lines.forEach((el, i) => {
+    setTimeout(() => el.classList.add('is-revealed'), i * 120);
+  });
+
+  // Reveal hero items with stagger
+  const items = document.querySelectorAll('.hero .reveal-item');
+  items.forEach((el, i) => {
+    setTimeout(() => el.classList.add('is-revealed'), 300 + i * 100);
+  });
+
+  // Stats counter
+  setTimeout(() => animateCounters(), 700);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COUNTER ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+function animateCounters() {
+  if (state.countAnimated) return;
+  state.countAnimated = true;
+
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const duration = 1200;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DOT NAV
+   ═══════════════════════════════════════════════════════════════ */
+function initDotNav() {
+  const sections = ['hero', 'featured', 'catalogue', 'about'];
+  const dots = document.querySelectorAll('.dot-nav-item');
+
+  if (!dots.length) return;
+
+  const sectionEls = sections.map(id => document.getElementById(id)).filter(Boolean);
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = sectionEls.indexOf(entry.target);
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sectionEls.forEach(el => obs.observe(el));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STAT COUNTS (update after data loads)
+   ═══════════════════════════════════════════════════════════════ */
+function updateStatCounts() {
+  const heroCount = document.getElementById('hero-count');
+  if (heroCount) heroCount.textContent = state.opportunities.length;
+
+  // Count unique countries and opportunity types
+  const countries = new Set();
+  const types = new Set();
+  state.opportunities.forEach(opp => {
+    if (opp.country && opp.country.en) countries.add(opp.country.en);
+    if (opp.type) types.add(opp.type);
+  });
+
+  // Update data-count attributes
+  const countEls = document.querySelectorAll('[data-count]');
+  countEls.forEach(el => {
+    const stat = el.getAttribute('data-stat');
+    if (stat === 'opportunities') {
+      el.setAttribute('data-count', state.opportunities.length);
+    } else if (stat === 'countries') {
+      el.setAttribute('data-count', countries.size);
+    } else if (stat === 'types') {
+      el.setAttribute('data-count', types.size);
+    } else {
+      const val = parseInt(el.getAttribute('data-count'), 10);
+      if (val === 20) el.setAttribute('data-count', state.opportunities.length);
+      else if (val === 15 || val === 9) el.setAttribute('data-count', countries.size);
+      else if (val === 4 || val === 5) el.setAttribute('data-count', types.size);
+    }
+  });
+}

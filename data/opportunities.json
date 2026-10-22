@@ -998,3 +998,69 @@
       },
       "description": {
         "ar": "مسار تدريبي رقمي مجاني بالكامل ومتاح باللغتين العربية والإنجليزية عبر منصة IBM SkillsBuild، يركز على أساسيات الذكاء الاصطناعي، وتعلم الآلة، والشبكات العصبية، والذكاء الاصطناعي التوليدي، وأخلاقيات الذكاء الاصطناعي والمسؤولية التقنية. التقديم والتسجيل متاحان ذاتياً ومجاناً على مدار العام لكافة المستويات الدراسية. يحصل المتعلم بعد إكمال الأنشطة والتقييمات المطلوبة على شارة رقمية معتمدة من شركة IBM عبر منصة Credly.",
+        "en": "A free, self-paced digital course available in Arabic and English on the IBM SkillsBuild platform, covering artificial intelligence fundamentals, machine learning, neural networks, deep learning, generative AI, and AI ethics and responsible design. Enrollment is free and available year-round for all educational levels. Learners who successfully complete the required activities and assessments earn an official IBM digital credential badge via Credly."
+      }
+    },
+    {
+      "id": "relai-master-scholarship-2026",
+      "type": "scholarship",
+      "deliveryMode": "onsite",
+      "locationScope": "national",
+      "title": {
+        "ar": "منحة مدرسة كونراد زوزه للذكاء الاصطناعي الموثوق (relAI) للماجستير 2026 (مغلقة — الموعد الدقيق غير مؤكد)",
+        "en": "Konrad Zuse School relAI MSc Scholarship - 2026 Call (Closed - Exact Cutoff Unconfirmed)"
+      },
+      "provider": {
+        "ar": "مدرسة كونراد زوزه للذكاء الاصطناعي الموثوق (TUM / LMU)",
+        "en": "Konrad Zuse School of Excellence in Reliable AI (TUM / LMU)"
+      },
+      "country": {
+        "ar": "ألمانيا",
+        "en": "Germany",
+        "code": "DE"
+      },
+      "fields": [
+        {
+          "category": "computer-science",
+          "name": {
+            "ar": "الذكاء الاصطناعي الموثوق",
+            "en": "Reliable Artificial Intelligence"
+          }
+        },
+        {
+          "category": "engineering",
+          "name": {
+            "ar": "هندسة البيانات والحوسبة",
+            "en": "Data & Systems Engineering"
+          }
+        },
+        {
+          "category": "natural-sciences",
+          "name": {
+            "ar": "الرياضيات التطبيقية",
+            "en": "Applied Mathematics"
+          }
+        }
+      ],
+      "levels": [
+        "postgraduate"
+      ],
+      "deadline": null,
+      "deadlineType": "unknown",
+      "applicationStatus": "closed",
+      "yemenEligibility": "eligible",
+      "applicationRoute": "direct-after-admission",
+      "fundingCoverage": "research-grant",
+      "verificationStatus": "verified",
+      "verificationDate": "2026-10-19",
+      "officialSourceUrl": "https://zuseschoolrelai.de/application/",
+      "additionalOfficialSources": [
+        "https://www.daad.de/de/der-daad/zuse-schools/zuse-school-relai/"
+      ],
+      "description": {
+        "ar": "منحة دراسية مقدمة من مدرسة relAI بالتعاون مع DAAD لدعم طلاب الماجستير في برامج الذكاء الاصطناعي المؤهلة بجامعتي ميونيخ التقنية (TUM) أو لودفيغ ماكسيميليان (LMU) براتب شهري يصل إلى 992 يورو. تنبيهات هامة: دورة 2026 مغلقة رسمياً. لم يتم إثبات تاريخ 15 يونيو 2026 المنقول من مراجعات غير رسمية من خلال إعلان رسمي مؤرخ في الصفحة الحالية؛ لذا سُجل الموعد كمجهول ودورة التقديم كمغلقة. لا تشمل المنحة إعفاءً تلقائياً من الرسوم الدراسية الدولية في TUM، ولا توجد مؤشرات على فتح دورة 2027 بعد.",
+        "en": "Scholarship by relAI school in partnership with DAAD supporting master's students in eligible AI programs at TUM or LMU Munich with up to EUR 992 monthly stipend. Critical notices: The 2026 call is officially closed. The reported 15 June 2026 date is not corroborated on the current live official site; hence deadline is recorded as unknown and status as closed. Tuition fee waivers at TUM are not automatic, and the 2027 MSc call has not opened."
+      }
+    }
+  ]
+}

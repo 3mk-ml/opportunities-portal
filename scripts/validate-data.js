@@ -998,3 +998,157 @@ function runSelfTests() {
         verificationDate: '2026-10-14',
         applicationStatus: 'completely-fake-status' // invalid enum
       }
+    ]
+  };
+  const badStatusResult = validateOpportunitiesData(invalidStatusData, { referenceDate: fixedRefDate });
+  if (badStatusResult.isValid || !badStatusResult.errors.some(e => e.includes('Invalid value "completely-fake-status"'))) {
+    console.error('❌ Test 18 Failed: Invalid applicationStatus was not rejected.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 18 Passed: Rejected invalid applicationStatus enum value.');
+  }
+
+  // Test 19: Invalid yemenEligibility value rejected
+  const invalidYemenData = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: [
+      {
+        id: 'opp-invalid-yemen',
+        type: 'scholarship',
+        deliveryMode: 'onsite',
+        title: { ar: 'عنوان', en: 'Title' },
+        provider: { ar: 'جهة', en: 'Provider' },
+        country: { ar: 'ألمانيا', en: 'Germany', code: 'DE' },
+        fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+        levels: ['postgraduate'],
+        deadline: '2026-12-01',
+        deadlineType: 'fixed',
+        officialSourceUrl: 'https://example.org/opp',
+        verificationDate: '2026-10-14',
+        yemenEligibility: 'totally-invalid-eligibility' // invalid enum
+      }
+    ]
+  };
+  const badYemenResult = validateOpportunitiesData(invalidYemenData, { referenceDate: fixedRefDate });
+  if (badYemenResult.isValid || !badYemenResult.errors.some(e => e.includes('Invalid value "totally-invalid-eligibility"'))) {
+    console.error('❌ Test 19 Failed: Invalid yemenEligibility was not rejected.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 19 Passed: Rejected invalid yemenEligibility enum value.');
+  }
+
+  // Test 20: Release mode rejects pending-human-review records even if count >= 20
+  const twentyRecordsWithPending = {
+    version: '1.0.0',
+    lastUpdated: '2026-10-14',
+    opportunities: Array.from({ length: 20 }, (_, i) => ({
+      id: `opp-release-test-${i}`,
+      type: 'scholarship',
+      deliveryMode: 'onsite',
+      title: { ar: `عنوان ${i}`, en: `Title ${i}` },
+      provider: { ar: `جهة ${i}`, en: `Provider ${i}` },
+      country: { ar: 'ألمانيا', en: 'Germany', code: 'DE' },
+      fields: [{ category: 'general', name: { ar: 'عام', en: 'General' } }],
+      levels: ['postgraduate'],
+      deadline: '2027-01-01',
+      deadlineType: 'fixed',
+      officialSourceUrl: 'https://example.org/test',
+      verificationStatus: i === 0 ? 'pending-human-review' : 'verified',
+      verificationDate: i === 0 ? null : '2026-10-14'
+    }))
+  };
+  const releasePendingResult = validateOpportunitiesData(twentyRecordsWithPending, { isReleaseMode: true, referenceDate: fixedRefDate });
+  if (releasePendingResult.isValid || !releasePendingResult.errors.some(e => e.includes('Dataset cannot be released with opportunities pending human verification'))) {
+    console.error('❌ Test 20 Failed: Release mode allowed unverified pending records.');
+    testFailures++;
+  } else {
+    console.log('✔ Test 20 Passed: Release mode enforced zero pending-human-review records.');
+  }
+
+  console.log(`\nSelf-test summary: ${testFailures === 0 ? 'ALL TESTS PASSED ✔' : `${testFailures} TEST(S) FAILED ❌`}\n`);
+  return testFailures === 0;
+}
+
+/**
+ * Main execution
+ */
+function main() {
+  const args = process.argv.slice(2);
+  const isTestMode = args.includes('--test');
+  const isReleaseMode = args.includes('--release');
+  const isStagingMode = args.includes('--staging');
+
+  if (isTestMode) {
+    const success = runSelfTests();
+    process.exit(success ? 0 : 1);
+  }
+
+  let targetFileName = 'opportunities.json';
+  const customFileArg = args.find(a => !a.startsWith('--'));
+  if (customFileArg) {
+    targetFileName = customFileArg;
+  } else if (isStagingMode) {
+    targetFileName = 'opportunities-staging.json';
+  }
+
+  const dataFilePath = path.isAbsolute(targetFileName)
+    ? targetFileName
+    : path.resolve(__dirname, '../data', targetFileName.startsWith('data/') || targetFileName.startsWith('data\\') ? path.basename(targetFileName) : targetFileName);
+
+  if (!fs.existsSync(dataFilePath)) {
+    console.error(`[ERROR] File not found: ${dataFilePath}`);
+    process.exit(1);
+  }
+
+  let rawContent = '';
+  try {
+    rawContent = fs.readFileSync(dataFilePath, 'utf8');
+  } catch (err) {
+    console.error(`[ERROR] Unable to read file ${dataFilePath}: ${err.message}`);
+    process.exit(1);
+  }
+
+  let parsedData = null;
+  try {
+    parsedData = JSON.parse(rawContent);
+  } catch (jsonErr) {
+    console.error(`[ERROR] Malformed JSON syntax in ${dataFilePath}: ${jsonErr.message}`);
+    process.exit(1);
+  }
+
+  const displayName = path.relative(path.resolve(__dirname, '..'), dataFilePath);
+  console.log(`Validating ${displayName} (${isReleaseMode ? 'RELEASE MODE' : 'DEVELOPMENT MODE'})...`);
+
+  const validation = validateOpportunitiesData(parsedData, { isReleaseMode });
+
+  if (!validation.isValid) {
+    console.error('\n❌ VALIDATION FAILED with the following error(s):\n');
+    validation.errors.forEach((err, i) => {
+      console.error(`  ${i + 1}. ${err}`);
+    });
+    console.error(`\nTotal errors: ${validation.errors.length}`);
+    process.exit(1);
+  }
+
+  console.log(`\n✔ VALIDATION SUCCESSFUL: ${displayName} conforms to all schema rules.`);
+  console.log(`  - Version: ${parsedData.version}`);
+  console.log(`  - Last Updated: ${parsedData.lastUpdated}`);
+  console.log(`  - Opportunity Records Count: ${parsedData.opportunities.length}`);
+  if (parsedData.opportunities.length === 0) {
+    console.log('  - Note: Development dataset is currently empty ([]), ready for verified manual entry.');
+  }
+  process.exit(0);
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  validateOpportunitiesData,
+  isValidCalendarDate,
+  isDateInFuture,
+  isValidHttpsUrl,
+  isLeapYear
+};
