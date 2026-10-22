@@ -7,22 +7,61 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  restore-upload:
+    name: Restore and verify original uploaded files
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      revision: ${{ steps.revision.outputs.sha }}
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: Restore incomplete text transfers from verified ZIP payload
+        run: python3 .github/upload-repair/restore.py
+
+      - name: Validate complete original project
+        run: |
+          node scripts/validate-data.js
+          node scripts/validate-data.js --test
+          node scripts/validate-data.js --release
+          node scripts/test-integration.js
+          node scripts/check-html.js
+          for file in js/*.js scripts/*.js sw.js; do node --check "$file"; done
+
+      - name: Commit only restored files without rewriting history
+        id: revision
+        run: |
+          git add -- css/main.css data/opportunities.json js/detail.js js/list.js js/main.js scripts/validate-data.js
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "fix(upload): restore complete original source and preserve typography"
+            git push origin HEAD:main
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    name: Validate and deploy website
+    needs: restore-upload
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout project
+      - name: Checkout verified project revision
         uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.restore-upload.outputs.revision }}
 
       - name: Validate opportunity data
         run: |
@@ -32,7 +71,7 @@ jobs:
           node scripts/test-integration.js
           node scripts/check-html.js
 
-      - name: Prepare static site artifact
+      - name: Prepare static site artifact with original font references
         run: |
           mkdir -p _site/data
           cp index.html detail.html about.html sw.js .nojekyll _site/
@@ -40,14 +79,17 @@ jobs:
           cp data/opportunities.json _site/data/opportunities.json
           test -s _site/index.html
           test -s _site/data/opportunities.json
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+          grep -q 'IBM+Plex+Sans+Arabic' _site/index.html
+          grep -q 'IBM+Plex+Sans+Arabic' _site/detail.html
+          grep -q 'IBM+Plex+Sans+Arabic' _site/about.html
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Deploy site
         id: deployment
