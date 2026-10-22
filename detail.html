@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="تفاصيل الفرصة التعليمية — بوابة الفرص للطلاب اليمنيين. منح دراسية ودورات وتدريبات موثقة رسمياً.">
+  <meta name="theme-color" content="#ffffff">
+  <title>تفاصيل الفرصة | بوابة الفرص</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="lang-ar" data-lang="ar">
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main-content">تخطى إلى المحتوى</a>
+
+  <!-- ═══════════════════════════════════════ HEADER ═══ -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="header-inner">
+
+      <!-- Wordmark -->
+      <a href="index.html" class="wordmark" aria-label="بوابة الفرص — الصفحة الرئيسية">
+        <span class="wordmark-ar" aria-hidden="true">بوابة الفرص</span>
+        <span class="wordmark-en" aria-hidden="true">Opportunities Portal</span>
+        <span class="wordmark-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- Header controls -->
+      <div class="header-controls">
+        <!-- Back to catalogue button -->
+        <a href="index.html#catalogue" class="header-nav-btn" data-i18n="detail.back">دليل الفرص</a>
+
+        <!-- Language switcher -->
+        <button class="lang-switch" id="lang-switch" aria-label="Switch to English" type="button">
+          <span class="lang-switch-ar">AR</span>
+          <span class="lang-switch-divider" aria-hidden="true">·</span>
+          <span class="lang-switch-en">EN</span>
+        </button>
+
+        <!-- Menu toggle -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav-overlay" type="button">
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="sr-only">القائمة</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════ NAV OVERLAY ═══ -->
+  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-label="القائمة الرئيسية" aria-modal="true" aria-hidden="true">
+    <div class="nav-overlay-inner">
+      <nav class="nav-overlay-nav" aria-label="التنقل الرئيسي">
+        <ul class="nav-list" role="list">
+          <li class="nav-item"><a href="index.html#hero" class="nav-link" data-close-nav><span data-i18n="nav.home">الرئيسية</span><span class="nav-link-en">Home</span></a></li>
+          <li class="nav-item"><a href="index.html#featured" class="nav-link" data-close-nav><span data-i18n="nav.featured">الفرص المميزة</span><span class="nav-link-en">Featured</span></a></li>
+          <li class="nav-item"><a href="index.html#catalogue" class="nav-link" data-close-nav><span data-i18n="nav.catalogue">جميع الفرص</span><span class="nav-link-en">All Opportunities</span></a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link" data-close-nav><span data-i18n="nav.about">عن المنصة</span><span class="nav-link-en">About</span></a></li>
+        </ul>
+      </nav>
+      <div class="nav-overlay-cta">
+        <p class="nav-overlay-tagline" data-i18n="nav.tagline">منصة موثوقة للطلاب اليمنيين</p>
+        <a href="index.html#catalogue" class="btn btn-primary btn-large" data-close-nav data-i18n="nav.cta">استكشف الفرص</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════ MAIN CONTENT ═══ -->
+  <main id="main-content" class="detail-main" role="main">
+
+    <!-- Loading Placeholder -->
+    <div id="detail-loading" class="detail-skeleton" aria-live="polite" aria-busy="true">
+      <div class="skeleton-box skeleton-hero"></div>
+      <div class="skeleton-box skeleton-deadline"></div>
+      <div class="skeleton-box skeleton-grid"></div>
+    </div>
+
+    <!-- Opportunity Details Container (populated safely by js/detail.js) -->
+    <div id="detail-container"></div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════ FOOTER ═══ -->
+  <footer class="site-footer section-blue" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="wordmark wordmark--light" aria-label="بوابة الفرص">
+          <span class="wordmark-ar">بوابة الفرص</span>
+          <span class="wordmark-dot" aria-hidden="true"></span>
+        </a>
+        <p class="footer-tagline" data-i18n="footer.tagline">فرصتك القادمة تبدأ من هنا</p>
+      </div>
+      <div class="footer-links">
+        <nav aria-label="روابط التذييل">
+          <ul role="list">
+            <li><a href="index.html" data-i18n="nav.home">الرئيسية</a></li>
+            <li><a href="index.html#featured" data-i18n="nav.featured">الفرص المميزة</a></li>
+            <li><a href="index.html#catalogue" data-i18n="nav.catalogue">جميع الفرص</a></li>
+            <li><a href="about.html" data-i18n="nav.about">عن المنصة</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-meta">
+        <p class="footer-notice" data-i18n="footer.notice">
+          جميع الفرص موثقة من مصادرها الرسمية. تحقق دائمًا من الموقع الرسمي قبل التقديم.
+        </p>
+        <p class="footer-copy">
+          <span data-i18n="footer.copy">بوابة الفرص · LLM4Yemen Cohort 1</span>
+          · <span id="footer-year">2026</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Cursor Hover Dot -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/favorites.js"></script>
+  <script src="js/detail.js"></script>
+  <script>
+    // Initialize language from storage and wire up lang-switch
+    if (typeof window.I18N_MODULE !== 'undefined') {
+      window.I18N_MODULE.initLang();
+    }
+    const langBtn = document.getElementById('lang-switch');
+    if (langBtn) {
+      langBtn.addEventListener('click', () => {
+        if (typeof window.I18N_MODULE !== 'undefined') {
+          const current = window.I18N_MODULE.getCurrentLang();
+          window.I18N_MODULE.switchLang(current === 'ar' ? 'en' : 'ar');
+        }
+      });
+    }
+
+    // Menu toggle and navigation overlay
+    const menuToggle = document.getElementById('menu-toggle');
+    const navOverlay = document.getElementById('nav-overlay');
+    const navBackdrop = document.getElementById('nav-backdrop');
+
+    function toggleMenu(open) {
+      if (!menuToggle || !navOverlay) return;
+      const isOpen = open !== undefined ? open : !menuToggle.classList.contains('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      navOverlay.classList.toggle('is-open', isOpen);
+      navOverlay.setAttribute('aria-hidden', !isOpen);
+      if (navBackdrop) navBackdrop.classList.toggle('is-open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    if (menuToggle) menuToggle.addEventListener('click', () => toggleMenu());
+    if (navBackdrop) navBackdrop.addEventListener('click', () => toggleMenu(false));
+    document.querySelectorAll('[data-close-nav]').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    // Set dynamic current year in footer
+    const yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

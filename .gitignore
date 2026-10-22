@@ -15,9 +15,11 @@ __pycache__/
 # Logs
 *.log
 
-# OS files
+# OS and IDE files
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
 
 docsimport-review/
 

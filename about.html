@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="عن بوابة الفرص — منصة مستقلة موثوقة للطلاب اليمنيين لاكتشاف المنح الدراسية والدورات التدريبية الموثقة يدويًا من مصادرها الرسمية.">
+  <meta name="theme-color" content="#001640">
+  <title>عن المنصة | بوابة الفرص — Opportunities Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="lang-ar" data-lang="ar">
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main-content" data-about-i18n="skipLink">تخطى إلى المحتوى</a>
+
+  <!-- ═══════════════════════════════════════ HEADER ═══ -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="header-inner">
+
+      <!-- Wordmark -->
+      <a href="index.html" class="wordmark" aria-label="بوابة الفرص — الصفحة الرئيسية">
+        <span class="wordmark-ar" aria-hidden="true">بوابة الفرص</span>
+        <span class="wordmark-en" aria-hidden="true">Opportunities Portal</span>
+        <span class="wordmark-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- Header controls -->
+      <div class="header-controls">
+        <!-- Language switcher -->
+        <button class="lang-switch" id="lang-switch" aria-label="Switch to English" type="button">
+          <span class="lang-switch-ar is-active">AR</span>
+          <span class="lang-switch-divider" aria-hidden="true">·</span>
+          <span class="lang-switch-en">EN</span>
+        </button>
+
+        <!-- Menu toggle -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav-overlay" type="button">
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="sr-only">القائمة</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════ NAV OVERLAY ═══ -->
+  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-label="القائمة الرئيسية" aria-modal="true" aria-hidden="true">
+    <div class="nav-overlay-inner">
+      <nav class="nav-overlay-nav" aria-label="التنقل الرئيسي">
+        <ul class="nav-list" role="list">
+          <li class="nav-item"><a href="index.html#hero" class="nav-link" data-close-nav><span data-about-i18n="navHome">الرئيسية</span><span class="nav-link-en">Home</span></a></li>
+          <li class="nav-item"><a href="index.html#featured" class="nav-link" data-close-nav><span data-about-i18n="navFeatured">الفرص المميزة</span><span class="nav-link-en">Featured</span></a></li>
+          <li class="nav-item"><a href="index.html#catalogue" class="nav-link" data-close-nav><span data-about-i18n="navCatalogue">جميع الفرص</span><span class="nav-link-en">All Opportunities</span></a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link is-current" data-close-nav aria-current="page"><span data-about-i18n="navAbout">عن المنصة</span><span class="nav-link-en">About</span></a></li>
+        </ul>
+      </nav>
+      <div class="nav-overlay-cta">
+        <p class="nav-overlay-tagline" data-about-i18n="navTagline">منصة موثوقة للطلاب اليمنيين</p>
+        <a href="index.html#catalogue" class="btn btn-primary btn-large" data-close-nav data-about-i18n="navCta">استكشف الفرص</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════ MAIN CONTENT ═══ -->
+  <main id="main-content">
+
+    <!-- ─── SECTION 1: HERO & MISSION (Section-Blue) ─── -->
+    <section class="about-hero section-blue" id="mission" aria-labelledby="about-hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg-orb hero-bg-orb--1"></div>
+        <div class="hero-bg-orb hero-bg-orb--2"></div>
+        <div class="hero-bg-grid"></div>
+      </div>
+
+      <div class="section-container" style="position: relative; z-index: 2;">
+        <div class="about-hero-badge">
+          <span class="hero-pill-dot" aria-hidden="true"></span>
+          <span data-about-i18n="heroBadge">مشروع تخرج برنامج LLM4Yemen — الدفعة الأولى</span>
+        </div>
+
+        <h1 class="about-hero-title" id="about-hero-title" data-about-i18n="heroTitle">
+          بوابة الفرص — نافذة الطلاب اليمنيين نحو التعليم العالمي الموثق
+        </h1>
+
+        <p class="about-hero-sub" data-about-i18n="heroSub">
+          منصة تعليمية مستقلة وغير ربحية صُممت لمساعدة الطلاب اليمنيين في الداخل والشتات على اكتشاف المنح الدراسية والدورات المجانية وبرامج القيادة الموثقة بشريًا، والتغلب على تشتت المعلومات وظروف الاتصال الصعبة.
+        </p>
+
+        <div class="hero-ctas" style="justify-content: center; margin-bottom: var(--space-8);">
+          <a href="index.html#catalogue" class="btn btn-primary btn-large">
+            <span data-about-i18n="ctaExplore">تصفح دليل الفرص</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#guide" class="btn btn-ghost">
+            <span data-about-i18n="ctaGuide">دليل الطالب اليمني</span>
+          </a>
+        </div>
+
+        <!-- Metrics Ribbon -->
+        <div class="about-metrics" role="region" aria-label="أرقام وإحصائيات المنصة">
+          <div class="metric-card">
+            <span class="metric-num">20+</span>
+            <span class="metric-label" data-about-i18n="metricOpps">فرصة دولية محققة</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-num">100%</span>
+            <span class="metric-label" data-about-i18n="metricVerified">تحقق ومراجعة بشرية</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-num">0</span>
+            <span class="metric-label" data-about-i18n="metricAds">إعلانات أو تتبع أو رسوم</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-num">100%</span>
+            <span class="metric-label" data-about-i18n="metricOffline">جاهزة للعمل دون اتصال</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 2: LLM4YEMEN & AGENTIC METHODOLOGY (Section-White) ─── -->
+    <section class="about-section section-white" id="methodology" aria-labelledby="methodology-heading">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-overline-badge" data-about-i18n="methodologyOverline">هندسة البرمجيات بالذكاء الاصطناعي</span>
+          <h2 class="section-heading" id="methodology-heading" data-about-i18n="methodologyHeading">
+            منهجية التطوير بالوكلاء والرقابة البشرية
+          </h2>
+          <p class="section-desc" data-about-i18n="methodologyDesc">
+            تم بناء هذا المشروع ضمن برنامج <strong>LLM4Yemen (Cohort 1)</strong> كنموذج رائد لتطبيق البرمجة بالوكلاء متعددي المهام (Agentic Pair-Programming) عبر بيئة Google Antigravity، مع التزام صارم بقاعدة ذهبية واحدة:
+          </p>
+        </div>
+
+        <!-- Human-in-the-Loop Callout Banner -->
+        <div class="hil-banner">
+          <div class="hil-icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="hil-content">
+            <h3 data-about-i18n="hilTitle">المبدأ الجوهري: الإنسان يوجّه ويتحقق، والوكيل ينفّذ</h3>
+            <p data-about-i18n="hilText">
+              الوكلاء الأذكياء يتولون كتابة الشيفرة وهيكلة المكونات وفحص التوافقية وفق خطط محكمة، بينما يظل الإنسان هو صاحب القرار النهائي في التحقق من صحة الفرص وسلامة الروابط والموافقة على خطط العمل قبل تطبيقها. لا يُسمح للذكاء الاصطناعي بتأليف أي فرصة أو اختلاق أي موعد نهائي.
+            </p>
+          </div>
+        </div>
+
+        <!-- Agent Division Grid -->
+        <div style="margin-top: var(--space-12);">
+          <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-6); text-align: center;" data-about-i18n="agentGridTitle">
+            هيكلية الوكلاء المتوازيين في المشروع
+          </h3>
+          <div class="agent-grid">
+            <!-- Agent A -->
+            <article class="agent-card">
+              <span class="agent-badge">Agent A</span>
+              <h4 class="agent-role" data-about-i18n="agentARole">الكتالوج والبحث الذكي</h4>
+              <span class="agent-scope">js/list.js · index.html</span>
+              <p class="agent-desc" data-about-i18n="agentADesc">
+                تطوير محرك البحث الفوري ثنائي اللغة، ونظام الفلاتر المتعددة (التخصص، الدولة، المستوى الأكاديمي، أهلية اليمن)، وترتيب الفرص العاجلة وعرض النتائج.
+              </p>
+            </article>
+
+            <!-- Agent B -->
+            <article class="agent-card">
+              <span class="agent-badge">Agent B</span>
+              <h4 class="agent-role" data-about-i18n="agentBRole">صفحة التفاصيل والمفضلة</h4>
+              <span class="agent-scope">detail.html · js/favorites.js</span>
+              <p class="agent-desc" data-about-i18n="agentBDesc">
+                بناء صفحة التفاصيل المستقلة بروابط ثابتة، والعدادات التنازلية الدقيقة، ونظام حفظ المفضلة في localStorage مع معالجة الاستثناءات والتزامن.
+              </p>
+            </article>
+
+            <!-- Agent C -->
+            <article class="agent-card">
+              <span class="agent-badge">Agent C</span>
+              <h4 class="agent-role" data-about-i18n="agentCRole">التوثيق ودليل الطالب</h4>
+              <span class="agent-scope">about.html · README.md · docs/</span>
+              <p class="agent-desc" data-about-i18n="agentCDesc">
+                صياغة المحتوى التوجيهي المتكامل، وتوثيق المعمارية البرمجية ودليل التحقق البشري، وبناء صفحة عن المنصة ثنائية اللغة المتجاوبة.
+              </p>
+            </article>
+
+            <!-- Agent D -->
+            <article class="agent-card">
+              <span class="agent-badge">Agent D</span>
+              <h4 class="agent-role" data-about-i18n="agentDRole">التكامل والتخزين دون اتصال</h4>
+              <span class="agent-scope">sw.js · css/main.css · i18n.js</span>
+              <p class="agent-desc" data-about-i18n="agentDDesc">
+                توحيد نظام التصميم والحركات التفاعلية، وإدارة استراتيجيات الكاش عبر Service Worker لضمان عمل كافة صفحات الموقع بدون اتصال بالإنترنت.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 3: VERIFICATION PHILOSOPHY (Section-Blue) ─── -->
+    <section class="about-section section-blue" id="verification" aria-labelledby="verification-heading">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-overline-badge" data-about-i18n="verifyOverline">نزاهة البيانات وموثوقيتها</span>
+          <h2 class="section-heading" id="verification-heading" data-about-i18n="verifyHeading">
+            معايير التحقق الصارم الخمسة
+          </h2>
+          <p class="section-desc" data-about-i18n="verifyDesc">
+            يعاني الطلاب اليمنيون كثيرًا من المنشورات الوهمية والإعلانات المضللة التي تعيد نشر فرص قديمة أو شروط ملغاة. في بوابة الفرص، نخضع كل سجل لخمسة معايير غير قابلة للمساومة:
+          </p>
+        </div>
+
+        <div class="verify-grid">
+          <!-- Standard 1 -->
+          <div class="verify-card">
+            <div class="verify-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="verify-card-title" data-about-i18n="v1Title">1. المصدر الرسمي الأساسي فقط</h3>
+            <p class="verify-card-text" data-about-i18n="v1Text">
+              تُجمع الفرص يدويًا ومباشرة من النطاق الرسمي للجامعة أو الجهة المانحة (مثل .edu أو .gov أو المنظمات الدولية المعتمدة). لا نعتمد مطلقًا على مدونات مجهولة أو صفحات وسائط التواصل الاجتماعي غير الموثقة.
+            </p>
+          </div>
+
+          <!-- Standard 2 -->
+          <div class="verify-card">
+            <div class="verify-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h3 class="verify-card-title" data-about-i18n="v2Title">2. بروتوكول أمان مشفّر HTTPS حصراً</h3>
+            <p class="verify-card-text" data-about-i18n="v2Text">
+              كل رابط فرصة يخضع للتحقق البرمجي التلقائي للتأكد من أنه يستخدم بروتوكول HTTPS المشفر، لحماية الطالب من مواقع التصيد الاحتيالي أو الروابط غير الآمنة.
+            </p>
+          </div>
+
+          <!-- Standard 3 -->
+          <div class="verify-card">
+            <div class="verify-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="verify-card-title" data-about-i18n="v3Title">3. دقة مواعيد القبول والمنحة</h3>
+            <p class="verify-card-text" data-about-i18n="v3Text">
+              التمييز الدقيق بين الموعد النهائي للقبول الجامعي (admissionDeadline) والموعد النهائي لطلب المنحة (deadline). نلتزم بالقاعدة الصارمة التي تضمن عدم تقديم موعد المنحة قبل تاريخ القبول الأكاديمي.
+            </p>
+          </div>
+
+          <!-- Standard 4 -->
+          <div class="verify-card">
+            <div class="verify-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3 class="verify-card-title" data-about-i18n="v4Title">4. تصنيف المواعيد بحيادية تامة</h3>
+            <p class="verify-card-text" data-about-i18n="v4Text">
+              لا نختلق تواريخ نهائية وهمية. فالبرامج التي تختلف مواعيدها حسب القسم الأكاديمي (مثل أكسفورد) تُصنّف بوضوح كـ course-dependent مع تنبيه صريح دون عداد زائف، والفرص المستمرة تصنف كـ ongoing.
+            </p>
+          </div>
+
+          <!-- Standard 5 -->
+          <div class="verify-card">
+            <div class="verify-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3 class="verify-card-title" data-about-i18n="v5Title">5. تدقيق صريح لأهلية اليمنيين</h3>
+            <p class="verify-card-text" data-about-i18n="v5Text">
+              تصنيف شفاف لأهلية المتقدمين اليمنيين (مؤهل، مؤهل بشروط، مقيد، غير مؤكد). إذا كانت المنحة تستثني اليمنيين أو تشترط إقامة بديلة، نعلن ذلك بوضوح لمنع إهدار وقت وجهد الطالب.
+            </p>
+          </div>
+
+          <!-- Standard 6 -->
+          <div class="verify-card">
+            <div class="verify-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </div>
+            <h3 class="verify-card-title" data-about-i18n="v6Title">6. تاريخ التحقق البشري المسجل</h3>
+            <p class="verify-card-text" data-about-i18n="v6Text">
+              يحمل كل سجل تاريخ تحقق بشري فعلي (verificationDate). تُجرى مراجعات دورية لضمان استمرار صلاحية الروابط وحداثة المعايير قبل موعد كل دورة تقديم جديدة.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 4: PRACTICAL GUIDE FOR YEMENI STUDENTS (Section-White) ─── -->
+    <section class="about-section section-white" id="guide" aria-labelledby="guide-heading">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-overline-badge" data-about-i18n="guideOverline">خطوات التقديم الناجح</span>
+          <h2 class="section-heading" id="guide-heading" data-about-i18n="guideHeading">
+            دليل الطالب اليمني للاستعداد للمنح الدولية
+          </h2>
+          <p class="section-desc" data-about-i18n="guideDesc">
+            إن الفوز بالمنح الدراسية لا يعتمد على الحظ، بل على التحضير المسبق المنظم للملف الأكاديمي قبل أشهر من فتح باب التقديم. إليك خارطة الطريق العملية:
+          </p>
+        </div>
+
+        <div class="guide-timeline">
+          <!-- Step 1 -->
+          <article class="guide-card">
+            <div class="guide-step-badge">1</div>
+            <div class="guide-body">
+              <h4 data-about-i18n="g1Title">الوثائق الأكاديمية والشهادات والتصديق</h4>
+              <p data-about-i18n="g1Desc">
+                الشهادات الأكاديمية وكشوف الدرجات هي حجر الأساس لأي ملف منحة. ينبغي تجهيز نسخ واضحة ومترجمة معتمدة إلى اللغة الإنجليزية.
+              </p>
+              <ul class="guide-tips-list" role="list">
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g1Tip1">احرص على تصديق الشهادات من وزارة التربية/التعليم العالي ووزارة الخارجية في وقت مبكر لتجنب التأخير.</span></li>
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g1Tip2">احفظ نسخًا رقمية ممسوحة ضوئيًا (PDF) عالية الدقة بحجم أقل من 2 ميغابايت لكل ملف.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 2 -->
+          <article class="guide-card">
+            <div class="guide-step-badge">2</div>
+            <div class="guide-body">
+              <h4 data-about-i18n="g2Title">إتقان اللغة الإنجليزية واختبارات الكفاءة (IELTS / TOEFL / Duolingo)</h4>
+              <p data-about-i18n="g2Desc">
+                تطلب معظم الجامعات العالمية إثبات الكفاءة اللغوية. ابحث دائمًا عن سياسات الإعفاء أو البدائل الميسرة.
+              </p>
+              <ul class="guide-tips-list" role="list">
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g2Tip1">تقبل العديد من الجامعات اختبار Duolingo English Test (DET) كبديل منخفض التكلفة يمكن أداؤه من المنزل.</span></li>
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g2Tip2">إذا درست باللغة الإنجليزية في البكالوريوس، اطلب وثيقة رسمية تفيد بأن لغة التدريس كانت الإنجليزية (Medium of Instruction - MOI)، فقد تمنحك إعفاءً رسميًا.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 3 -->
+          <article class="guide-card">
+            <div class="guide-step-badge">3</div>
+            <div class="guide-body">
+              <h4 data-about-i18n="g3Title">رسائل التوصية الأكاديمية والمهنية (Letters of Recommendation)</h4>
+              <p data-about-i18n="g3Desc">
+                رسالة التوصية القوية تتحدث عن قدراتك البحثية ومثابرتك وشغفك، وتكون مكتوبة من أستاذ أو مشرف يعرف عملك جيدًا.
+              </p>
+              <ul class="guide-tips-list" role="list">
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g3Tip1">تواصل مع أساتذتك قبل شهرين على الأقل من الموعد النهائي وزودهم بسيرتك الذاتية ووصف البرنامج المستهدف.</span></li>
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g3Tip2">تأكد من استخدام بريد إلكتروني رسمي ومؤسسي للأستاذ (مثل @univ.edu) لأن العديد من الجامعات لا تقبل بريد Gmail المجاني.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 4 -->
+          <article class="guide-card">
+            <div class="guide-step-badge">4</div>
+            <div class="guide-body">
+              <h4 data-about-i18n="g4Title">خطاب الدافع وبيان الغرض (Statement of Purpose / Personal Statement)</h4>
+              <p data-about-i18n="g4Desc">
+                خطاب الدافع هو صوتك الشخصي أمام لجنة القبول. اربط بين خلفيتك وتحديات مجتمعك وكيف ستساهم دراستك في إحداث أثر إيجابي.
+              </p>
+              <ul class="guide-tips-list" role="list">
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g4Tip1">تجنب الخطابات العامة المنسوخة من الإنترنت؛ خصص كل خطاب للبرنامج الأكاديمي والجامعة وأعضاء هيئة التدريس فيها.</span></li>
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g4Tip2">ركّز على المرونة والقدرة على تجاوز التحديات الحقيقية، والخطط المستقبلية الواضحة بعد التخرج في خدمة اليمن أو المنطقة.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 5 -->
+          <article class="guide-card">
+            <div class="guide-step-badge">5</div>
+            <div class="guide-body">
+              <h4 data-about-i18n="g5Title">استراتيجية "القبول أولاً ثم المنحة" (The Dual-Deadline Strategy)</h4>
+              <p data-about-i18n="g5Desc">
+                في العديد من المنح الكبرى (مثل ماستريخت وأكسفورد وكامبريدج)، تشترط الجامعة الحصول على قبول أكاديمي أو التقديم للبرنامج قبل التقديم للمنحة بعدة أسابيع.
+              </p>
+              <ul class="guide-tips-list" role="list">
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g5Tip1">تحقق دائمًا من حقل admissionDeadline في صفحة تفاصيل الفرصة ببوابة الفرص.</span></li>
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g5Tip2">قدّم طلب القبول للقسم الأكاديمي في شهر أكتوبر أو نوفمبر، لضمان صدور قرار القبول قبل إغلاق ملفات المنح في يناير وفبراير.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 6 -->
+          <article class="guide-card">
+            <div class="guide-step-badge">6</div>
+            <div class="guide-body">
+              <h4 data-about-i18n="g6Title">التعامل مع انقطاع الكهرباء والإنترنت والتحضير دون اتصال</h4>
+              <p data-about-i18n="g6Desc">
+                نعلم تمامًا التحديات اللوجستية التي يواجهها طلابنا في اليمن من انقطاع التيار الكهربائي وبطء شبكة الإنترنت. صُممت هذه المنصة خصيصًا لمساعدتك على تجاوز ذلك.
+              </p>
+              <ul class="guide-tips-list" role="list">
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g6Tip1">احفظ الفرص التي تهمك في قائمة المفضلة أثناء وجود اتصال؛ ستتمكن من مراجعتها لاحقًا دون اتصال بالإنترنت.</span></li>
+                <li class="guide-tip-item"><span class="guide-tip-bullet">▪</span><span data-about-i18n="g6Tip2">اكتب مسودات مقالاتك وأوراقك في برامج تحرير نصوص محلية غير معتمدة على الشبكة، ولا ترسل طلبك في الدقائق الأخيرة قبل الموعد النهائي تحسبًا لانقطاع مفاجئ.</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 5: FREQUENTLY ASKED QUESTIONS (Section-Blue) ─── -->
+    <section class="about-section section-blue" id="faq" aria-labelledby="faq-heading">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-overline-badge" data-about-i18n="faqOverline">إجابات واضحة ومباشرة</span>
+          <h2 class="section-heading" id="faq-heading" data-about-i18n="faqHeading">
+            الأسئلة الشائعة
+          </h2>
+          <p class="section-desc" data-about-i18n="faqDesc">
+            جمعنا أهم التساؤلات المتكررة لدى الطلاب حول خدمات المنصة وكيفية عملها وطبيعة الفرص المعروضة:
+          </p>
+        </div>
+
+        <div class="faq-container" role="region" aria-label="قائمة الأسئلة الشائعة">
+          <!-- Question 1 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-1" id="faq-btn-1">
+              <span data-about-i18n="faq1Q">هل تقدم بوابة الفرص خدماتها بمقابل مالي؟</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
+              <p data-about-i18n="faq1A">
+                كلا، على الإطلاق. بوابة الفرص منصة غير ربحية ومفتوحة المصدر بالكامل 100%، ولا تتقاضى أي رسوم أو عمولات من الطلاب أو الجهات المانحة، ولا تتضمن أي إعلانات تجارية.
+              </p>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-btn-2">
+              <span data-about-i18n="faq2Q">هل تضمن المنصة قبولي في الجامعة أو حصولي على المنحة؟</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
+              <p data-about-i18n="faq2A">
+                لا نضمن القبول ولا نتدخل في قرارات لجان الاختيار. دور منصتنا ينحصر في التحقق الدقيق، والتصنيف المهني، وتسهيل الوصول للمعلومة الموثقة من مصدرها الرسمي، وتنبيهك بالمواعيد. قرار القبول هو حق حصري للجامعة أو المؤسسة المانحة بناءً على جودة ملفك وتنافسيته.
+              </p>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
+              <span data-about-i18n="faq3Q">ما الفرق بين موعد القبول الجامعي (Admission Deadline) وموعد المنحة (Scholarship Deadline)؟</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
+              <p data-about-i18n="faq3A">
+                موعد القبول الجامعي هو التاريخ الذي تشترط فيه الكلية استلام ملفك الأكاديمي للتأكد من استيفائك لشروط الدراسة (مثل الدرجات واللغة). أما موعد المنحة فهو التاريخ النهائي لتقديم استمارة التمويل المالي. في كثير من الجامعات المرموقة، يجب تقديم طلب القبول الأكاديمي قبل أسابيع من موعد المنحة، ولا يمكنك التقديم على المنحة دون الحصول على رقم طلب جامعي أو قبول مشروط.
+              </p>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-btn-4">
+              <span data-about-i18n="faq4Q">لماذا تظهر بعض الفرص مثل "أكسفورد" بدون عداد رقمي للأيام المتبقية؟</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
+              <p data-about-i18n="faq4A">
+                لأن مواعيد التقديم في هذه البرامج تعتمد على التخصص الدقيق (course-dependent)؛ فبعض التخصصات تغلق في ديسمبر وبعضها في يناير أو مارس. من منطلق الشفافية والأمانة، نرفض وضع عداد تنازلي عام مضلل قد يوهم الطالب بوجود متسع من الوقت بينما قد يكون موعد تخصصه قد انتهى بالفعل، ونوجه الطالب بدقة لمراجعة دليل برنامجه.
+              </p>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-btn-5">
+              <span data-about-i18n="faq5Q">كيف يمكنني تصفح الموقع عند انقطاع الإنترنت؟</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
+              <p data-about-i18n="faq5A">
+                تم تزويد الموقع بتقنية Service Worker المتقدمة. بمجرد فتحك للموقع مرة واحدة في وجود اتصال بالإنترنت، يتم تخزين صفحات التطبيق والبيانات الأساسية محليًا على جهازك. يمكنك بعدها فتح الموقع في أي وقت وتصفح كتالوج الفرص وقراءة التفاصيل والمفضلة دون الحاجة لاتصال نشط.
+              </p>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-btn-6">
+              <span data-about-i18n="faq6Q">أين تُحفظ الفرص التي أضيفها للمفضلة؟ وهل تتطلب حسابًا أو كلمة مرور؟</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6">
+              <p data-about-i18n="faq6A">
+                تُحفظ الفرص في التخزين المحلي الآمن لمتصفحك (localStorage). لا نطلب إنشاء أي حسابات أو تسجيل كلمات مرور، ولا نجمع بياناتك الشخصية حفاظًا على خصوصيتك وسرعة تجربتك. ستبقى مفضلتك محفوظة على نفس المتصفح ما لم تقم بمسح بيانات الموقع.
+              </p>
+            </div>
+          </div>
+
+          <!-- Question 7 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-7" id="faq-btn-7">
+              <span data-about-i18n="faq7Q">كيف أبلغ عن خطأ في فرصة أو أقترح فرصة جديدة موثقة؟</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-7" role="region" aria-labelledby="faq-btn-7">
+              <p data-about-i18n="faq7A">
+                نرحب بمساهمات المجتمع التعليمي دائمًا. يمكن فتح Issue أو سحب Pull Request عبر مستودع المشروع على GitHub، بشرط تقديم الرابط الرسمي المباشر وإثبات معايير الأهلية وتاريخ المراجعة.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 6: ATTRIBUTION & CONTACT (Section-White) ─── -->
+    <section class="about-section section-white" id="attribution" aria-labelledby="attribution-heading">
+      <div class="section-container">
+        <div class="attribution-card">
+          <h3 id="attribution-heading" data-about-i18n="attrTitle">مشروع مجتمعي مستقل للطلاب اليمنيين</h3>
+          <p data-about-i18n="attrDesc">
+            تم تطوير بوابة الفرص بمبادرة طلابية وبحثية كأحد مشاريع التخرج في برنامج <strong>LLM4Yemen — First Cohort</strong>، تحت مسار هندسة البرمجيات بالوكلاء الذكيين (Agentic AI Software Development). نؤمن بأن المعرفة حق أصيل، وأن الفرص التعليمية الموثقة حق لكل طالب يسعى لبناء مستقبله ووطنه.
+          </p>
+
+          <div class="attribution-badges">
+            <span class="attr-pill">LLM4Yemen Cohort 1</span>
+            <span class="attr-pill">Google Antigravity</span>
+            <span class="attr-pill">Vanilla JavaScript</span>
+            <span class="attr-pill">Zero Runtime Dependencies</span>
+            <span class="attr-pill">Offline-First Service Worker</span>
+            <span class="attr-pill">Human-in-the-Loop Verified</span>
+          </div>
+
+          <div>
+            <a href="index.html#catalogue" class="btn btn-primary btn-large">
+              <span data-about-i18n="attrCta">ابدأ استكشاف الفرص الآن</span>
+              <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════ FOOTER (Section-Blue) ═══ -->
+  <footer class="site-footer section-blue" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="wordmark wordmark--light" aria-label="بوابة الفرص">
+          <span class="wordmark-ar">بوابة الفرص</span>
+          <span class="wordmark-dot" aria-hidden="true"></span>
+        </a>
+        <p class="footer-tagline" data-about-i18n="footerTagline">فرصتك القادمة تبدأ من هنا</p>
+      </div>
+
+      <div class="footer-links">
+        <nav aria-label="روابط التذييل">
+          <ul role="list">
+            <li><a href="index.html#hero" data-about-i18n="navHome">الرئيسية</a></li>
+            <li><a href="index.html#featured" data-about-i18n="navFeatured">الفرص المميزة</a></li>
+            <li><a href="index.html#catalogue" data-about-i18n="navCatalogue">جميع الفرص</a></li>
+            <li><a href="about.html" class="is-current" data-about-i18n="navAbout">عن المنصة</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-meta">
+        <p class="footer-notice" data-about-i18n="footerNotice">
+          جميع الفرص موثقة من مصادرها الرسمية. تحقق دائمًا من الموقع الرسمي قبل التقديم.
+        </p>
+        <p class="footer-copy">
+          <span data-about-i18n="footerCopy">بوابة الفرص · LLM4Yemen Cohort 1</span>
+          · <span id="footer-year">2026</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Cursor Hover Dot -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════ SCRIPTS ═══ -->
+  <script src="js/i18n.js"></script>
+  <script src="js/favorites.js"></script>
+  <script src="js/cursor.js"></script>
+  <script>
+    /**
+     * About Page Dedicated Logic & Bilingual Translations
+     * Self-contained to preserve file ownership boundaries.
+     */
+    'use strict';
+
+    const ABOUT_I18N = {
+      ar: {
+        skipLink: 'تخطى إلى المحتوى',
+        navHome: 'الرئيسية',
+        navFeatured: 'الفرص المميزة',
+        navCatalogue: 'جميع الفرص',
+        navAbout: 'عن المنصة',
+        navTagline: 'منصة موثوقة للطلاب اليمنيين',
+        navCta: 'استكشف الفرص',
+
+        heroBadge: 'مشروع تخرج برنامج LLM4Yemen — الدفعة الأولى',
+        heroTitle: 'بوابة الفرص — نافذة الطلاب اليمنيين نحو التعليم العالمي الموثق',
+        heroSub: 'منصة تعليمية مستقلة وغير ربحية صُممت لمساعدة الطلاب اليمنيين في الداخل والشتات على اكتشاف المنح الدراسية والدورات المجانية وبرامج القيادة الموثقة بشريًا، والتغلب على تشتت المعلومات وظروف الاتصال الصعبة.',
+        ctaExplore: 'تصفح دليل الفرص',
+        ctaGuide: 'دليل الطالب اليمني',
+        metricOpps: 'فرصة دولية محققة',
+        metricVerified: 'تحقق ومراجعة بشرية',
+        metricAds: 'إعلانات أو تتبع أو رسوم',
+        metricOffline: 'جاهزة للعمل دون اتصال',
+
+        methodologyOverline: 'هندسة البرمجيات بالذكاء الاصطناعي',
+        methodologyHeading: 'منهجية التطوير بالوكلاء والرقابة البشرية',
+        methodologyDesc: 'تم بناء هذا المشروع ضمن برنامج LLM4Yemen (Cohort 1) كنموذج رائد لتطبيق البرمجة بالوكلاء متعددي المهام (Agentic Pair-Programming) عبر بيئة Google Antigravity، مع التزام صارم بقاعدة ذهبية واحدة:',
+        hilTitle: 'المبدأ الجوهري: الإنسان يوجّه ويتحقق، والوكيل ينفّذ',
+        hilText: 'الوكلاء الأذكياء يتولون كتابة الشيفرة وهيكلة المكونات وفحص التوافقية وفق خطط محكمة، بينما يظل الإنسان هو صاحب القرار النهائي في التحقق من صحة الفرص وسلامة الروابط والموافقة على خطط العمل قبل تطبيقها. لا يُسمح للذكاء الاصطناعي بتأليف أي فرصة أو اختلاق أي موعد نهائي.',
+        agentGridTitle: 'هيكلية الوكلاء المتوازيين في المشروع',
+        agentARole: 'الكتالوج والبحث الذكي',
+        agentADesc: 'تطوير محرك البحث الفوري ثنائي اللغة، ونظام الفلاتر المتعددة (التخصص، الدولة، المستوى الأكاديمي، أهلية اليمن)، وترتيب الفرص العاجلة وعرض النتائج.',
+        agentBRole: 'صفحة التفاصيل والمفضلة',
+        agentBDesc: 'بناء صفحة التفاصيل المستقلة بروابط ثابتة، والعدادات التنازلية الدقيقة، ونظام حفظ المفضلة في localStorage مع معالجة الاستثناءات والتزامن.',
+        agentCRole: 'التوثيق ودليل الطالب',
+        agentCDesc: 'صياغة المحتوى التوجيهي المتكامل، وتوثيق المعمارية البرمجية ودليل التحقق البشري، وبناء صفحة عن المنصة ثنائية اللغة المتجاوبة.',
+        agentDRole: 'التكامل والتخزين دون اتصال',
+        agentDDesc: 'توحيد نظام التصميم والحركات التفاعلية، وإدارة استراتيجيات الكاش عبر Service Worker لضمان عمل كافة صفحات الموقع بدون اتصال بالإنترنت.',
+
+        verifyOverline: 'نزاهة البيانات وموثوقيتها',
+        verifyHeading: 'معايير التحقق الصارم الخمسة',
+        verifyDesc: 'يعاني الطلاب اليمنيون كثيرًا من المنشورات الوهمية والإعلانات المضللة التي تعيد نشر فرص قديمة أو شروط ملغاة. في بوابة الفرص، نخضع كل سجل لخمسة معايير غير قابلة للمساومة:',
+        v1Title: '1. المصدر الرسمي الأساسي فقط',
+        v1Text: 'تُجمع الفرص يدويًا ومباشرة من النطاق الرسمي للجامعة أو الجهة المانحة (مثل .edu أو .gov أو المنظمات الدولية المعتمدة). لا نعتمد مطلقًا على مدونات مجهولة أو صفحات وسائط التواصل الاجتماعي غير الموثقة.',
+        v2Title: '2. بروتوكول أمان مشفّر HTTPS حصراً',
+        v2Text: 'كل رابط فرصة يخضع للتحقق البرمجي التلقائي للتأكد من أنه يستخدم بروتوكول HTTPS المشفر، لحماية الطالب من مواقع التصيد الاحتيالي أو الروابط غير الآمنة.',
+        v3Title: '3. دقة مواعيد القبول والمنحة',
+        v3Text: 'التمييز الدقيق بين الموعد النهائي للقبول الجامعي (admissionDeadline) والموعد النهائي لطلب المنحة (deadline). نلتزم بالقاعدة الصارمة التي تضمن عدم تقديم موعد المنحة قبل تاريخ القبول الأكاديمي.',
+        v4Title: '4. تصنيف المواعيد بحيادية تامة',
+        v4Text: 'لا نختلق تواريخ نهائية وهمية. فالبرامج التي تختلف مواعيدها حسب القسم الأكاديمي (مثل أكسفورد) تُصنّف بوضوح كـ course-dependent مع تنبيه صريح دون عداد زائف، والفرص المستمرة تصنف كـ ongoing.',
+        v5Title: '5. تدقيق صريح لأهلية اليمنيين',
+        v5Text: 'تصنيف شفاف لأهلية المتقدمين اليمنيين (مؤهل، مؤهل بشروط، مقيد، غير مؤكد). إذا كانت المنحة تستثني اليمنيين أو تشترط إقامة بديلة، نعلن ذلك بوضوح لمنع إهدار وقت وجهد الطالب.',
+        v6Title: '6. تاريخ التحقق البشري المسجل',
+        v6Text: 'يحمل كل سجل تاريخ تحقق بشري فعلي (verificationDate). تُجرى مراجعات دورية لضمان استمرار صلاحية الروابط وحداثة المعايير قبل موعد كل دورة تقديم جديدة.',
+
+        guideOverline: 'خطوات التقديم الناجح',
+        guideHeading: 'دليل الطالب اليمني للاستعداد للمنح الدولية',
+        guideDesc: 'إن الفوز بالمنح الدراسية لا يعتمد على الحظ، بل على التحضير المسبق المنظم للملف الأكاديمي قبل أشهر من فتح باب التقديم. إليك خارطة الطريق العملية:',
+        g1Title: 'الوثائق الأكاديمية والشهادات والتصديق',
+        g1Desc: 'الشهادات الأكاديمية وكشوف الدرجات هي حجر الأساس لأي ملف منحة. ينبغي تجهيز نسخ واضحة ومترجمة معتمدة إلى اللغة الإنجليزية.',
+        g1Tip1: 'احرص على تصديق الشهادات من وزارة التربية/التعليم العالي ووزارة الخارجية في وقت مبكر لتجنب التأخير.',
+        g1Tip2: 'احفظ نسخًا رقمية ممسوحة ضوئيًا (PDF) عالية الدقة بحجم أقل من 2 ميغابايت لكل ملف.',
+        g2Title: 'إتقان اللغة الإنجليزية واختبارات الكفاءة (IELTS / TOEFL / Duolingo)',
+        g2Desc: 'تطلب معظم الجامعات العالمية إثبات الكفاءة اللغوية. ابحث دائمًا عن سياسات الإعفاء أو البدائل الميسرة.',
+        g2Tip1: 'تقبل العديد من الجامعات اختبار Duolingo English Test (DET) كبديل منخفض التكلفة يمكن أداؤه من المنزل.',
+        g2Tip2: 'إذا درست باللغة الإنجليزية في البكالوريوس، اطلب وثيقة رسمية تفيد بأن لغة التدريس كانت الإنجليزية (Medium of Instruction - MOI)، فقد تمنحك إعفاءً رسميًا.',
+        g3Title: 'رسائل التوصية الأكاديمية والمهنية (Letters of Recommendation)',
+        g3Desc: 'رسالة التوصية القوية تتحدث عن قدراتك البحثية ومثابرتك وشغفك، وتكون مكتوبة من أستاذ أو مشرف يعرف عملك جيدًا.',
+        g3Tip1: 'تواصل مع أساتذتك قبل شهرين على الأقل من الموعد النهائي وزودهم بسيرتك الذاتية ووصف البرنامج المستهدف.',
+        g3Tip2: 'تأكد من استخدام بريد إلكتروني رسمي ومؤسسي للأستاذ (مثل @univ.edu) لأن العديد من الجامعات لا تقبل بريد Gmail المجاني.',
+        g4Title: 'خطاب الدافع وبيان الغرض (Statement of Purpose / Personal Statement)',
+        g4Desc: 'خطاب الدافع هو صوتك الشخصي أمام لجنة القبول. اربط بين خلفيتك وتحديات مجتمعك وكيف ستساهم دراستك في إحداث أثر إيجابي.',
+        g4Tip1: 'تجنب الخطابات العامة المنسوخة من الإنترنت؛ خصص كل خطاب للبرنامج الأكاديمي والجامعة وأعضاء هيئة التدريس فيها.',
+        g4Tip2: 'ركّز على المرونة والقدرة على تجاوز التحديات الحقيقية، والخطط المستقبلية الواضحة بعد التخرج في خدمة اليمن أو المنطقة.',
+        g5Title: 'استراتيجية "القبول أولاً ثم المنحة" (The Dual-Deadline Strategy)',
+        g5Desc: 'في العديد من المنح الكبرى (مثل ماستريخت وأكسفورد وكامبريدج)، تشترط الجامعة الحصول على قبول أكاديمي أو التقديم للبرنامج قبل التقديم للمنحة بعدة أسابيع.',
+        g5Tip1: 'تحقق دائمًا من حقل admissionDeadline في صفحة تفاصيل الفرصة ببوابة الفرص.',
+        g5Tip2: 'قدّم طلب القبول للقسم الأكاديمي في شهر أكتوبر أو نوفمبر، لضمان صدور قرار القبول قبل إغلاق ملفات المنح في يناير وفبراير.',
+        g6Title: 'التعامل مع انقطاع الكهرباء والإنترنت والتحضير دون اتصال',
+        g6Desc: 'نعلم تمامًا التحديات اللوجستية التي يواجهها طلابنا في اليمن من انقطاع التيار الكهربائي وبطء شبكة الإنترنت. صُممت هذه المنصة خصيصًا لمساعدتك على تجاوز ذلك.',
+        g6Tip1: 'احفظ الفرص التي تهمك في قائمة المفضلة أثناء وجود اتصال؛ ستتمكن من مراجعتها لاحقًا دون اتصال بالإنترنت.',
+        g6Tip2: 'اكتب مسودات مقالاتك وأوراقك في برامج تحرير نصوص محلية غير معتمدة على الشبكة، ولا ترسل طلبك في الدقائق الأخيرة قبل الموعد النهائي تحسبًا لانقطاع مفاجئ.',
+
+        faqOverline: 'إجابات واضحة ومباشرة',
+        faqHeading: 'الأسئلة الشائعة',
+        faqDesc: 'جمعنا أهم التساؤلات المتكررة لدى الطلاب حول خدمات المنصة وكيفية عملها وطبيعة الفرص المعروضة:',
+        faq1Q: 'هل تقدم بوابة الفرص خدماتها بمقابل مالي؟',
+        faq1A: 'كلا، على الإطلاق. بوابة الفرص منصة غير ربحية ومفتوحة المصدر بالكامل 100%، ولا تتقاضى أي رسوم أو عمولات من الطلاب أو الجهات المانحة، ولا تتضمن أي إعلانات تجارية.',
+        faq2Q: 'هل تضمن المنصة قبولي في الجامعة أو حصولي على المنحة؟',
+        faq2A: 'لا نضمن القبول ولا نتدخل في قرارات لجان الاختيار. دور منصتنا ينحصر في التحقق الدقيق، والتصنيف المهني، وتسهيل الوصول للمعلومة الموثقة من مصدرها الرسمي، وتنبيهك بالمواعيد. قرار القبول هو حق حصري للجامعة أو المؤسسة المانحة بناءً على جودة ملفك وتنافسيته.',
+        faq3Q: 'ما الفرق بين موعد القبول الجامعي (Admission Deadline) وموعد المنحة (Scholarship Deadline)؟',
+        faq3A: 'موعد القبول الجامعي هو التاريخ الذي تشترط فيه الكلية استلام ملفك الأكاديمي للتأكد من استيفائك لشروط الدراسة (مثل الدرجات واللغة). أما موعد المنحة فهو التاريخ النهائي لتقديم استمارة التمويل المالي. في كثير من الجامعات المرموقة، يجب تقديم طلب القبول الأكاديمي قبل أسابيع من موعد المنحة، ولا يمكنك التقديم على المنحة دون الحصول على رقم طلب جامعي أو قبول مشروط.',
+        faq4Q: 'لماذا تظهر بعض الفرص مثل "أكسفورد" بدون عداد رقمي للأيام المتبقية؟',
+        faq4A: 'لأن مواعيد التقديم في هذه البرامج تعتمد على التخصص الدقيق (course-dependent)؛ فبعض التخصصات تغلق في ديسمبر وبعضها في يناير أو مارس. من منطلق الشفافية والأمانة، نرفض وضع عداد تنازلي عام مضلل قد يوهم الطالب بوجود متسع من الوقت بينما قد يكون موعد تخصصه قد انتهى بالفعل، ونوجه الطالب بدقة لمراجعة دليل برنامجه.',
+        faq5Q: 'كيف يمكنني تصفح الموقع عند انقطاع الإنترنت؟',
+        faq5A: 'تم تزويد الموقع بتقنية Service Worker المتقدمة. بمجرد فتحك للموقع مرة واحدة في وجود اتصال بالإنترنت، يتم تخزين صفحات التطبيق والبيانات الأساسية محليًا على جهازك. يمكنك بعدها فتح الموقع في أي وقت وتصفح كتالوج الفرص وقراءة التفاصيل والمفضلة دون الحاجة لاتصال نشط.',
+        faq6Q: 'أين تُحفظ الفرص التي أضيفها للمفضلة؟ وهل تتطلب حسابًا أو كلمة مرور؟',
+        faq6A: 'تُحفظ الفرص في التخزين المحلي الآمن لمتصفحك (localStorage). لا نطلب إنشاء أي حسابات أو تسجيل كلمات مرور، ولا نجمع بياناتك الشخصية حفاظًا على خصوصيتك وسرعة تجربتك. ستبقى مفضلتك محفوظة على نفس المتصفح ما لم تقم بمسح بيانات الموقع.',
+        faq7Q: 'كيف أبلغ عن خطأ في فرصة أو أقترح فرصة جديدة موثقة؟',
+        faq7A: 'نرحب بمساهمات المجتمع التعليمي دائمًا. يمكن فتح Issue أو سحب Pull Request عبر مستودع المشروع على GitHub، بشرط تقديم الرابط الرسمي المباشر وإثبات معايير الأهلية وتاريخ المراجعة.',
+
+        attrTitle: 'مشروع مجتمعي مستقل للطلاب اليمنيين',
+        attrDesc: 'تم تطوير بوابة الفرص بمبادرة طلابية وبحثية كأحد مشاريع التخرج في برنامج LLM4Yemen — First Cohort، تحت مسار هندسة البرمجيات بالوكلاء الذكيين (Agentic AI Software Development). نؤمن بأن المعرفة حق أصيل، وأن الفرص التعليمية الموثقة حق لكل طالب يسعى لبناء مستقبله ووطنه.',
+        attrCta: 'ابدأ استكشاف الفرص الآن',
+        footerTagline: 'فرصتك القادمة تبدأ من هنا',
+        footerNotice: 'جميع الفرص موثقة من مصادرها الرسمية. تحقق دائمًا من الموقع الرسمي قبل التقديم.',
+        footerCopy: 'بوابة الفرص · LLM4Yemen Cohort 1'
+      },
+      en: {
+        skipLink: 'Skip to main content',
+        navHome: 'Home',
+        navFeatured: 'Featured',
+        navCatalogue: 'All Opportunities',
+        navAbout: 'About',
+        navTagline: 'A trusted platform for Yemeni students',
+        navCta: 'Explore Opportunities',
+
+        heroBadge: 'LLM4Yemen Cohort 1 Capstone Project',
+        heroTitle: 'Opportunities Portal — Verified Global Pathways for Yemeni Students',
+        heroSub: 'An independent, non-profit educational platform built to empower Yemeni students both inside Yemen and in the diaspora. Discover rigorously verified scholarships, tuition-free courses, and leadership fellowships while overcoming fragmented information and connectivity barriers.',
+        ctaExplore: 'Browse Opportunities',
+        ctaGuide: 'Student Preparation Guide',
+        metricOpps: 'Verified Global Opportunities',
+        metricVerified: 'Human Verified & Audited',
+        metricAds: 'Ads, Trackers, or Fees',
+        metricOffline: 'Offline-Ready via Service Worker',
+
+        methodologyOverline: 'Agentic Software Engineering',
+        methodologyHeading: 'Agentic Workflow & Human Oversight',
+        methodologyDesc: 'Built within the LLM4Yemen (Cohort 1) program as a pioneering demonstration of multi-agent pair programming via Google Antigravity, anchored by one foundational rule:',
+        hilTitle: 'Core Principle: Humans guide and verify; agents implement',
+        hilText: 'Intelligent AI agents implement code, structure components, and verify multi-device responsiveness according to comprehensive engineering plans. However, human evaluators retain complete final authority over verifying opportunities, checking official URLs, and reviewing pull requests. No artificial intelligence is permitted to invent opportunities or hallucinate deadlines.',
+        agentGridTitle: 'Parallel Multi-Agent Architecture',
+        agentARole: 'Catalogue & Advanced Search',
+        agentADesc: 'Engineered the bilingual instant search engine, multidimensional faceted filters (fields, country, academic level, Yemen eligibility), urgent deadline alerts, and catalogue states.',
+        agentBRole: 'Detail Views & Persistence',
+        agentBDesc: 'Architected standalone deep-linked detail views, real-time deadline countdowns, program-dependent alerts, and resilient localStorage favorites management.',
+        agentCRole: 'About & System Documentation',
+        agentCDesc: 'Authored authentic bilingual documentation, architectural specifications, human verification protocols, and this comprehensive About page.',
+        agentDRole: 'Integration & Offline Resilience',
+        agentDDesc: 'Unified the Media Harbour design system, interactive cursor contrasts, and offline Service Worker caching lifecycle across all application pages.',
+
+        verifyOverline: 'Data Integrity & Trust',
+        verifyHeading: 'Five Non-Negotiable Verification Standards',
+        verifyDesc: 'Yemeni students frequently encounter deceptive ads, outdated scholarship posts, and revoked eligibility terms. In Opportunities Portal, every record is held to five rigorous standards:',
+        v1Title: '1. Primary Official Domains Only',
+        v1Text: 'All opportunities are collected directly and manually from official university (.edu, .ac.uk) or governmental (.gov) websites and certified international organizations. Third-party scraping blogs and unverified social media channels are strictly excluded.',
+        v2Title: '2. Enforced HTTPS Security',
+        v2Text: 'Every link is validated automatically to ensure HTTPS encryption. We strictly prevent insecure or deceptive redirects, safeguarding students against phishing threats.',
+        v3Title: '3. Dual-Deadline Integrity',
+        v3Text: 'Rigorous distinction between institutional admission deadlines and scholarship deadlines. We enforce the fundamental rule that scholarship deadlines cannot precede required academic admissions.',
+        v4Title: '4. Honest Deadline Classifications',
+        v4Text: 'We never fabricate deadlines. Multi-track programs with department-dependent closing dates (e.g. Oxford) are classified honestly as course-dependent without fake countdown clocks.',
+        v5Title: '5. Transparent Yemen Eligibility',
+        v5Text: 'Clear and unambiguous Yemen eligibility taxonomy (eligible, conditional, restricted, unconfirmed). If a program requires third-country residence or specific quotas, we state it clearly to respect the applicant’s time.',
+        v6Title: '6. Human Verification Timestamp',
+        v6Text: 'Every opportunity record carries a verifiable human verification date (verificationDate). Routine audits ensure URLs remain live and requirements remain active prior to every cycle.',
+
+        guideOverline: 'Pathways to Acceptance',
+        guideHeading: 'Practical Preparation Roadmap for Yemeni Applicants',
+        guideDesc: 'Winning competitive international scholarships is not an accident of luck; it is the outcome of strategic preparation months in advance. Follow this roadmap:',
+        g1Title: 'Academic Credentials, Attestations, and Translations',
+        g1Desc: 'Transcripts and graduation certificates form the core of your academic profile. Prepare certified English translations well in advance.',
+        g1Tip1: 'Attest certificates through the Ministry of Higher Education and Ministry of Foreign Affairs early to avoid bureaucratic delays.',
+        g1Tip2: 'Maintain high-resolution, lightweight scanned PDFs (under 2MB each) ready for instant upload.',
+        g2Title: 'English Proficiency & Waiver Pathways (IELTS / TOEFL / Duolingo)',
+        g2Desc: 'Most international programs require evidence of English language proficiency. Always explore institutional waiver policies and cost-effective alternatives.',
+        g2Tip1: 'Numerous universities accept the online Duolingo English Test (DET) as an affordable, home-administered test.',
+        g2Tip2: 'If your bachelor degree was taught in English, obtain an official Medium of Instruction (MOI) certificate from your registrar, which often waives test requirements.',
+        g3Title: 'Academic & Professional Letters of Recommendation',
+        g3Desc: 'Compelling recommendation letters evaluate your intellectual curiosity, research stamina, and integrity, written by professors who know your work personally.',
+        g3Tip1: 'Approach professors at least two months before application deadlines with your updated CV and program descriptions.',
+        g3Tip2: 'Ensure referees use their official institutional email addresses (@univ.edu), as many top-tier universities reject personal Gmail submissions.',
+        g4Title: 'Statement of Purpose & Personal Impact Essays',
+        g4Desc: 'Your personal statement is your authentic voice. Articulate how your academic background and lived challenges connect to your vision for positive impact.',
+        g4Tip1: 'Avoid generic templates; tailor every essay specifically to the curriculum, laboratory, or professors of that specific institution.',
+        g4Tip2: 'Emphasize resilience in overcoming difficult circumstances, with a grounded and realistic post-graduation plan benefiting Yemen and the wider region.',
+        g5Title: 'The Dual-Deadline Strategy: Early Admission First',
+        g5Desc: 'For prestigious awards (such as Maastricht NL-High Potential, Oxford Weidenfeld-Hoffmann, and Gates Cambridge), admission applications must be finalized weeks before scholarship evaluation.',
+        g5Tip1: 'Always inspect the admissionDeadline field on the opportunity detail page.',
+        g5Tip2: 'Submit your departmental admission application during October or November to guarantee an offer before scholarship shortlisting in January.',
+        g6Title: 'Mitigating Connectivity and Power Outages in Yemen',
+        g6Desc: 'We recognize the daily infrastructure hurdles faced by students across Yemen. This platform is engineered to support you in offline and low-bandwidth scenarios.',
+        g6Tip1: 'Bookmark key opportunities to your Favorites while connected; you can consult their full criteria later completely offline.',
+        g6Tip2: 'Compose all essays in offline word processors, and submit applications 3 to 5 days ahead of official deadlines to mitigate emergency power outages.',
+
+        faqOverline: 'Direct & Transparent Answers',
+        faqHeading: 'Frequently Asked Questions',
+        faqDesc: 'Key answers addressing common questions regarding our mission, services, and opportunity data:',
+        faq1Q: 'Does Opportunities Portal charge any fees for its services?',
+        faq1A: 'No. Opportunities Portal is 100% free, non-profit, and open-source. We do not charge students or scholarship providers, and we display zero commercial advertisements.',
+        faq2Q: 'Does the portal guarantee university admission or scholarship funding?',
+        faq2A: 'No. We do not grant admissions or influence selection panels. Our mission is strictly limited to rigorous verification, professional categorization, and reliable discovery. Acceptance decisions remain the sole prerogative of the awarding institutions based on candidate merit.',
+        faq3Q: 'What is the distinction between an admission deadline and a scholarship deadline?',
+        faq3A: 'The admission deadline is when the academic faculty evaluates your qualifications for study. The scholarship deadline is when the financial aid committee evaluates funding. At many elite universities, you must gain academic admission before your scholarship application can even be considered.',
+        faq4Q: 'Why do programs like Oxford display without a countdown clock?',
+        faq4A: 'Because their closing deadlines vary by academic department (course-dependent); some master’s courses close in December while others remain open until March. To avoid misleading students with false precision, we display an explicit notification advising students to check their departmental course page.',
+        faq5Q: 'How can I access the portal without an active internet connection?',
+        faq5A: 'The portal integrates a Service Worker that caches application assets and opportunity data upon initial visit. After your initial load, you can launch the site and explore the full catalogue without an active network connection.',
+        faq6Q: 'Where are my favorite opportunities stored? Do I need an account?',
+        faq6A: 'Favorites are stored locally in your browser’s private localStorage. We do not require account creation, passwords, or personal data collection, safeguarding your privacy and speed.',
+        faq7Q: 'How can I report an outdated deadline or submit a new verified opportunity?',
+        faq7A: 'We welcome community contributions. You can open an issue or pull request on our GitHub repository with the primary official HTTPS link and verifiable eligibility guidelines.',
+
+        attrTitle: 'An Independent Community Initiative for Yemeni Students',
+        attrDesc: 'Opportunities Portal was engineered as a capstone project in the LLM4Yemen First Cohort program under the Agentic AI Software Engineering track. We believe verified educational discovery is a fundamental right for every student striving to build their future.',
+        attrCta: 'Explore Opportunities Now',
+        footerTagline: 'Your next opportunity starts here',
+        footerNotice: 'All opportunities are verified from official sources. Always verify with official websites before applying.',
+        footerCopy: 'Opportunities Portal · LLM4Yemen Cohort 1'
+      }
+    };
+
+    /**
+     * Apply About-specific translations
+     */
+    function applyAboutTranslations(lang) {
+      if (window.I18N_MODULE && typeof window.I18N_MODULE.applyTranslations === 'function') {
+        window.I18N_MODULE.applyTranslations(lang);
+      }
+      const dict = ABOUT_I18N[lang] || ABOUT_I18N['ar'];
+      document.querySelectorAll('[data-about-i18n]').forEach(el => {
+        const key = el.getAttribute('data-about-i18n');
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // Update lang switch button highlight
+      const arEl = document.querySelector('.lang-switch-ar');
+      const enEl = document.querySelector('.lang-switch-en');
+      if (arEl) arEl.classList.toggle('is-active', lang === 'ar');
+      if (enEl) enEl.classList.toggle('is-active', lang === 'en');
+    }
+
+    /**
+     * Setup FAQ Accordion with Accessibility
+     */
+    function initFaqAccordion() {
+      const faqButtons = document.querySelectorAll('.faq-question');
+      faqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          const parentItem = btn.closest('.faq-item');
+
+          // Toggle current
+          btn.setAttribute('aria-expanded', !isExpanded);
+          if (parentItem) {
+            parentItem.classList.toggle('is-active', !isExpanded);
+          }
+        });
+      });
+    }
+
+    /**
+     * Setup Header & Navigation
+     */
+    function initHeaderNav() {
+      const header = document.getElementById('site-header');
+      const menuToggle = document.getElementById('menu-toggle');
+      const navOverlay = document.getElementById('nav-overlay');
+      const navBackdrop = document.getElementById('nav-backdrop');
+      const langSwitchBtn = document.getElementById('lang-switch');
+
+      // Scroll effect
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      }, { passive: true });
+
+      // Menu toggle
+      function toggleMenu(open) {
+        const isOpen = open !== undefined ? open : !menuToggle.classList.contains('is-open');
+        menuToggle.classList.toggle('is-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen);
+        navOverlay.classList.toggle('is-open', isOpen);
+        navOverlay.setAttribute('aria-hidden', !isOpen);
+        navBackdrop.classList.toggle('is-open', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', () => toggleMenu());
+      }
+      if (navBackdrop) {
+        navBackdrop.addEventListener('click', () => toggleMenu(false));
+      }
+      document.querySelectorAll('[data-close-nav]').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+      });
+
+      // Language Switcher Integration
+      if (langSwitchBtn) {
+        langSwitchBtn.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('lang') || 'ar';
+          const nextLang = current === 'ar' ? 'en' : 'ar';
+          
+          if (window.I18N_MODULE && typeof window.I18N_MODULE.switchLang === 'function') {
+            window.I18N_MODULE.switchLang(nextLang);
+          } else {
+            // Fallback if i18n module not loaded yet
+            document.documentElement.setAttribute('lang', nextLang);
+            document.documentElement.setAttribute('dir', nextLang === 'ar' ? 'rtl' : 'ltr');
+            document.body.className = 'lang-' + nextLang;
+            try { localStorage.setItem('op-lang', nextLang); } catch(e) {}
+          }
+          applyAboutTranslations(nextLang);
+        });
+      }
+
+      // Listen to langchange event from i18n module
+      document.addEventListener('langchange', e => {
+        if (e.detail && e.detail.lang) {
+          applyAboutTranslations(e.detail.lang);
+        }
+      });
+    }
+
+    // Initialize on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dynamic footer year
+      const yearEl = document.getElementById('footer-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      initHeaderNav();
+      initFaqAccordion();
+
+      if (window.I18N_MODULE && typeof window.I18N_MODULE.initLang === 'function') {
+        window.I18N_MODULE.initLang();
+        const currentLang = window.I18N_MODULE.getCurrentLang() || 'ar';
+        applyAboutTranslations(currentLang);
+      } else {
+        // Read stored language or default to Arabic
+        let storedLang = 'ar';
+        try {
+          storedLang = localStorage.getItem('op-lang') || 'ar';
+        } catch(e) {}
+        if (storedLang !== 'ar' && storedLang !== 'en') storedLang = 'ar';
+
+        document.documentElement.setAttribute('lang', storedLang);
+        document.documentElement.setAttribute('dir', storedLang === 'ar' ? 'rtl' : 'ltr');
+        document.body.className = 'lang-' + storedLang;
+        applyAboutTranslations(storedLang);
+      }
+    });
+
+    // Service Worker Registration for Offline Capabilities
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
